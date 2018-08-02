@@ -9,6 +9,10 @@ const initialState = {
     isUserAuthenticated: false,
     token: {}
   },
+  apiCredentials: {
+    aWhereAPIKey: "l8ekztSpMknhgyjLnyeZAWUVtw2j1QrZ",
+    aWhereAPISecret: "4hpOwq0b9H5Dd6ho"
+  },
   user: {}
 };
 

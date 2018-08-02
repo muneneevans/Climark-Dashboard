@@ -1,19 +1,27 @@
 import { HOST } from "../Shared/defaults";
-import { objectToPlainLowercase } from "../../lib/utils";
-export default class AuthService {
-  static login(user) {
-    const url = HOST.concat("/api/v1/auth/token");
 
-    var myHeaders = new Headers();
-    myHeaders.append("content-type", "application/json");
-    myHeaders.append("X-Custom-Header", "ProcessThisImmediately");
+export default class AuthService {
+  static login(apiCredentials) {
+    const url = HOST.concat("/oauth/token");
+
+    btoa(`${apiCredentials.awhereapikey}:${apiCredentials.awhereapisecret}`);
     const request = {
+      async: true,
+      crossDomain: true,
+      url: "https://api.awhere.com/oauth/token",
       method: "POST",
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
+        "Content-Type": "application/x-www-form-urlencoded",
+        Authorization:
+          "Basic bDhla3p0U3BNa25oZ3lqTG55ZVpBV1VWdHcyajFRclo6NGhwT3dxMGI5SDVEZDZobw==",
+        "Cache-Control": "no-cache",
       },
-      body: JSON.stringify(objectToPlainLowercase(user))
+      data: {
+        grant_type: "client_credentials"
+      },
+      body: {
+        grant_type: "client_credentials"
+      }
     };
 
     return fetch(url, request)
@@ -26,7 +34,7 @@ export default class AuthService {
   }
 
   static refreshToken(token) {
-    const url = HOST.concat("/api/v1/auth/refresh_token");
+    const url = HOST.concat("/oauth/token");
 
     var myHeaders = new Headers();
     myHeaders.append("content-type", "application/json");

@@ -1,1 +1,1 @@
-export const HOST = "http://quicklane.herokuapp.com";
+export const HOST = "https://api.awhere.com";

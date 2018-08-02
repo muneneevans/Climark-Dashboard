@@ -24,6 +24,7 @@
     "react-select": "^1.2.1",
     "request": "^2.87.0",
     "require": "^2.4.20",
+    "semantic-ui-react": "^0.82.1",
     "xmlhttprequest": "^1.8.0"
   },
   "meteor": {

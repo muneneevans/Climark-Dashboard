@@ -1,15 +1,43 @@
-import React from "react";
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 
-import Banner from "./Banner"
-import FieldWidget from "./FieldWidget"
-import FieldSelectionWidget from "./FieldSelectionWidget"
+import { getauth } from "../../Store/Authentication/selectors";
+import { login } from "../../Store/Authentication/actions";
 
-const Home = () => (
-  <div>
-    <Banner/>
-    <FieldSelectionWidget/>
-    <FieldWidget/>
-  </div>
-);
+import Banner from "./Banner";
+import FieldWidget from "./FieldWidget";
+import FieldSelectionWidget from "./FieldSelectionWidget";
 
-export default Home
+class Home extends Component {
+  componentDidMount() {
+    this.props.login();
+  }
+
+  render() {
+    return (
+      <div>
+        <Banner />
+        <FieldSelectionWidget />
+        <FieldWidget />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    auth: getauth(state.auth)
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: bindActionCreators(login, dispatch)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

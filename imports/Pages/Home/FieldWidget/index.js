@@ -39,7 +39,7 @@ const FieldWidget = () => (
             <Image src="https://react.semantic-ui.com/images/wireframe/media-paragraph.png" />
           </Grid.Column>
           <Grid.Column computer={12} tablet={4} mobile={16}>
-            <Tab menu={{ secondary: true, pointing: true }} panes={panes} />
+            <Tab menu={{ secondary: true, pointing: true, stackable: true }} panes={panes} />
           </Grid.Column>
         </Grid.Row>
       </Grid>

@@ -1,8 +1,12 @@
 import React from "react";
 
+import Banner from "./Banner"
+import FieldWidget from "./FieldWidget"
+
 const Home = () => (
   <div>
-    <h1>Home Component</h1>
+    <Banner/>
+    <FieldWidget/>
   </div>
 );
 

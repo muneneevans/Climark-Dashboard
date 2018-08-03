@@ -11,8 +11,8 @@ import "./style.css";
 
 const options = [
   { key: 1, text: "Marsabit", value: 1 },
-  { key: 2, text: "Marsabit", value: 2 },
-  { key: 3, text: "Marsabit", value: 3 }
+  { key: 2, text: "Isiolo", value: 2 }
+  
 ];
 
 const FieldSelectionWidget = () => (
@@ -22,7 +22,7 @@ const FieldSelectionWidget = () => (
         <Grid.Row columns={3}>
           <Grid.Column computer={1} mobile={16} />
           <Grid.Column computer={6} mobile={16}>
-            <Header as="h1" massive>
+            <Header as="h1" >
               Add a field
             </Header>
             <Header as="h4">

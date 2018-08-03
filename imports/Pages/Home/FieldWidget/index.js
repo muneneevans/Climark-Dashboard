@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Image, Segment, Header, Icon, Tab } from "semantic-ui-react";
 import  ForecastMap from "../../../ui/ForecastMap"
+import WeatherWidget from "../WeatherWidget";
 import "./style.css";
 
 
@@ -9,7 +10,8 @@ const panes = [
   {
     menuItem: "Daily Observations",
     render: () => (
-      <Image src="https://im2.ezgif.com/tmp/ezgif-2-7543dffd0d.gif" />
+      <WeatherWidget/>
+      
     )
   },
   {

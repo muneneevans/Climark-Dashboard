@@ -13,7 +13,7 @@ import {
   getCountyWards,
   getWardOptions,
   getWards
-} from "./selectors";
+} from "../../Store/Weather/selectors";
 
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
@@ -28,7 +28,6 @@ class Home extends Component {
       wardOptions: this.props.wardOptions
     };
 
-    
     this.countyChanged = this.countyChanged.bind(this);
   }
   componentDidMount() {

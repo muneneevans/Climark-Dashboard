@@ -2,34 +2,45 @@ import { HOST } from "../Shared/defaults";
 
 export default class AuthService {
   static login(apiCredentials) {
-    const url = HOST.concat("/oauth/token");
+    // const url = HOST.concat("/oauth/token");
 
-    btoa(`${apiCredentials.awhereapikey}:${apiCredentials.awhereapisecret}`);
-    const request = {
-      async: true,
-      crossDomain: true,
-      url: "https://api.awhere.com/oauth/token",
-      method: "POST",
+    // btoa(`${apiCredentials.awhereapikey}:${apiCredentials.awhereapisecret}`);
+    // const request = {
+    //   body: "grant_type=client_credentials",
+    //   headers: {
+    //     Authorization: "Basic bDhla3p0U3BNa25oZ3lqTG55ZVpBV1VWdHcyajFRclo6NGhwT3dxMGI5SDVEZDZobw==",
+    //     "Cache-Control": "no-cache",
+    //     "Content-Type": "application/x-www-form-urlencoded",
+    //   },
+    //   method: "POST",
+    //   mode: 'no-cors'
+    // };
+
+    // return fetch(url, request)
+    //   .then(response => {
+    //     return response;
+    //   })
+    //   .catch(error => {
+    //     throw error;
+    //   });
+
+    fetch("https://api.awhere.com/oauth/token", {
+      body: "grant_type=client_credentials",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
         Authorization:
           "Basic bDhla3p0U3BNa25oZ3lqTG55ZVpBV1VWdHcyajFRclo6NGhwT3dxMGI5SDVEZDZobw==",
         "Cache-Control": "no-cache",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Postman-Token": "ee2d40e8-2e78-40da-9a3e-4de9b4f45325"
       },
-      data: {
-        grant_type: "client_credentials"
-      },
-      body: {
-        grant_type: "client_credentials"
-      }
-    };
-
-    return fetch(url, request)
+      method: "POST",
+      mode: "no-cors"
+    })
       .then(response => {
-        return response;
+        return response.json();
       })
-      .catch(error => {
-        throw error;
+      .then(data => {
+        console.log(data);
       });
   }
 

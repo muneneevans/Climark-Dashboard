@@ -4,6 +4,7 @@ import storage from "redux-persist/lib/storage";
 
 //import all reducers
 import authReudcer from "./Authentication/reducers";
+import weatherReducer from "./Weather/reducers";
 
 const persistConfig = {
   key: "root",
@@ -14,9 +15,8 @@ const persistConfig = {
 const rootReducer = persistReducer(
   persistConfig,
   combineReducers({
-    
-    auth: authReudcer,
-    
+    weather: weatherReducer,
+    auth: authReudcer
   })
 );
 

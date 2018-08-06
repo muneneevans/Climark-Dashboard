@@ -5,10 +5,9 @@ import {
   Card,
   Form,
   Dropdown,
-  Header
+  Header,
+  Button
 } from "semantic-ui-react";
-
-
 
 import "./style.css";
 
@@ -17,10 +16,12 @@ const options = [
   { key: 2, text: "Isiolo", value: 2 }
 ];
 
-const FieldSelectionWidget = ({ counties, wards,countyChanged }) => {
-  const handleCountyChange = (event,data) => {
+const FieldSelectionWidget = ({ counties, wards, countyChanged }) => {
+  const handleCountyChange = (event, data) => {
     countyChanged(data.value);
   };
+
+  
   return (
     <div className="fieldAdditionWidgetContainer">
       <Container>
@@ -59,6 +60,16 @@ const FieldSelectionWidget = ({ counties, wards,countyChanged }) => {
                         selection
                         options={wards}
                       />
+                    </Form.Field>
+                    <Form.Field>
+                      <Button
+                        toggle
+                        active={true}
+                        fluid
+                        onClick={this.handleClick}
+                      >
+                        Add
+                      </Button>
                     </Form.Field>
                   </Form>
                 </Card.Content>

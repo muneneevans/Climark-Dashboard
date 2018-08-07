@@ -48,5 +48,6 @@ export const getAddWardWidgetsProcess = ({ weather }) => {
   return weather._addWardWidgetProcess;
 };
 export const getWardWidgets = ({ weather }) => {
-  weather.wardWidgets;
+  return weather.wardWidgets;
 };
+

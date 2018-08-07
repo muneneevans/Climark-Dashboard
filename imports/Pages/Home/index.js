@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
+import * as processTypes from "../../Store/Shared/processTypes";
 import { getauth } from "../../Store/Authentication/selectors";
 import { login } from "../../Store/Authentication/actions";
 
@@ -15,7 +16,9 @@ import {
   getCounties,
   getFields as getFieldsSelector,
   getWardOptions,
-  getWards
+  getWards,
+  getWardWidgets,
+  getAddWardWidgetsProcess
 } from "../../Store/Weather/selectors";
 
 import Banner from "./Banner";
@@ -27,7 +30,7 @@ class Home extends Component {
     super(props);
 
     this.countyChanged = this.countyChanged.bind(this);
-    this.addWardWidgetHandler = this.addWardWidgetHandler.bind(this)
+    this.addWardWidgetHandler = this.addWardWidgetHandler.bind(this);
   }
   componentDidMount() {
     // this.props.login();
@@ -40,13 +43,18 @@ class Home extends Component {
     this.props.getCountyWards(countyName);
   }
 
-  addWardWidgetHandler(ward){
+  addWardWidgetHandler(ward) {
     // console.log(ward)
-    this.props.addWardWidget(ward)
+    this.props.addWardWidget(ward);
   }
 
   render() {
-    let { counties, wardOptions } = this.props;
+    let {
+      counties,
+      wardOptions,
+      addWardWidgetsProcess,
+      wardWidgets
+    } = this.props;
     return (
       <div>
         <Banner />
@@ -56,6 +64,11 @@ class Home extends Component {
           countyChanged={this.countyChanged}
           submitAction={this.addWardWidgetHandler}
         />
+        {addWardWidgetsProcess.status == processTypes.SUCCESS && (
+          <div>
+            {wardWidgets.map((ward, i) => <FieldWidget key={i} title={ward} />)}
+          </div>
+        )}
         <FieldWidget />
       </div>
     );
@@ -69,7 +82,9 @@ const mapStateToProps = state => {
     fetchFieldsProcess: getFetchFieldsProcess(state),
     counties: getCounties(state),
     wardOptions: getWardOptions(state),
-    wards: getWards(state)
+    wards: getWards(state),
+    addWardWidgetsProcess: getAddWardWidgetsProcess(state),
+    wardWidgets: getWardWidgets(state)
   };
 };
 

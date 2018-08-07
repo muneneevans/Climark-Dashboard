@@ -154,19 +154,19 @@ const WeatherWidget = () => (
     <Grid.Row>
       <Grid.Column>
         <Image src='/images/wireframe/media-paragraph.png' />
-        <div> hello world</div>
+        <div> Wind speed</div>
       </Grid.Column>
       <Grid.Column>
         <Image src='/images/wireframe/media-paragraph.png' />
-        <div> hello world</div>
+        <div> Sunlight </div>
       </Grid.Column>
       <Grid.Column>
         <Image src='/images/wireframe/media-paragraph.png' />
-        <div> hello world</div>
+        <div> rainfall</div>
       </Grid.Column>
       <Grid.Column>
         <Image src='/images/wireframe/media-paragraph.png' />
-        <div> hello world</div>
+        <div> Speed </div>
       </Grid.Column>
       
     </Grid.Row>
@@ -208,16 +208,16 @@ const WeatherWidget = () => (
 
     
 
-    <div className="secondsection"> 
+    {/* <div className="secondsection"> 
     
-    
+     lool
     </div>
 
     <div className="thirdsection"> 
     
-    
+    lool
   
-    </div>
+    </div> */}
 </div>
 );
 

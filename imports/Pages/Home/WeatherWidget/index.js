@@ -1,23 +1,35 @@
 import React from "react";
 import { Grid, Image, Segment, Header, Icon, Tab, Divider } from "semantic-ui-react";
-import "./style.css";
+import "./style.css"
 
 const WeatherWidget = () => (
    <div className="weatherwidget">
        <Grid>
-    <Grid.Row columns={5} divided>
+    <Grid.Row columns={5} >
       <Grid.Column width={5}>
+      
       <div className="todaysdate">
           
-      <div class="ui header">
-         <i class="sun icon"></i>
-         <div class="content">
-          19
-        <div class="sub header">C</div>
-        </div>
-    </div>
+      
+        
+         <div className="tempdisplay">
+         
+          <div className="temparature"> 
+          <span className="temparaturevalue"> 19</span> 
+          <span className="temparaturesign"> &#x2103;</span>
+          </div>
+          <div className="temparatureadd"> 
+          <span className="temparatureicon"> <i className="sun icon"></i></span> 
+          <span className="temparaturesign"> Sunny</span>
+          </div>
+          
+          </div>
+
+        
+    
 
         </div>
+
       </Grid.Column>
       <Grid.Column width={2}>
       <div className="date">

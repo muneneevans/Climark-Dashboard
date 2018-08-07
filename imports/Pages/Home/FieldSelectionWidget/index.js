@@ -1,68 +1,107 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Container,
   Grid,
   Card,
   Form,
   Dropdown,
-  Header
+  Header,
+  Button
 } from "semantic-ui-react";
+
 import "./style.css";
 
-const options = [
-  { key: 1, text: "Marsabit", value: 1 },
-  { key: 2, text: "Isiolo", value: 2 }
-  
-];
+class FieldSelectionWidget extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ward: {}
+    };
 
-const FieldSelectionWidget = () => (
-  <div className="fieldAdditionWidgetContainer">
-    <Container>
-      <Grid>
-        <Grid.Row columns={3}>
-          <Grid.Column computer={1} mobile={16} />
-          <Grid.Column computer={6} mobile={16}>
-            <Header as="h1" >
-              Add a field
-            </Header>
-            <Header as="h4">
-              Select an area of your choice to view a weather summary at that
-              location. You can further view each field by selecting the More
-              button in the field widget.
-            </Header>
-          </Grid.Column>
-          <Grid.Column computer={6} mobile={16}>
-            <Card fluid>
-              <Card.Content>
-                <Form>
-                  <Form.Field>
-                    <label>County</label>
-                    <Dropdown
-                      placeholder="select a county"
-                      fluid
-                      search
-                      selection
-                      options={options}
-                    />
-                  </Form.Field>
-                  <Form.Field>
-                    <label>Ward</label>
-                    <Dropdown
-                      placeholder="select a ward"
-                      fluid
-                      search
-                      selection
-                      options={options}
-                    />
-                  </Form.Field>
-                </Form>
-              </Card.Content>
-            </Card>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container>
-  </div>
-);
+    this.handleCountyChange = this.handleCountyChange.bind(this);
+    this.handleWardChange = this.handleWardChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleCountyChange = (event, data) => {
+    this.props.countyChanged(
+      data.options.find(option => option.value === data.value).county
+    );
+  };
+
+  handleWardChange = (event, data) => {
+    
+    this.setState({
+      ...this.state,
+      ward: data.options.find(option => option.value === data.value).ward
+    });
+  };
+
+  handleSubmit = () => {
+    this.props.submitAction(this.state.ward);
+  };
+
+  render() {
+    let { counties, wards } = this.props;
+    return (
+      <div className="fieldAdditionWidgetContainer">
+        <Container>
+          <Grid>
+            <Grid.Row columns={3}>
+              <Grid.Column computer={1} mobile={16} />
+              <Grid.Column computer={6} mobile={16}>
+                <Header as="h1">Add a field</Header>
+                <Header as="h4">
+                  Select an area of your choice to view a weather summary at
+                  that location. You can further view each field by selecting
+                  the More button in the field widget.
+                </Header>
+              </Grid.Column>
+              <Grid.Column computer={6} mobile={16}>
+                <Card fluid>
+                  <Card.Content>
+                    <Form>
+                      <Form.Field>
+                        <label>County</label>
+                        <Dropdown
+                          placeholder="select a county"
+                          fluid
+                          search
+                          selection
+                          options={counties}
+                          onChange={this.handleCountyChange}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <label>Ward</label>
+                        <Dropdown
+                          placeholder="select a ward"
+                          fluid
+                          search
+                          selection
+                          options={wards}
+                          onChange={this.handleWardChange}
+                        />
+                      </Form.Field>
+                      <Form.Field>
+                        <Button
+                          toggle
+                          active={true}
+                          fluid
+                          onClick={this.handleSubmit}
+                        >
+                          Add
+                        </Button>
+                      </Form.Field>
+                    </Form>
+                  </Card.Content>
+                </Card>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </div>
+    );
+  }
+}
 
 export default FieldSelectionWidget;

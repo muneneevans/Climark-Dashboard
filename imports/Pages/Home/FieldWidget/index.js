@@ -30,13 +30,13 @@ const panes = [
 
 
 
-const FieldWidget = () => (
+const FieldWidget = ({title="Some Place"}) => (
   <div className="fieldWidgetContainer">
    
     <div className="fieldHeaderContainer">
       <Header as="h1">
         <Icon name="map marker" />
-        <Header.Content>Marsabit</Header.Content>
+        <Header.Content>{title}</Header.Content>
       </Header>
     </div>
    

@@ -66,4 +66,4 @@ export const authReducer = (state = initialState, action = {}) => {
   }
 };
 
-export default persistReducer(authPersistConfig, authReducer);
+export default authReducer;

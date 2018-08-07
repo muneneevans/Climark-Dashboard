@@ -43,3 +43,10 @@ export const getWardOptions = ({ weather }) => {
 export const getWards = ({ weather }) => {
   return weather.countyWards;
 };
+
+export const getAddWardWidgetsProcess = ({ weather }) => {
+  return weather._addWardWidgetProcess;
+};
+export const getWardWidgets = ({ weather }) => {
+  weather.wardWidgets;
+};

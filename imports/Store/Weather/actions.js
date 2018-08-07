@@ -203,7 +203,7 @@ const provisionalFields = [
 export const getDailyObservations = field => {
   return dispatch => {
     dispatch({
-      type: actionTypes.DAILY_OBSERVATIONS_REQESTED,
+      type: actionTypes.DAILY_OBSERVATIONS_REQUESTED,
       payload: field
     });
 
@@ -558,7 +558,7 @@ export const getDailyObservations = field => {
 export const getFields = () => {
   return dispatch => {
     dispatch({
-      type: actionTypes.FETCH_FIELD_REQESTED
+      type: actionTypes.FETCH_FIELD_REQUESTED
     });
 
     //TODO get fields from api
@@ -573,7 +573,7 @@ export const getFields = () => {
 export const getCountyWards = county => {
   return dispatch => {
     dispatch({
-      type: actionTypes.FETCH_COUNTY_WARDS_REQESTED,
+      type: actionTypes.FETCH_COUNTY_WARDS_REQUESTED,
       payload: county
     });
 
@@ -587,5 +587,14 @@ export const getCountyWards = county => {
     });
   };
 };
+
+export const addWardWidget = (ward) =>{
+  return dispatch => {
+    dispatch({
+      type: actionTypes.ADD_WARD_WIDGET_REQUESTED,
+      payload: ward.WARD_NAME
+    })  
+  }
+}
 
 //#endregion

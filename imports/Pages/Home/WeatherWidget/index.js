@@ -1,224 +1,144 @@
 import React from "react";
-import { Grid, Image, Segment, Header, Icon, Tab, Divider } from "semantic-ui-react";
-import "./style.css"
+import {
+  Grid,
+  Image,
+  Segment,
+  Header,
+  Icon,
+  Tab,
+  Divider
+} from "semantic-ui-react";
+
+import LineCharts from "../../../Components/Charts/LineChart";
+
+import "./style.css";
 
 const WeatherWidget = () => (
-   <div className="weatherwidget">
-       <Grid>
-    <Grid.Row columns={5} >
-      <Grid.Column width={5}>
-      
-      <div className="todaysdate">
-          
-      
-        
-         <div className="tempdisplay">
-         
-          <div className="temparature"> 
-          <span className="temparaturevalue"> 19</span> 
-          <span className="temparaturesign"> &#x2103;</span>
-          </div>
-          <div className="temparatureadd"> 
-          <span className="temparatureicon"> <i className="sun icon"></i></span> 
-          <span className="temparaturesign"> Sunny</span>
-          </div>
-          
-          </div>
-
-        
-    
-
-        </div>
-
-      </Grid.Column>
-      <Grid.Column width={2}>
-      <div className="date">
-          <div className="ui list">
-          <div className="day">
-             
-             <div className="content">
-                Monday
-                
-             </div>
-         </div>
-         <div className="temparaturedescription">
-              
-              <div className="content">
-              
-               <i className="sun icon"></i>
+  <div className="weatherwidget">
+    <Grid>
+      <Grid.Row columns={5}>
+        <Grid.Column width={5}>
+          <div className="todaysdate">
+            <div className="tempdisplay">
+              <div className="temparature">
+                <span className="temparaturevalue"> 19</span>
+                <span className="temparaturesign"> &#x2103;</span>
               </div>
-        </div>
-            <div className="temparature">
-             
-              <div className="content">
-                 19
-                 <i className="thermometer quarter icon"></i>
+              <div className="temparatureadd">
+                <span className="temparatureicon">
+                  {" "}
+                  <i className="sun icon" />
+                </span>
+                <span className="temparaturesign"> Sunny</span>
               </div>
+            </div>
           </div>
-            
-             
-  
-          </div>
-        </div>
-      </Grid.Column>
-      <Grid.Column width={2}>
-      <div className="date">
-          <div className="ui list">
-          <div className="day">
-             
-             <div className="content">
-              
-                  Tuesday
-             </div>
-         </div>
-         <div className="temparaturedescription">
-              
-              <div className="content">
-              
-               <i className="sun icon"></i>
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <div className="date">
+            <div className="ui list">
+              <div className="day">
+                <div className="content">Monday</div>
               </div>
-        </div>
-            <div className="temparature">
-             
-              <div className="content">
-                 19
-                 <i className="thermometer quarter icon"></i>
+              <div className="temparaturedescription">
+                <div className="content">
+                  <i className="sun icon" />
+                </div>
               </div>
-          </div>
-            
-             
-  
-          </div>
-        </div>
-      </Grid.Column>
-      <Grid.Column width={2}>
-      <div className="date">
-          <div className="ui list">
-          <div className="day">
-             
-             <div className="content">
-                Monday
-                
-             </div>
-         </div>
-         <div className="temparaturedescription">
-              
-              <div className="content">
-              
-               <i className="sun icon"></i>
+              <div className="temparature">
+                <div className="content">
+                  19
+                  <i className="thermometer quarter icon" />
+                </div>
               </div>
-        </div>
-            <div className="temparature">
-             
-              <div className="content">
-                 19
-                 <i className="thermometer quarter icon"></i>
+            </div>
+          </div>
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <div className="date">
+            <div className="ui list">
+              <div className="day">
+                <div className="content">Tuesday</div>
               </div>
-          </div>
-            
-             
-  
-          </div>
-        </div>
-      </Grid.Column>
-      <Grid.Column width={2}> 
-      <div className="date">
-          <div className="ui list">
-          <div className="day">
-             
-             <div className="content">
-                Monday
-                
-             </div>
-         </div>
-         <div className="temparaturedescription">
-              
-              <div className="content">
-              
-               <i className="sun icon"></i>
+              <div className="temparaturedescription">
+                <div className="content">
+                  <i className="sun icon" />
+                </div>
               </div>
-        </div>
-            <div className="temparature">
-             
-              <div className="content">
-                 19
-                 <i className="thermometer quarter icon"></i>
+              <div className="temparature">
+                <div className="content">
+                  19
+                  <i className="thermometer quarter icon" />
+                </div>
               </div>
+            </div>
           </div>
-            
-             
-  
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <div className="date">
+            <div className="ui list">
+              <div className="day">
+                <div className="content">Monday</div>
+              </div>
+              <div className="temparaturedescription">
+                <div className="content">
+                  <i className="sun icon" />
+                </div>
+              </div>
+              <div className="temparature">
+                <div className="content">
+                  19
+                  <i className="thermometer quarter icon" />
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </Grid.Column>
-    </Grid.Row>
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <div className="date">
+            <div className="ui list">
+              <div className="day">
+                <div className="content">Monday</div>
+              </div>
+              <div className="temparaturedescription">
+                <div className="content">
+                  <i className="sun icon" />
+                </div>
+              </div>
+              <div className="temparature">
+                <div className="content">
+                  19
+                  <i className="thermometer quarter icon" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </Grid.Column>
+      </Grid.Row>
 
-    
-     
-    <Grid.Row>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-        <div> hello world</div>
-      </Grid.Column>
-      
-    </Grid.Row>
+      <Grid.Row stretched>        
+        <LineCharts />
+      </Grid.Row>
 
-    <Grid.Row>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-        <div> Wind speed</div>
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-        <div> Sunlight </div>
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-        <div> rainfall</div>
-      </Grid.Column>
-      <Grid.Column>
-        <Image src='/images/wireframe/media-paragraph.png' />
-        <div> Speed </div>
-      </Grid.Column>
-      
-    </Grid.Row>
-
-
-  </Grid>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+      <Grid.Row>
+        <Grid.Column>
+          <Image src="/images/wireframe/media-paragraph.png" />
+          <div> Wind speed</div>
+        </Grid.Column>
+        <Grid.Column>
+          <Image src="/images/wireframe/media-paragraph.png" />
+          <div> Sunlight </div>
+        </Grid.Column>
+        <Grid.Column>
+          <Image src="/images/wireframe/media-paragraph.png" />
+          <div> rainfall</div>
+        </Grid.Column>
+        <Grid.Column>
+          <Image src="/images/wireframe/media-paragraph.png" />
+          <div> Speed </div>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
 
     {/* <div className="secondsection"> 
     
@@ -230,7 +150,7 @@ const WeatherWidget = () => (
     lool
   
     </div> */}
-</div>
+  </div>
 );
 
 export default WeatherWidget;

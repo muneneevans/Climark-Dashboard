@@ -44,12 +44,12 @@ class Home extends Component {
 
   countyChanged(countyName) {
     //filter the counties
-    // alert(countyName);
+    
     this.props.getCountyWards(countyName);
   }
 
   addWardWidgetHandler(ward) {
-    // console.log(ward)
+    
     this.props.addWardWidget(ward);
   }
 

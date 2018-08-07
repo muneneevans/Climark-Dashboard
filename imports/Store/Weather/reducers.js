@@ -97,8 +97,7 @@ const addnewWardToWardData = (wardData, newWard) => {
   return wardData;
 };
 
-const updateWardDailyObservations = (wardData, ward, newWardData) => {
-  console.log(ward)
+const updateWardDailyObservations = (wardData, ward, newWardData) => {  
   wardData[ward].dailyObservations = newWardData;
   return wardData;
 };

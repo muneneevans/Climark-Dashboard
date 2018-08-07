@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import * as processTypes from "../../Store/Shared/processTypes";
 import { getauth } from "../../Store/Authentication/selectors";
 import { login } from "../../Store/Authentication/actions";
 
+//#region redux
 import {
   getFields,
   getCountyWards,
@@ -20,10 +22,13 @@ import {
   getWardWidgets,
   getAddWardWidgetsProcess
 } from "../../Store/Weather/selectors";
+//#endregion
 
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
 import FieldSelectionWidget from "./FieldSelectionWidget";
+
+import "./style.css";
 
 class Home extends Component {
   constructor(props) {
@@ -65,9 +70,13 @@ class Home extends Component {
           submitAction={this.addWardWidgetHandler}
         />
         {addWardWidgetsProcess.status == processTypes.SUCCESS && (
-          <div>
-            {wardWidgets.map((ward, i) => <FieldWidget key={i} title={ward} />)}
-          </div>
+          <TransitionGroup className="todo-list">
+            {wardWidgets.map((ward, i) => (
+              <CSSTransition key={i} timeout={5000} classNames="fade">
+                <FieldWidget key={i} title={ward} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         )}
         <FieldWidget />
       </div>

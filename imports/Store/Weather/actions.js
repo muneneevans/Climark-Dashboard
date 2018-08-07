@@ -200,11 +200,11 @@ const provisionalFields = [
 ];
 
 //#region observations and forecasts
-export const getDailyObservations = field => {
+export const getWardDailyObservations = ward => {
   return dispatch => {
     dispatch({
-      type: actionTypes.DAILY_OBSERVATIONS_REQUESTED,
-      payload: field
+      type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_REQUESTED,
+      payload: { ward }
     });
 
     //TODO get observations from awhere API
@@ -545,9 +545,9 @@ export const getDailyObservations = field => {
 
     //update the store
     dispatch({
-      type: actionTypes.DAILY_OBSERVATIONS_SUCCEEDED,
-      payload: provisionalObservations
-    });
+      type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_SUCCEEDED,
+      payload: { ward, dailyObservations: provisionalObservations.observations }
+    }); 
   };
 };
 
@@ -578,7 +578,7 @@ export const getCountyWards = county => {
     });
 
     //TODO get the wards from API
-    //using provisional data for now    
+    //using provisional data for now
     dispatch({
       type: actionTypes.FETCH_COUNTY_WARDS_SUCCEEDED,
       payload: provisionalFields.filter(
@@ -588,13 +588,15 @@ export const getCountyWards = county => {
   };
 };
 
-export const addWardWidget = (ward) =>{
+export const addWardWidget = ward => {
   return dispatch => {
     dispatch({
       type: actionTypes.ADD_WARD_WIDGET_REQUESTED,
       payload: ward.WARD_NAME
-    })  
-  }
-}
+    });
+
+    dispatch(getWardDailyObservations(ward));
+  };
+};
 
 //#endregion

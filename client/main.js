@@ -26,5 +26,5 @@ const routes=(
 //startup method
 Meteor.startup(() => {
 
-  ReactDOM.render(routes, document.getElementById('app'));
+  // ReactDOM.render(routes, document.getElementById('app'));
 });

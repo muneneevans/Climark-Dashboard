@@ -22,3 +22,5 @@ static-html
 fourseven:scss
 accounts-base
 accounts-password
+nimble:restivus
+simple:json-routes

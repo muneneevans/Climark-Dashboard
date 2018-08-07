@@ -20,7 +20,8 @@ export const getCounties = ({ weather }) => {
       countyList.push({
         key: field.COUNTY_NAME,
         value: field.COUNTY_NAME,
-        text: field.COUNTY_NAME
+        text: field.COUNTY_NAME,
+        county: field
       });
     }
     return countyList;
@@ -29,21 +30,16 @@ export const getCounties = ({ weather }) => {
 };
 
 export const getWardOptions = ({ weather }) => {
-  return weather.fields.map(field => {
+  return weather.countyWards.map(field => {
     return {
       key: field.WARD_NAME,
       text: field.WARD_NAME,
-      value: field.WARD_NAME
+      value: field.WARD_NAME,
+      ward: field
     };
   });
 };
 
 export const getWards = ({ weather }) => {
-  return weather.fields;
-};
-
-export const getCountyWards = (county, wards) => {
-  return wards.filter(ward => {
-    return ward.COUNTY_NAME === county;
-  });
+  return weather.countyWards;
 };

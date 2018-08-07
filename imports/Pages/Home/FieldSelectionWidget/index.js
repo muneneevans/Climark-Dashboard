@@ -18,7 +18,7 @@ const options = [
 
 const FieldSelectionWidget = ({ counties, wards, countyChanged }) => {
   const handleCountyChange = (event, data) => {
-    countyChanged(data.value);
+    countyChanged(data.options.find(option=> option.value === data.value).county);
   };
 
   

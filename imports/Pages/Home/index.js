@@ -5,12 +5,11 @@ import { bindActionCreators } from "redux";
 import { getauth } from "../../Store/Authentication/selectors";
 import { login } from "../../Store/Authentication/actions";
 
-import { getFields } from "../../Store/Weather/actions";
+import { getFields, getCountyWards } from "../../Store/Weather/actions";
 import {
   getFetchFieldsProcess,
   getCounties,
   getFields as getFieldsSelector,
-  getCountyWards,
   getWardOptions,
   getWards
 } from "../../Store/Weather/selectors";
@@ -23,11 +22,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      counties: this.props.counties,
-      wardOptions: this.props.wardOptions
-    };
-
     this.countyChanged = this.countyChanged.bind(this);
   }
   componentDidMount() {
@@ -37,19 +31,12 @@ class Home extends Component {
 
   countyChanged(countyName) {
     //filter the counties
-    console.log(countyName);
-    this.setState({
-      ...this.state,
-      wardOptions: getWardOptions({
-        weather: {
-          fields: getCountyWards(countyName, this.props.wards)
-        }
-      })
-    });
+    // alert(countyName);
+    this.props.getCountyWards(countyName);
   }
 
   render() {
-    let { counties, wardOptions } = this.state;
+    let { counties, wardOptions } = this.props;
     return (
       <div>
         <Banner />
@@ -78,7 +65,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     login: bindActionCreators(login, dispatch),
-    getFields: bindActionCreators(getFields, dispatch)
+    getFields: bindActionCreators(getFields, dispatch),
+    getCountyWards: bindActionCreators(getCountyWards, dispatch)
   };
 };
 

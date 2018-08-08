@@ -21,7 +21,8 @@ import {
   getWards,
   getWardWidgets,
   getAddWardWidgetsProcess,
-  getWidgetGraphs
+  getWidgetGraphs,
+  getWardData
 } from "../../Store/Weather/selectors";
 //#endregion
 
@@ -95,7 +96,8 @@ const mapStateToProps = state => {
     wards: getWards(state),
     addWardWidgetsProcess: getAddWardWidgetsProcess(state),
     wardWidgets: getWardWidgets(state),
-    wardWidgetGraphs: getWidgetGraphs(state)
+    wardWidgetGraphs: getWidgetGraphs(state),
+    wardData : getWardData(state)
   };
 };
 

@@ -13,6 +13,7 @@
     "current-week-number": "^1.0.7",
     "fs": "0.0.1-security",
     "meteor-node-stubs": "^0.4.1",
+    "moment": "^2.22.2",
     "papaparse": "^4.6.0",
     "querystring": "^0.2.0",
     "react": "^16.4.2",

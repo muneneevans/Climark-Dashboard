@@ -20,7 +20,8 @@ import {
   getWardOptions,
   getWards,
   getWardWidgets,
-  getAddWardWidgetsProcess
+  getAddWardWidgetsProcess,
+  getWidgetGraphs
 } from "../../Store/Weather/selectors";
 //#endregion
 
@@ -44,12 +45,11 @@ class Home extends Component {
 
   countyChanged(countyName) {
     //filter the counties
-    
+
     this.props.getCountyWards(countyName);
   }
 
   addWardWidgetHandler(ward) {
-    
     this.props.addWardWidget(ward);
   }
 
@@ -58,7 +58,8 @@ class Home extends Component {
       counties,
       wardOptions,
       addWardWidgetsProcess,
-      wardWidgets
+      wardWidgets,
+      wardWidgetGraphs
     } = this.props;
     return (
       <div>
@@ -73,12 +74,12 @@ class Home extends Component {
           <TransitionGroup className="todo-list">
             {wardWidgets.map((ward, i) => (
               <CSSTransition key={i} timeout={5000} classNames="fade">
-                <FieldWidget key={i} title={ward} />
+                <FieldWidget key={i} title={ward} graphs={wardWidgetGraphs[ward]} />
               </CSSTransition>
             ))}
           </TransitionGroup>
         )}
-        <FieldWidget />
+        {/* <FieldWidget /> */}
       </div>
     );
   }
@@ -93,7 +94,8 @@ const mapStateToProps = state => {
     wardOptions: getWardOptions(state),
     wards: getWards(state),
     addWardWidgetsProcess: getAddWardWidgetsProcess(state),
-    wardWidgets: getWardWidgets(state)
+    wardWidgets: getWardWidgets(state),
+    wardWidgetGraphs: getWidgetGraphs(state)
   };
 };
 

@@ -5,10 +5,13 @@
   transform: translate(-50%, -50%);
 }
 .temparaturevalue {
-
-    font-size: 40pt
+  font-size: 40pt;
 }
 
-.ui-header{
-    background: red
+.ui-header {
+  background: red;
+}
+
+.dailyObservationSectionHeader {
+  padding: 20px 25px;
 }

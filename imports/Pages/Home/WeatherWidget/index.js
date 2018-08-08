@@ -1,19 +1,11 @@
 import React from "react";
-import {
-  Grid,
-  Image,
-  Segment,
-  Header,
-  Icon,
-  Tab,
-  Divider
-} from "semantic-ui-react";
+import { Grid, Image, Divider, Header } from "semantic-ui-react";
 
-import LineCharts from "../../../Components/Charts/LineChart";
+import HumidityChart from "../HumidityChart";
 
 import "./style.css";
 
-const WeatherWidget = () => (
+const WeatherWidget = ({ graphs }) => (
   <div className="weatherwidget">
     <Grid>
       <Grid.Row columns={5}>
@@ -116,11 +108,15 @@ const WeatherWidget = () => (
         </Grid.Column>
       </Grid.Row>
 
-      <Grid.Row stretched>        
-        <LineCharts />
+      <Divider section />
+      <Grid.Row stretched>
+        <div className="dailyObservationSectionHeader">
+          <Header as="h2">Humidity</Header>
+        </div>
+        <HumidityChart data={graphs.dailyObservations.data} />
       </Grid.Row>
 
-      <Grid.Row>
+      {/* <Grid.Row>
         <Grid.Column>
           <Image src="/images/wireframe/media-paragraph.png" />
           <div> Wind speed</div>
@@ -137,7 +133,7 @@ const WeatherWidget = () => (
           <Image src="/images/wireframe/media-paragraph.png" />
           <div> Speed </div>
         </Grid.Column>
-      </Grid.Row>
+      </Grid.Row> */}
     </Grid>
 
     {/* <div className="secondsection"> 

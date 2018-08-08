@@ -1,28 +1,23 @@
 import React from "react";
-import {
-  Grid,
-  Image,
-  Segment,
-  Header,
-  Icon,
-  Tab,
-  Divider
-} from "semantic-ui-react";
+import { Grid, Image, Divider, Header } from "semantic-ui-react";
+import HumidityChart from "../HumidityChart";
 import "./style.css";
 
-const WeatherWidget = () => (
+const WeatherWidget = ({ graphs }) => (
+
   <div className="weatherwidget">
     <Grid>
       <Grid.Row columns={5}>
         <Grid.Column width={5}>
           <div className="todaysdate">
-            <div className="tempdisplays">
-              <div className="temparature">
-                <span className="temparaturevalue"> 19</span>
-                <span className="temparaturesigns"> &#x2103;</span>
-              </div>
-              <div className="temparatureadd">
-                <span className="temparatureicon">
+          <div className="tempdisplays">
+          <div className="temparature">
+          <span className="temparaturevalue"> 19</span>
+          <span className="temparaturesigns"> &#x2103;</span>
+          </div>
+          <div className="temparatureadd">
+          <span className="temparatureicon">
+          {" "}
                   <i className="sun icon" />
                 </span>
                 <span className="temparaturesign"> Sunny</span>
@@ -88,11 +83,12 @@ const WeatherWidget = () => (
         </Grid.Column>
       </Grid.Row>
 
-      <Grid.Row>
-        <Grid.Column>
-          <Image src="/images/wireframe/media-paragraph.png" />
-          <div> hello world</div>
-        </Grid.Column>
+      <Divider section />
+      <Grid.Row stretched>
+        <div className="dailyObservationSectionHeader">
+          <Header as="h2">Humidity</Header>
+        </div>
+        <HumidityChart data={graphs.dailyObservations.data} />
       </Grid.Row>
 
       <Grid.Row>

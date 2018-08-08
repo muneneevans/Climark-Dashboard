@@ -19,7 +19,7 @@ const WeatherWidget = () => (
             <div className="tempdisplays">
               <div className="temparature">
                 <span className="temparaturevalue"> 19</span>
-                <span className="temparaturesign"> &#x2103;</span>
+                <span className="temparaturesigns"> &#x2103;</span>
               </div>
               <div className="temparatureadd">
                 <span className="temparatureicon">

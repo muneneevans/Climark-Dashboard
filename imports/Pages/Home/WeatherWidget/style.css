@@ -8,6 +8,20 @@
 
     font-size: 40pt
 }
+.temparaturesigns {
+    position: relative;
+    bottom: 25px;
+  }
+  .weektemparaturesign {
+    position: relative;
+    bottom: 5px;
+    font-size: 10pt;
+  }
+
+.tempdisplay{
+    font-weight: lighter;
+    color: #808080;
+}
 
 .ui-header{
     background: red

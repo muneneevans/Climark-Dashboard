@@ -10,6 +10,7 @@ import {
 } from "semantic-ui-react";
 import ForecastMap from "../../../ui/ForecastMap";
 import DailyObservations from "../DailyObservations";
+import Forecasts from "../Forecasts"
 import "./style.css";
 
 const panes = [
@@ -24,7 +25,7 @@ const panes = [
   },
   {
     menuItem: "Forecasts",
-    render: ({ graphs }) => <DailyObservations graphs={graphs} />
+    render: ({wardData}) => <Forecasts forecast={wardData.forecasts.data}/>
   },
   {
     menuItem: "Current Conditions",

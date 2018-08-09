@@ -72,3 +72,7 @@ export const getWidgetGraphs = ({ weather }) => {
 
   return newWardData;
 };
+
+export const getWardData = ({weather} ) =>{
+  return weather.wardData
+}

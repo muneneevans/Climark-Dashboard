@@ -1,17 +1,17 @@
 import React from "react";
 import { Grid, Image, Segment, Header, Icon, Tab } from "semantic-ui-react";
 import ForecastMap from "../../../ui/ForecastMap";
-import WeatherWidget from "../WeatherWidget";
+import DailyObservations from "../DailyObservations";
 import "./style.css";
 
 const panes = [
   {
     menuItem: "Daily Observations",
-    render: ({ graphs, wardData }) => <WeatherWidget graphs={graphs} dailyObservations={wardData.dailyObservations.data}  />
+    render: ({ graphs, wardData }) => <DailyObservations graphs={graphs} dailyObservations={wardData.dailyObservations.data}  />
   },
   {
     menuItem: "Forecasts",
-    render: ({ graphs }) => <WeatherWidget graphs={graphs} />
+    render: ({ graphs }) => <DailyObservations graphs={graphs} />
   },
   {
     menuItem: "Current Conditions",

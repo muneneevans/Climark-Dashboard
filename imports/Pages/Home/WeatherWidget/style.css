@@ -29,3 +29,14 @@
 .dailyObservationSectionHeader {
   padding: 20px 25px;
 }
+.extraweathersign {
+    position: relative;
+    bottom: 5px;
+    font-size: 10pt;
+  }
+  .extraweather {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

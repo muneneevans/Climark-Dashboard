@@ -4,20 +4,19 @@ import HumidityChart from "../HumidityChart";
 import "./style.css";
 
 const WeatherWidget = ({ graphs }) => (
-
   <div className="weatherwidget">
     <Grid>
       <Grid.Row columns={5}>
         <Grid.Column width={5}>
           <div className="todaysdate">
-          <div className="tempdisplays">
-          <div className="temparature">
-          <span className="temparaturevalue"> 19</span>
-          <span className="temparaturesigns"> &#x2103;</span>
-          </div>
-          <div className="temparatureadd">
-          <span className="temparatureicon">
-          {" "}
+            <div className="tempdisplays">
+              <div className="temparature">
+                <span className="temparaturevalue"> 19</span>
+                <span className="temparaturesigns"> &#x2103;</span>
+              </div>
+              <div className="temparatureadd">
+                <span className="temparatureicon">
+                  {" "}
                   <i className="sun icon" />
                 </span>
                 <span className="temparaturesign"> Sunny</span>
@@ -40,7 +39,7 @@ const WeatherWidget = ({ graphs }) => (
           </div>
         </Grid.Column>
         <Grid.Column width={2}>
-        <div className="restofweek">
+          <div className="restofweek">
             <div className="tempdisplay">
               <div className="dayofweek">Monday</div>
               <div className="tempicon">
@@ -54,7 +53,7 @@ const WeatherWidget = ({ graphs }) => (
           </div>
         </Grid.Column>
         <Grid.Column width={2}>
-        <div className="restofweek">
+          <div className="restofweek">
             <div className="tempdisplay">
               <div className="dayofweek">Monday</div>
               <div className="tempicon">
@@ -68,7 +67,7 @@ const WeatherWidget = ({ graphs }) => (
           </div>
         </Grid.Column>
         <Grid.Column width={2}>
-        <div className="restofweek">
+          <div className="restofweek">
             <div className="tempdisplay">
               <div className="dayofweek">Monday</div>
               <div className="tempicon">
@@ -92,35 +91,53 @@ const WeatherWidget = ({ graphs }) => (
       </Grid.Row>
 
       <Grid.Row>
-        <Grid.Column>
-          <Image src="/images/wireframe/media-paragraph.png" />
-          <div> Wind speed</div>
+        <Grid.Column width={4}>
+          <div className="extraweather">
+            <div className="iconweather">
+              <i className="sun icon" />
+            </div>
+            <div className="extraweatheramount">
+              <span className="extraweathervalue">19</span>
+              <span className="extraweathersign">&#x2103;</span>
+            </div>
+            <div className="extraweathercoment">Wind </div>
+          </div>
         </Grid.Column>
-        <Grid.Column>
-          <Image src="/images/wireframe/media-paragraph.png" />
-          <div> Sunlight </div>
+        <Grid.Column width={4}>
+          <div className="extraweather">
+            <div className="iconweather"> <i className="sun icon" />
+            </div>
+            <div className="extraweatheramount">
+              <span className="extraweathervalue">19</span>
+              <span className="extraweathersign">&#x2103;</span>
+            </div>
+            <div className="extraweathercoment">Sunlight </div>
+          </div>
         </Grid.Column>
-        <Grid.Column>
-          <Image src="/images/wireframe/media-paragraph.png" />
-          <div> rainfall</div>
+        <Grid.Column width={4}>
+          <div className="extraweather">
+            <div className="iconweather"><i className="sun icon" />
+            </div>
+            <div className="extraweatheramount">
+              <span className="extraweathervalue">19</span>
+              <span className="extraweathersign">&#x2103;</span>
+            </div>
+            <div className="extraweathercoment">Rainfall</div>
+          </div>
         </Grid.Column>
-        <Grid.Column>
-          <Image src="/images/wireframe/media-paragraph.png" />
-          <div> Speed </div>
+        <Grid.Column width={4}>
+          <div className="extraweather">
+            <div className="iconweather"> <i className="sun icon" />
+            </div>
+            <div className="extraweatheramount">
+              <span className="extraweathervalue">19</span>
+              <span className="extraweathersign">&#x2103;</span>
+            </div>
+            <div className="extraweathercoment">Wind Speed </div>
+          </div>
         </Grid.Column>
       </Grid.Row>
     </Grid>
-
-    {/* <div className="secondsection"> 
-    
-     lool
-    </div>
-
-    <div className="thirdsection"> 
-    
-    lool
-  
-    </div> */}
   </div>
 );
 

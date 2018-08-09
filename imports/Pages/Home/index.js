@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import * as processTypes from "../../Store/Shared/processTypes";
 import { getauth } from "../../Store/Authentication/selectors";
 import { login } from "../../Store/Authentication/actions";
 
+//#region redux
 import {
   getFields,
   getCountyWards,
@@ -18,12 +20,17 @@ import {
   getWardOptions,
   getWards,
   getWardWidgets,
-  getAddWardWidgetsProcess
+  getAddWardWidgetsProcess,
+  getWidgetGraphs,
+  getWardData
 } from "../../Store/Weather/selectors";
+//#endregion
 
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
 import FieldSelectionWidget from "./FieldSelectionWidget";
+
+import "./style.css";
 
 class Home extends Component {
   constructor(props) {
@@ -39,12 +46,11 @@ class Home extends Component {
 
   countyChanged(countyName) {
     //filter the counties
-    // alert(countyName);
+
     this.props.getCountyWards(countyName);
   }
 
   addWardWidgetHandler(ward) {
-    // console.log(ward)
     this.props.addWardWidget(ward);
   }
 
@@ -53,7 +59,10 @@ class Home extends Component {
       counties,
       wardOptions,
       addWardWidgetsProcess,
-      wardWidgets
+      wardWidgets,
+      wardWidgetGraphs,
+      history,
+      wardData
     } = this.props;
     return (
       <div>
@@ -65,11 +74,15 @@ class Home extends Component {
           submitAction={this.addWardWidgetHandler}
         />
         {addWardWidgetsProcess.status == processTypes.SUCCESS && (
-          <div>
-            {wardWidgets.map((ward, i) => <FieldWidget key={i} title={ward} />)}
-          </div>
+          <TransitionGroup className="todo-list">
+            {wardWidgets.map((ward, i) => (
+              <CSSTransition key={i} timeout={300} classNames="fade">
+                <FieldWidget key={i} title={ward} graphs={wardWidgetGraphs[ward]} history={history} wardData={wardData[ward]} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         )}
-        <FieldWidget />
+        {/* <FieldWidget /> */}
       </div>
     );
   }
@@ -84,7 +97,9 @@ const mapStateToProps = state => {
     wardOptions: getWardOptions(state),
     wards: getWards(state),
     addWardWidgetsProcess: getAddWardWidgetsProcess(state),
-    wardWidgets: getWardWidgets(state)
+    wardWidgets: getWardWidgets(state),
+    wardWidgetGraphs: getWidgetGraphs(state),
+    wardData : getWardData(state)
   };
 };
 

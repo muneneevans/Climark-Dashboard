@@ -2,8 +2,9 @@ import React from "react";
 import { Grid, Image, Divider, Header } from "semantic-ui-react";
 import HumidityChart from "../HumidityChart";
 import "./style.css";
+import moment from 'moment'
 
-const WeatherWidget = ({ graphs }) => (
+const WeatherWidget = ({ graphs , dailyObservations}) => (
   <div className="weatherwidget">
     <Grid>
       <Grid.Row columns={5}>
@@ -11,7 +12,7 @@ const WeatherWidget = ({ graphs }) => (
           <div className="todaysdate">
             <div className="tempdisplays">
               <div className="temparature">
-                <span className="temparaturevalue"> 19</span>
+                <span className="temparaturevalue"> {Math.ceil(dailyObservations[0].temperatures.max)}</span>
                 <span className="temparaturesigns"> &#x2103;</span>
               </div>
               <div className="temparatureadd">
@@ -27,12 +28,12 @@ const WeatherWidget = ({ graphs }) => (
         <Grid.Column width={2}>
           <div className="restofweek">
             <div className="tempdisplay">
-              <div className="dayofweek">Monday</div>
+              <div className="dayofweek">{moment(dailyObservations[1].date).format("dddd ")}</div>
               <div className="tempicon">
                 <i className="sun icon" />
               </div>
               <div className="temparature">
-                <span className="weektemparaturevalue"> 19</span>
+                <span className="weektemparaturevalue"> {Math.ceil(dailyObservations[1].temperatures.max)}</span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
             </div>
@@ -41,12 +42,12 @@ const WeatherWidget = ({ graphs }) => (
         <Grid.Column width={2}>
           <div className="restofweek">
             <div className="tempdisplay">
-              <div className="dayofweek">Monday</div>
+              <div className="dayofweek">{moment(dailyObservations[2].date).format("dddd ")}</div>
               <div className="tempicon">
                 <i className="sun icon" />
               </div>
               <div className="temparature">
-                <span className="weektemparaturevalue"> 19</span>
+                <span className="weektemparaturevalue">{Math.ceil(dailyObservations[1].temperatures.max)}</span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
             </div>
@@ -55,12 +56,12 @@ const WeatherWidget = ({ graphs }) => (
         <Grid.Column width={2}>
           <div className="restofweek">
             <div className="tempdisplay">
-              <div className="dayofweek">Monday</div>
+              <div className="dayofweek">{moment(dailyObservations[3].date).format("dddd ")}</div>
               <div className="tempicon">
                 <i className="sun icon" />
               </div>
               <div className="temparature">
-                <span className="weektemparaturevalue"> 19</span>
+                <span className="weektemparaturevalue">{Math.ceil(dailyObservations[3].temperatures.max)}</span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
             </div>
@@ -69,12 +70,12 @@ const WeatherWidget = ({ graphs }) => (
         <Grid.Column width={2}>
           <div className="restofweek">
             <div className="tempdisplay">
-              <div className="dayofweek">Monday</div>
+              <div className="dayofweek">{moment(dailyObservations[4].date).format("dddd ")}</div>
               <div className="tempicon">
                 <i className="sun icon" />
               </div>
               <div className="temparature">
-                <span className="weektemparaturevalue"> 19</span>
+                <span className="weektemparaturevalue">{Math.ceil(dailyObservations[3].temperatures.max)}</span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
             </div>
@@ -97,8 +98,8 @@ const WeatherWidget = ({ graphs }) => (
               <i className="sun icon" />
             </div>
             <div className="extraweatheramount">
-              <span className="extraweathervalue">19</span>
-              <span className="extraweathersign">&#x2103;</span>
+              <span className="extraweathervalue">{Math.ceil(dailyObservations[0].wind.average)}</span>
+              <span className="extraweathersign">{dailyObservations[0].wind.units}</span>
             </div>
             <div className="extraweathercoment">Wind </div>
           </div>
@@ -108,10 +109,10 @@ const WeatherWidget = ({ graphs }) => (
             <div className="iconweather"> <i className="sun icon" />
             </div>
             <div className="extraweatheramount">
-              <span className="extraweathervalue">19</span>
-              <span className="extraweathersign">&#x2103;</span>
+              <span className="extraweathervalue">{Math.ceil(dailyObservations[0].solar.amount)}</span>
+              <span className="extraweathersign">{dailyObservations[0].solar.units}</span>
             </div>
-            <div className="extraweathercoment">Sunlight </div>
+            <div className="extraweathercoment">Solar </div>
           </div>
         </Grid.Column>
         <Grid.Column width={4}>
@@ -119,8 +120,8 @@ const WeatherWidget = ({ graphs }) => (
             <div className="iconweather"><i className="sun icon" />
             </div>
             <div className="extraweatheramount">
-              <span className="extraweathervalue">19</span>
-              <span className="extraweathersign">&#x2103;</span>
+              <span className="extraweathervalue">{Math.ceil(dailyObservations[0].precipitation.amount)}</span>
+              <span className="extraweathersign">{dailyObservations[0].precipitation.units}</span>
             </div>
             <div className="extraweathercoment">Rainfall</div>
           </div>

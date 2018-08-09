@@ -7,7 +7,7 @@ import "./style.css";
 const panes = [
   {
     menuItem: "Daily Observations",
-    render: ({ graphs }) => <WeatherWidget graphs={graphs} />
+    render: ({ graphs, wardData }) => <WeatherWidget graphs={graphs} dailyObservations={wardData.dailyObservations.data}  />
   },
   {
     menuItem: "Forecasts",
@@ -21,7 +21,7 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs }) => (
+const FieldWidget = ({ title = "Some Place", graphs, wardData }) => (
   <div className="fieldWidgetContainer">
     <div className="fieldHeaderContainer">
       <Header as="h1">
@@ -42,6 +42,7 @@ const FieldWidget = ({ title = "Some Place", graphs }) => (
               menu={{ secondary: true, pointing: true, stackable: true }}
               panes={panes}
               graphs={graphs}
+              wardData={wardData}
             />
           </Grid.Column>
         </Grid.Row>

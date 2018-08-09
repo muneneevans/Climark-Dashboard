@@ -10,9 +10,9 @@ import {
 } from "recharts";
 
 import dimensions from "react-dimensions";
-const HumidityChart = ({ containerWidth, data }) => {
+const HumidityChart = ({ containerWidth, data, height=500 }) => {
   return <div>
-      <LineChart width={containerWidth} height={500} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <LineChart width={containerWidth} height={height} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <XAxis dataKey="date" />
         <YAxis />
         <CartesianGrid strokeDasharray="3 3" />

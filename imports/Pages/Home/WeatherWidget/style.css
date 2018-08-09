@@ -26,6 +26,12 @@
     color: #808080;
 }
 
+
+.dailyObservationsSection
+{
+  background: #f2f2f2;
+  padding: 40px 15px;
+}
 .dailyObservationSectionHeader {
   padding: 20px 25px;
 }

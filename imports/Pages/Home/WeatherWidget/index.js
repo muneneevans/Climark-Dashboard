@@ -82,12 +82,12 @@ const WeatherWidget = ({ graphs }) => (
         </Grid.Column>
       </Grid.Row>
 
+      <Grid.Row stretched className="dailyObservationsSection container">
       <Divider section />
-      <Grid.Row stretched>
         <div className="dailyObservationSectionHeader">
           <Header as="h2">Humidity</Header>
         </div>
-        <HumidityChart data={graphs.dailyObservations.data} />
+        <HumidityChart data={graphs.dailyObservations.data} height={400}/>
       </Grid.Row>
 
       <Grid.Row>

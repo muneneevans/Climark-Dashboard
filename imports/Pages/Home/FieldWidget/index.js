@@ -1,5 +1,13 @@
 import React from "react";
-import { Grid, Image, Segment, Header, Icon, Tab } from "semantic-ui-react";
+import {
+  Grid,
+  Image,
+  Segment,
+  Header,
+  Icon,
+  Tab,
+  Button
+} from "semantic-ui-react";
 import ForecastMap from "../../../ui/ForecastMap";
 import DailyObservations from "../DailyObservations";
 import Forecasts from "../Forecasts"
@@ -8,7 +16,12 @@ import "./style.css";
 const panes = [
   {
     menuItem: "Daily Observations",
-    render: ({ graphs, wardData }) => <DailyObservations graphs={graphs} dailyObservations={wardData.dailyObservations.data}  />
+    render: ({ graphs, wardData }) => (
+      <DailyObservations
+        graphs={graphs}
+        dailyObservations={wardData.dailyObservations.data}
+      />
+    )
   },
   {
     menuItem: "Forecasts",
@@ -22,12 +35,19 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs, wardData }) => (
+const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
   <div className="fieldWidgetContainer">
     <div className="fieldHeaderContainer">
       <Header as="h1">
         <Icon name="map marker" />
         <Header.Content>{title}</Header.Content>
+        <Button
+          onClick={() => {
+            history.push(`/ward/${title}`);
+          }}
+        >
+          View More
+        </Button>
       </Header>
     </div>
 

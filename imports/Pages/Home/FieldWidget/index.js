@@ -1,17 +1,30 @@
 import React from "react";
-import { Grid, Image, Segment, Header, Icon, Tab, Button } from "semantic-ui-react";
+import {
+  Grid,
+  Image,
+  Segment,
+  Header,
+  Icon,
+  Tab,
+  Button
+} from "semantic-ui-react";
 import ForecastMap from "../../../ui/ForecastMap";
-import WeatherWidget from "../WeatherWidget";
+import DailyObservations from "../DailyObservations";
 import "./style.css";
 
 const panes = [
   {
     menuItem: "Daily Observations",
-    render: ({ graphs }) => <WeatherWidget graphs={graphs} />
+    render: ({ graphs, wardData }) => (
+      <DailyObservations
+        graphs={graphs}
+        dailyObservations={wardData.dailyObservations.data}
+      />
+    )
   },
   {
     menuItem: "Forecasts",
-    render: ({ graphs }) => <WeatherWidget graphs={graphs} />
+    render: ({ graphs }) => <DailyObservations graphs={graphs} />
   },
   {
     menuItem: "Current Conditions",
@@ -21,13 +34,19 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs , history}) => (
+const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
   <div className="fieldWidgetContainer">
     <div className="fieldHeaderContainer">
       <Header as="h1">
         <Icon name="map marker" />
         <Header.Content>{title}</Header.Content>
-        <Button onClick={()=>{history.push(`/ward/${title}`)}}>View More</Button>
+        <Button
+          onClick={() => {
+            history.push(`/ward/${title}`);
+          }}
+        >
+          View More
+        </Button>
       </Header>
     </div>
 
@@ -43,6 +62,7 @@ const FieldWidget = ({ title = "Some Place", graphs , history}) => (
               menu={{ secondary: true, pointing: true, stackable: true }}
               panes={panes}
               graphs={graphs}
+              wardData={wardData}
             />
           </Grid.Column>
         </Grid.Row>

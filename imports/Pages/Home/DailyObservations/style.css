@@ -1,0 +1,52 @@
+.tempdisplays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 50px;
+  padding-bottom: 20px;
+  
+}
+
+.temparaturevalue {
+  font-size: 40pt;
+}
+
+.ui-header {
+  background: red;
+}
+.temparaturesigns {
+    position: relative;
+    bottom: 25px;
+  }
+  .weektemparaturesign {
+    position: relative;
+    bottom: 5px;
+    font-size: 10pt;
+  }
+
+.tempdisplay{
+    font-weight: lighter;
+    color: #808080;
+}
+
+
+.dailyObservationsSection
+{
+  background: #f2f2f2;
+  padding: 40px 15px;
+}
+.dailyObservationSectionHeader {
+  padding: 20px 25px;
+}
+.extraweathersign {
+    position: relative;
+    bottom: 5px;
+    font-size: 10pt;
+  }
+  .extraweather {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

@@ -1,6 +1,7 @@
 //convert data from store into usable format by ui
 
 import { isEmpty } from "../../lib/utils";
+import moment from "moment";
 
 export const getFields = ({ weather }) => {
   return weather.fields;
@@ -51,3 +52,27 @@ export const getWardWidgets = ({ weather }) => {
   return weather.wardWidgets;
 };
 
+export const getWidgetGraphs = ({ weather }) => {
+  const getwardHumidities = wardObservations => {
+    return wardObservations.map(observation => {
+      return { date: moment(observation.date).format("dddd "), max: observation.relativeHumidity.max, min: observation.relativeHumidity.min };
+    });
+  };
+
+  let newWardData = JSON.parse(JSON.stringify(weather.wardData));
+  Object.keys(newWardData).map(ward => {
+    let humidity = getwardHumidities(newWardData[ward].dailyObservations.data);
+
+    humidity.map(day => {
+      return { name: day.date, max: day.max, min: day.min };
+    });
+
+    newWardData[ward].dailyObservations.data = humidity;
+  });
+
+  return newWardData;
+};
+
+export const getWardData = ({weather} ) =>{
+  return weather.wardData
+}

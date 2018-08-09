@@ -27,10 +27,10 @@ import App from "../imports/Pages/App";
 
 //startup method
 Meteor.startup(() => {
-<<<<<<< HEAD
+
 
   // ReactDOM.render(routes, document.getElementById('app'));
-=======
+
   ReactDOM.render(<App />, document.getElementById("app"));
->>>>>>> 3b98850d9728470eb12f573feb6c58e3e2e4ef78
+
 });

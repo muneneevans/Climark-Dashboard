@@ -61,6 +61,7 @@ class Home extends Component {
       addWardWidgetsProcess,
       wardWidgets,
       wardWidgetGraphs,
+      history,
       wardData
     } = this.props;
     return (
@@ -75,8 +76,8 @@ class Home extends Component {
         {addWardWidgetsProcess.status == processTypes.SUCCESS && (
           <TransitionGroup className="todo-list">
             {wardWidgets.map((ward, i) => (
-              <CSSTransition key={i} timeout={5000} classNames="fade">
-                <FieldWidget key={i} title={ward} graphs={wardWidgetGraphs[ward]} wardData={wardData[ward]} />
+              <CSSTransition key={i} timeout={300} classNames="fade">
+                <FieldWidget key={i} title={ward} graphs={wardWidgetGraphs[ward]} history={history} wardData={wardData[ward]} />
               </CSSTransition>
             ))}
           </TransitionGroup>

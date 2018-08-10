@@ -4,7 +4,7 @@ import HumidityChart from "../HumidityChart";
 import "./style.css";
 import moment from 'moment';
 
-const Forecasts = () => (
+const Forecasts = ({ graphs, dailyObservations }) => (
   
     <div className="forecastwidget"> 
     

@@ -73,6 +73,33 @@ const weatherReducer = (state = initialState, action = {}) => {
           }
         )
       };
+
+    case actionTypes.FETCH_WARD_FORECASTS_REQUESTED:
+      return {
+        ...state,
+        wardData: updateWardForecasts(
+          state.wardData,
+          action.payload.ward.WARD_NAME,
+          {
+            _process: processTypes.PROCESSING,
+            data: []
+          }
+        )
+      };
+
+    case actionTypes.FETCH_WARD_FORECASTS_SUCCEEDED:
+      console.log(action);
+      return {
+        ...state,
+        wardData: updateWardForecasts(
+          state.wardData,
+          action.payload.ward.WARD_NAME,
+          {
+            _process: processTypes.SUCCESS,
+            data: action.payload.forecasts
+          }
+        )
+      };
     default:
       return state;
   }
@@ -93,12 +120,18 @@ const addnewWardToWardData = (wardData, newWard) => {
       data: []
     }
   };
-  
+
   return wardData;
 };
 
-const updateWardDailyObservations = (wardData, ward, newWardData) => {  
+const updateWardDailyObservations = (wardData, ward, newWardData) => {
   wardData[ward].dailyObservations = newWardData;
+  return wardData;
+};
+
+const updateWardForecasts = (wardData, ward, newWardData) => {
+  console.log(wardData);
+  wardData[ward].forecasts = newWardData;
   return wardData;
 };
 

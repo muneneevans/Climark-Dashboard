@@ -11,6 +11,7 @@ import {
 import ForecastMap from "../../../ui/ForecastMap";
 import DailyObservations from "../DailyObservations";
 import Forecasts from "../Forecasts"
+import WardMap from "../LocationWidget"
 import "./style.css";
 
 const panes = [
@@ -55,7 +56,8 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
       <Grid divided celled="internally">
         <Grid.Row columns={2}>
           <Grid.Column computer={4} tablet={4} mobile={16}>
-            <ForecastMap />
+            {/* <ForecastMap /> */}
+            <WardMap/>
           </Grid.Column>
 
           <Grid.Column computer={12} tablet={4} mobile={16}>

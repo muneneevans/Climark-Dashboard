@@ -7,7 +7,7 @@ import moment from 'moment'
 const WeatherWidget = ({ graphs , dailyObservations}) => (
   <div className="weatherwidget">
     <Grid>
-      <Grid.Row classname="firstsection" columns={5}>
+      <Grid.Row classname="firstSection "  columns={5}>
         <Grid.Column width={5}>
           <div className="todaysdate">
             <div className="tempdisplays">

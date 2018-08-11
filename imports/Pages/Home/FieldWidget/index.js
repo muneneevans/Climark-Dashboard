@@ -54,13 +54,13 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
 
     <Segment>
       <Grid divided celled="internally">
-        <Grid.Row columns={2}>
-          <Grid.Column computer={4} tablet={4} mobile={16}>
+        <Grid.Row columns={2} >
+          <Grid.Column computer={4} tablet={16} mobile={16}>
             {/* <ForecastMap /> */}
             <WardMap/>
           </Grid.Column>
 
-          <Grid.Column computer={12} tablet={4} mobile={16}>
+          <Grid.Column computer={12} tablet={16} mobile={16}>
             <Tab
               menu={{ secondary: true, pointing: true, stackable: true }}
               panes={panes}

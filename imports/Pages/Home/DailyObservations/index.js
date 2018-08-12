@@ -7,6 +7,7 @@ import "./style.css";
 const WeatherWidget = ({ graphs, dailyObservations }) => (
   <div className="weatherwidget">
     <Grid>
+      <Divider section />
       <Grid.Row className="firstSection " columns={5}>
         <Divider section />
         <div className="dailyObservationSectionHeader">
@@ -25,7 +26,8 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
               <div className="temparatureadd">
                 <span className="temparatureicon">
                   {" "}
-                  <i className="sun icon" />
+                  {/* <ion-icon name="sunny" size="large"/> */}
+                  <ion-icon name="sunny" size="large"/>
                 </span>
                 <span className="temparaturesign"> Sunny</span>
               </div>
@@ -39,7 +41,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[1].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -58,7 +60,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[2].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -76,7 +78,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[3].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -94,7 +96,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[4].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -124,7 +126,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
         <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
-              <i className="sun icon" />
+              <ion-icon name="swap" size="large" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -141,7 +143,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="extraweather">
             <div className="iconweather">
               {" "}
-              <i className="sun icon" />
+              <ion-icon name="sunny" size="large"/>
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -157,7 +159,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
         <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
-              <i className="sun icon" />
+              <ion-icon name="rainy" size="large" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -174,7 +176,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="extraweather">
             <div className="iconweather">
               {" "}
-              <i className="sun icon" />
+              <ion-icon name="swap" size="large" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">19</span>

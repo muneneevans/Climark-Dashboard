@@ -1,31 +1,18 @@
 import React from "react";
-import {
-  Grid,
-  Image,
-  Segment,
-  Header,
-  Icon,
-  Tab,
-  Button
-} from "semantic-ui-react";
-import ForecastMap from "../../../ui/ForecastMap";
+import { Grid, Image, Segment, Header, Icon, Tab } from "semantic-ui-react";
+import LocationWidget from "../LocationWidget";
 import DailyObservations from "../DailyObservations";
 import Forecasts from "../Forecasts"
 import "./style.css";
 
-const panes = [
+const panes = [ 
   {
     menuItem: "Daily Observations",
-    render: ({ graphs, wardData }) => (
-      <DailyObservations
-        graphs={graphs}
-        dailyObservations={wardData.dailyObservations.data}
-      />
-    )
+    render: ({ graphs, wardData }) => <DailyObservations graphs={graphs} dailyObservations={wardData.dailyObservations.data}  />
   },
   {
     menuItem: "Forecasts",
-    render: ({wardData}) => <Forecasts forecast={wardData.forecasts.data}/>
+    render: ({ graphs, wardData}) => <Forecasts Forecasts={wardData.forecasts.data}/>
   },
   {
     menuItem: "Current Conditions",
@@ -35,19 +22,12 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
+const FieldWidget = ({ title = "Some Place", graphs, wardData }) => (
   <div className="fieldWidgetContainer">
     <div className="fieldHeaderContainer">
       <Header as="h1">
         <Icon name="map marker" />
         <Header.Content>{title}</Header.Content>
-        <Button
-          onClick={() => {
-            history.push(`/ward/${title}`);
-          }}
-        >
-          View More
-        </Button>
       </Header>
     </div>
 
@@ -55,7 +35,7 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
       <Grid divided celled="internally">
         <Grid.Row columns={2}>
           <Grid.Column computer={4} tablet={4} mobile={16}>
-            <ForecastMap />
+            <LocationWidget />
           </Grid.Column>
 
           <Grid.Column computer={12} tablet={4} mobile={16}>

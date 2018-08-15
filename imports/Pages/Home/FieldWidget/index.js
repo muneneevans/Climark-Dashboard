@@ -12,7 +12,7 @@ const panes = [
   },
   {
     menuItem: "Forecasts",
-    render: ({ graphs, wardData}) => <Forecasts graphs={graphs} dailyObservations={wardData.dailyObservations.data}/>
+    render: ({ graphs, wardData}) => <Forecasts Forecasts={wardData.forecasts.data}/>
   },
   {
     menuItem: "Current Conditions",

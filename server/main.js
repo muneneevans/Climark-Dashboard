@@ -21,17 +21,47 @@ import {Mongo} from 'meteor/mongo';
 
 //startup method
 Meteor.startup(() => {
-  //Api
+  //APIs
   let Api = new Restivus({useDefaultAuth: true, prettyJson: true});
-  // Generates: GET, POST on /api/items and GET, PUT, PATCH, DELETE on
-  // /api/items/:id for the Items collection
-  Api.addCollection(AdvisoryMA);
+  //Moisture Availability
+  Api.addRoute('advisoryma/locationid/:locationId/week/:week', {
+    get: function() {
+      let locationid = this.urlParams.locationId;
+      let weekNo = parseFloat(this.urlParams.week);
+      return AdvisoryMA.find({locationId: locationid, week: weekNo}).fetch();
+    }
+  });
+  //Drought Index
+  Api.addRoute('advisorydroughtindex/locationid/:locationId/week/:week', {
+    get: function() {
+      let locationid = this.urlParams.locationId;
+      let weekNo = parseFloat(this.urlParams.week);
+      return AdvisoryDroughtIndex.find({locationId: locationid, week: weekNo}).fetch();
+    }
+  });
+  //post mortem moisture conditions
+  Api.addRoute('pastmoisturecondition/locationid/:locationId/week/:week', {
+    get: function() {
+      let locationid = this.urlParams.locationId;
+      let weekNo = parseFloat(this.urlParams.week);
+      return pastMoistureCondition.find({locationId: locationid, week: weekNo}).fetch();
+    }
+  });
+
+  //post mortem rainfall condition
+  Api.addRoute('pastrainfallcondition/locationid/:locationId/week/:week', {
+    get: function() {
+      let locationid = this.urlParams.locationId;
+      let weekNo = parseFloat(this.urlParams.week);
+      return pastRainfallCondition.find({locationId: locationid, week: weekNo}).fetch();
+    }
+  });
   //API End
   console.log('Papa parse imported');
-//load ftp data
+  //load ftp data
   let nextSevenDayForecast = Assets.getText('180715_next7.csv');
   let lastSevenDayData = Assets.getText('180715_past30.csv');
-  let lastThirtyDaysData=Assets.getText('180715_past30.csv');
+  let lastThirtyDaysData = Assets.getText('180715_past30.csv');
 
   //parse the data for the next 7 days
   let resultsNextSevenDaysForecast = Papa.parse(nextSevenDayForecast, {
@@ -43,7 +73,7 @@ Meteor.startup(() => {
       //console.log(resultsNextSevenDaysForecast);
     }
   });
- //parse the last 30 days data
+  //parse the last 30 days data
   let resultsLastThirtyDaysData = Papa.parse(lastThirtyDaysData, {
     // download: true,
     delimiter: ",",
@@ -113,7 +143,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'moisture': doc.CPOVRPR,
+        'moisture': doc.CPOVRPR,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -145,7 +175,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'moisture': doc.CPOVRPR,
+        'moisture': doc.CPOVRPR,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -158,7 +188,7 @@ Meteor.startup(() => {
   //Last 30 days moisture Availability Departure from the Normal classification and loading into database
   dataLastThirtyDays.forEach(function(doc) {
     let MADFTN = (doc.DFLTPVP / doc.LTNASPO) * 100;
- console.log('DFLTPVP: ' + doc.DFLTPVP + ' LTNASPO: '+ doc.LTNASPO +' MADFTN: '+ MADFTN)
+    console.log('DFLTPVP: ' + doc.DFLTPVP + ' LTNASPO: ' + doc.LTNASPO + ' MADFTN: ' + MADFTN)
     if (MADFTN > 26) {
       let implication = 'VERY EXCESS SOIL MOISTURE';
       let advisoryA = 'Pasture conditions are excellent for livestock. Conserve excess pasture and cut hay and stack for future use ';
@@ -168,7 +198,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -184,14 +214,14 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
         'week': weekNo
       });
       // console.log('Rainfall Distribution: ' + rainfallDistribution + 'SUM: ' + ltnsum + ' Moisture Availability: ' + moistureAvailability + ' Implication: ' + graughtClass);;
-    } else if (MADFTN < 1 &&  MADFTN >= -25) {
+    } else if (MADFTN < 1 && MADFTN >= -25) {
       let implication = 'ADEQUATE SOIL MOISTURE';
       let advisoryA = 'Pasture conditions are good for livestock. Stack hay and paddock areas with pasture for conservation incase of adverse conditions in future.';
       let advisoryB = 'Ensure that water points are well prepared for harvesting. With fairly healthy animals consider taking insurance cover as a safety net.';
@@ -200,7 +230,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -216,7 +246,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -232,7 +262,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -247,7 +277,7 @@ Meteor.startup(() => {
         'latitude': doc.latitude,
         'longitude': doc.longitude,
         'ward': 'test',
-         'MADFTN': MADFTN,
+        'MADFTN': MADFTN,
         'implication': implication,
         'advisoryA': advisoryA,
         'advisoryB': advisoryB,
@@ -389,8 +419,8 @@ Meteor.startup(() => {
 
   //Rainfall departure calculation and loading into database for the past 30 days
   dataLastThirtyDays.forEach(function(doc) {
-    let RDPI= (doc.DFLTSUM/ doc.LTNSUMP)*100;
-console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
+    let RDPI = (doc.DFLTSUM / doc.LTNSUMP) * 100;
+    console.log('DFLTSUL: ' + doc.DFLTSUM + 'LTNSUMP:' + doc.LTNSUMP + ' RDPI: ' + RDPI);
 
     if (RDPI >= 25) {
       let implication = 'VERY HEAVY RAIN';
@@ -401,9 +431,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,
@@ -412,7 +442,7 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
         // 'advisoryD': advisoryD,
         'week': weekNo
       });
-    } else if (RDPI <25 && RDPI >= 1) {
+    } else if (RDPI < 25 && RDPI >= 1) {
       let implication = 'HEAVY RAINFALL';
       let advisoryA = 'Due to heavy: Pasture conditions are very good for both grazers and browsers due to ample rainfall';
       let advisoryB = 'Avoid crossing livestock over flooded rivers as they may be swept. Desilt water pans, dams and strengthen dykes';
@@ -421,9 +451,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,
@@ -441,9 +471,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,
@@ -452,7 +482,7 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
         // 'advisoryD': advisoryD,
         'week': weekNo
       });
-    } else if ( RDPI < -25 && RDPI >= -50) {
+    } else if (RDPI < -25 && RDPI >= -50) {
       let implication = 'MODERATE RAINFAL';
       let advisoryA = 'Due to moderate rainfal: Pasture  as well as water availability conditions are moderate. Take insurance cover for your livestock ';
       let advisoryB = 'Destock through selling off weak animals and keep in-calf and lactacting ones on any conserved hay and water';
@@ -461,9 +491,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,
@@ -472,7 +502,7 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
         // 'advisoryD': advisoryD,
         'week': weekNo
       });
-    } else if (RDPI <-50 && RDPI >= -75) {
+    } else if (RDPI < -50 && RDPI >= -75) {
       let implication = 'POOR RAINFALL';
       let advisoryA = 'Due to poor rainfall: Pasture conditions are poor and limited or unavailable for livestock.  Explore areas with moderate rainfall conditions and prepare for migration';
       let advisoryB = 'Destock through selling off weak animals. Slaughter weak animals to maximise on any available pasture/hay. County government need to deliver hay and water';
@@ -481,9 +511,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,
@@ -492,7 +522,7 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
         // 'advisoryD': advisoryD,
         'week': weekNo
       });
-    } else if (RDPI < -75){
+    } else if (RDPI < -75) {
 
       let implication = 'VERY POOR/FAILED RAINS';
       let advisoryA = 'Due to very poor rainfall: Pasture is very poor and animal may die';
@@ -502,9 +532,9 @@ console.log('DFLTSUL: '+ doc.DFLTSUM + 'LTNSUMP:'+ doc.LTNSUMP +' RDPI: '+RDPI);
 
       pastRainfallCondition.insert({
         'locationId': doc.locationid,
-        'latitude':doc.latitude,
-        'longitude':doc.longitude,
-        'ward':"ward",
+        'latitude': doc.latitude,
+        'longitude': doc.longitude,
+        'ward': "ward",
         'RDPI': RDPI,
         'implication': implication,
         'advisoryA': advisoryA,

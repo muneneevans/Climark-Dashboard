@@ -1,8 +1,8 @@
 import React from "react";
 import { Grid, Image, Divider, Header } from "semantic-ui-react";
 import HumidityChart from "../HumidityChart";
-import moment from "moment";
 import "./style.css";
+import moment from "moment";
 
 const WeatherWidget = ({ graphs, dailyObservations }) => (
   <div className="weatherwidget">
@@ -143,7 +143,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="extraweather">
             <div className="iconweather">
               {" "}
-              <ion-icon name="sunny" size="large"/>
+              <i className="sun icon" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -159,7 +159,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
         <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
-              <ion-icon name="rainy" size="large" />
+              <i className="sun icon" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -176,7 +176,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="extraweather">
             <div className="iconweather">
               {" "}
-              <ion-icon name="swap" size="large" />
+              <i className="sun icon" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">19</span>

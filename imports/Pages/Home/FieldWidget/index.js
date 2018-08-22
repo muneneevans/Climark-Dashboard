@@ -9,11 +9,12 @@ import {
   Button
 } from "semantic-ui-react";
 import * as processTypes from "../../../Store/Shared/processTypes";
-
 import ForecastMap from "../../../ui/ForecastMap";
 import DailyObservations from "../DailyObservations";
 import Forecasts from "../Forecasts";
 import WardMap from "../LocationWidget";
+import LocationWidget from "../LocationWidget";
+
 import "./style.css";
 
 const panes = [
@@ -42,7 +43,7 @@ const panes = [
       return (
         <div>
           {_process === processTypes.SUCCESS && (
-            <Forecasts forecast={wardData.forecasts.data} />
+            <Forecasts Forecasts={wardData.forecasts.data} />
           )}
         </div>
       );
@@ -56,7 +57,7 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs, history, wardData  }) => {
+const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
   return (
     <div className="fieldWidgetContainer">
       <div className="fieldHeaderContainer">
@@ -72,13 +73,12 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData  }) => {
           </Button>
         </Header>
       </div>
-
       <Segment>
         <Grid divided celled="internally">
           <Grid.Row columns={2}>
             <Grid.Column computer={4} tablet={16} mobile={16}>
               {/* <ForecastMap /> */}
-              <WardMap ward={wardData.wardDetails}/>
+              <WardMap ward={wardData.wardDetails} />
             </Grid.Column>
 
             <Grid.Column computer={12} tablet={16} mobile={16}>

@@ -17,7 +17,7 @@ import LocationWidget from "../LocationWidget";
 
 import "./style.css";
 
-const panes = [
+const panes = [ 
   {
     menuItem: "Daily Observations",
     render: ({ graphs, wardData }) => {

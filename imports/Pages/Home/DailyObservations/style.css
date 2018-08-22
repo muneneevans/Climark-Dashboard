@@ -5,7 +5,6 @@
   transform: translate(-50%, -50%);
   padding-top: 50px;
   padding-bottom: 20px;
-  
 }
 
 .temparaturevalue {
@@ -16,23 +15,21 @@
   background: red;
 }
 .temparaturesigns {
-    position: relative;
-    bottom: 25px;
-  }
-  .weektemparaturesign {
-    position: relative;
-    bottom: 5px;
-    font-size: 10pt;
-  }
-
-.tempdisplay{
-    font-weight: lighter;
-    color: #808080;
+  position: relative;
+  bottom: 25px;
+}
+.weektemparaturesign {
+  position: relative;
+  bottom: 5px;
+  font-size: 10pt;
 }
 
+.tempdisplay {
+  font-weight: lighter;
+  color: #808080;
+}
 
-.dailyObservationsSection
-{
+.dailyObservationsSection {
   background: #f2f2f2;
   padding: 40px 15px;
 }
@@ -40,13 +37,17 @@
   padding: 20px 25px;
 }
 .extraweathersign {
-    position: relative;
-    bottom: 5px;
-    font-size: 10pt;
-  }
-  .extraweather {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  position: relative;
+  bottom: 5px;
+  font-size: 10pt;
+}
+.extraweather {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.firstSection {
+  padding: 50px 0px !important;
+}

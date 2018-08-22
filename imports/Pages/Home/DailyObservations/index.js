@@ -7,7 +7,12 @@ import moment from "moment";
 const WeatherWidget = ({ graphs, dailyObservations }) => (
   <div className="weatherwidget">
     <Grid>
-      <Grid.Row classname="firstsection" columns={5}>
+      <Divider section />
+      <Grid.Row className="firstSection " columns={5}>
+        <Divider section />
+        <div className="dailyObservationSectionHeader">
+          <Header as="h2">Temperatures</Header>
+        </div>
         <Grid.Column width={5}>
           <div className="todaysdate">
             <div className="tempdisplays">
@@ -21,7 +26,8 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
               <div className="temparatureadd">
                 <span className="temparatureicon">
                   {" "}
-                  <i className="sun icon" />
+                  {/* <ion-icon name="sunny" size="large"/> */}
+                  <ion-icon name="sunny" size="large"/>
                 </span>
                 <span className="temparaturesign"> Sunny</span>
               </div>
@@ -35,7 +41,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[1].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -54,7 +60,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[2].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -72,7 +78,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[3].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -90,7 +96,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
                 {moment(dailyObservations[4].date).format("dddd ")}
               </div>
               <div className="tempicon">
-                <i className="sun icon" />
+                <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
@@ -111,11 +117,16 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
         <HumidityChart data={graphs.dailyObservations.data} height={400} />
       </Grid.Row>
 
+      <Divider section />
       <Grid.Row>
-        <Grid.Column width={4}>
+        <Divider section />
+        <div className="dailyObservationSectionHeader">
+          <Header as="h2">Summary</Header>
+        </div>
+        <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
-              <i className="sun icon" />
+              <ion-icon name="swap" size="large" />
             </div>
             <div className="extraweatheramount">
               <span className="extraweathervalue">
@@ -128,7 +139,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
             <div className="extraweathercoment">Wind </div>
           </div>
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
               {" "}
@@ -145,7 +156,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
             <div className="extraweathercoment">Solar </div>
           </div>
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
               <i className="sun icon" />
@@ -161,7 +172,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
             <div className="extraweathercoment">Rainfall</div>
           </div>
         </Grid.Column>
-        <Grid.Column width={4}>
+        <Grid.Column width={3}>
           <div className="extraweather">
             <div className="iconweather">
               {" "}

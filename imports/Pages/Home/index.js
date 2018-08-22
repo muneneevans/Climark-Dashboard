@@ -40,7 +40,7 @@ class Home extends Component {
     this.addWardWidgetHandler = this.addWardWidgetHandler.bind(this);
   }
   componentDidMount() {
-    // this.props.login();
+    this.props.login();
     this.props.getFields();
   }
 

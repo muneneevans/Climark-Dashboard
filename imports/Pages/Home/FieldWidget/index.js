@@ -8,25 +8,45 @@ import {
   Tab,
   Button
 } from "semantic-ui-react";
+import * as processTypes from "../../../Store/Shared/processTypes";
+
 import ForecastMap from "../../../ui/ForecastMap";
 import DailyObservations from "../DailyObservations";
-import Forecasts from "../Forecasts"
-import WardMap from "../LocationWidget"
+import Forecasts from "../Forecasts";
+import WardMap from "../LocationWidget";
 import "./style.css";
 
 const panes = [
   {
     menuItem: "Daily Observations",
-    render: ({ graphs, wardData }) => (
-      <DailyObservations
-        graphs={graphs}
-        dailyObservations={wardData.dailyObservations.data}
-      />
-    )
+    render: ({ graphs, wardData }) => {
+      let { _process } = wardData.dailyObservations;
+
+      return (
+        <div>
+          {_process === processTypes.SUCCESS && (
+            <DailyObservations
+              graphs={graphs}
+              dailyObservations={wardData.dailyObservations.data}
+            />
+          )}
+        </div>
+      );
+    }
   },
   {
     menuItem: "Forecasts",
-    render: ({wardData}) => <Forecasts forecast={wardData.forecasts.data}/>
+    render: ({ graphs, wardData }) => {
+      let { _process } = wardData.forecasts;
+
+      return (
+        <div>
+          {_process === processTypes.SUCCESS && (
+            <Forecasts forecast={wardData.forecasts.data} />
+          )}
+        </div>
+      );
+    }
   },
   {
     menuItem: "Current Conditions",
@@ -36,42 +56,44 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => (
-  <div className="fieldWidgetContainer">
-    <div className="fieldHeaderContainer">
-      <Header as="h1">
-        <Icon name="map marker" />
-        <Header.Content>{title}</Header.Content>
-        <Button
-          onClick={() => {
-            history.push(`/ward/${title}`);
-          }}
-        >
-          View More
-        </Button>
-      </Header>
+const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
+  return (
+    <div className="fieldWidgetContainer">
+      <div className="fieldHeaderContainer">
+        <Header as="h1">
+          <Icon name="map marker" />
+          <Header.Content>{title}</Header.Content>
+          <Button
+            onClick={() => {
+              history.push(`/ward/${title}`);
+            }}
+          >
+            View More
+          </Button>
+        </Header>
+      </div>
+
+      <Segment>
+        <Grid divided celled="internally">
+          <Grid.Row columns={2}>
+            <Grid.Column computer={4} tablet={16} mobile={16}>
+              {/* <ForecastMap /> */}
+              <WardMap />
+            </Grid.Column>
+
+            <Grid.Column computer={12} tablet={16} mobile={16}>
+              <Tab
+                menu={{ secondary: true, pointing: true, stackable: true }}
+                panes={panes}
+                graphs={graphs}
+                wardData={wardData}
+              />
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
     </div>
-
-    <Segment>
-      <Grid divided celled="internally">
-        <Grid.Row columns={2} >
-          <Grid.Column computer={4} tablet={16} mobile={16}>
-            {/* <ForecastMap /> */}
-            <WardMap/>
-          </Grid.Column>
-
-          <Grid.Column computer={12} tablet={16} mobile={16}>
-            <Tab
-              menu={{ secondary: true, pointing: true, stackable: true }}
-              panes={panes}
-              graphs={graphs}
-              wardData={wardData}
-            />
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-  </div>
-);
+  );
+};
 
 export default FieldWidget;

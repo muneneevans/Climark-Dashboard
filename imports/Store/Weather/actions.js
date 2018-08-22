@@ -1,4 +1,5 @@
 import * as actionTypes from "./actionTypes";
+import WeatherService from "./services";
 
 const provisionalFields = [
   {
@@ -19175,25 +19176,38 @@ const provisionalForecasts = {
 };
 //#region observations and forecasts
 export const getWardDailyObservations = ward => {
-  return dispatch => {
+  return (dispatch, getState) => {
     dispatch({
       type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_REQUESTED,
       payload: { ward }
     });
 
+    const accessToken = getState().auth.auth.token
     //TODO get observations from awhere API
-
-    //use dummy data
-
-    //update the store
-    dispatch({
-      type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_SUCCEEDED,
-      payload: { ward, dailyObservations: provisionalObservations.observations }
+    return WeatherService.getDailyObservations(
+      ward,
+      getState().auth.auth.token
+    ).then(response => {
+      if (response.status === 200) {
+        response.json().then(dailyObservations => {
+          //update the store
+          return dispatch({
+            type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_SUCCEEDED,
+            payload: { ward, dailyObservations: dailyObservations.observations }
+          });
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_FAILED,
+          payload: { ward }
+        });
+      }
     });
+    //use dummy data
   };
 };
 export const getWardForecasts = ward => {
-  return dispatch => {    
+  return dispatch => {
     dispatch({
       type: actionTypes.FETCH_WARD_FORECASTS_REQUESTED,
       payload: { ward }

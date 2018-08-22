@@ -11,6 +11,13 @@ class Map extends Component {
     }
   };
 
+  componentDidMount(){
+    this.setState({
+      ...this.state,
+      latitude: this.props.ward.latitude,
+      longitude: this.props.ward.longitude
+    })
+  }
   render() {
     let { containerWidth, containerHeight } = this.props;
     return (

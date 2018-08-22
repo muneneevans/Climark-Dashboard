@@ -56,7 +56,7 @@ const panes = [
   }
 ];
 
-const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
+const FieldWidget = ({ title = "Some Place", graphs, history, wardData  }) => {
   return (
     <div className="fieldWidgetContainer">
       <div className="fieldHeaderContainer">
@@ -78,7 +78,7 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
           <Grid.Row columns={2}>
             <Grid.Column computer={4} tablet={16} mobile={16}>
               {/* <ForecastMap /> */}
-              <WardMap />
+              <WardMap ward={wardData.wardDetails}/>
             </Grid.Column>
 
             <Grid.Column computer={12} tablet={16} mobile={16}>

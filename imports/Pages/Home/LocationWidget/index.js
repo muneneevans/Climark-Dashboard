@@ -1,22 +1,18 @@
 import React, { Component } from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
 import Dimensions from "react-dimensions";
 
 class Map extends Component {
   state = {
     viewport: {
-      latitude: 2.341097,
-      longitude: 38.000405,
-      zoom: 14  
+      latitude: this.props.ward.latitude,
+      longitude: this.props.ward.longitude,
+      zoom: 12
     }
   };
 
-  componentDidMount(){
-    this.setState({
-      ...this.state,
-      latitude: this.props.ward.latitude,
-      longitude: this.props.ward.longitude
-    })
+  componentDidMount() {
+  
   }
   render() {
     let { containerWidth, containerHeight } = this.props;
@@ -29,7 +25,16 @@ class Map extends Component {
         }
         {...this.state.viewport}
         onViewportChange={viewport => this.setState({ viewport })}
-      />
+      >
+        <Marker
+          latitude={this.props.ward.latitude}
+          longitude={this.props.ward.longitude}
+          offsetLeft={-20}
+          offsetTop={-10}
+        >
+          <div>You are here</div>
+        </Marker>
+      </ReactMapGL>
     );
   }
 }

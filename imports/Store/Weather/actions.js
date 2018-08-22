@@ -19266,7 +19266,7 @@ export const addWardWidget = ward => {
   return dispatch => {
     dispatch({
       type: actionTypes.ADD_WARD_WIDGET_REQUESTED,
-      payload: ward.WARD_NAME
+      payload: {ward}
     });
 
     dispatch(getWardDailyObservations(ward));

@@ -45,8 +45,8 @@ const weatherReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         _addWardWidgetProcess: { status: processTypes.SUCCESS },
-        wardWidgets: [action.payload, ...state.wardWidgets],
-        wardData: addnewWardToWardData(state.wardData, action.payload)
+        wardWidgets: [action.payload.ward.WARD_NAME, ...state.wardWidgets],
+        wardData: addnewWardToWardData(state.wardData, action.payload.ward)
       };
 
     case actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_REQUESTED:
@@ -106,7 +106,8 @@ const weatherReducer = (state = initialState, action = {}) => {
 };
 
 const addnewWardToWardData = (wardData, newWard) => {
-  wardData[newWard] = {
+  wardData[newWard.WARD_NAME] = {
+    wardDetails: newWard,
     dailyObservations: {
       _process: {
         status: processTypes.IDLE

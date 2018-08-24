@@ -7,26 +7,18 @@ import moment from "moment";
 const WeatherWidget = ({ graphs, dailyObservations }) => (
   <div className="weatherwidget">
     <Grid>
-      <Divider section />
-      <Grid.Row className="firstSection " columns={5}>
-        <Divider section />
-        <div className="dailyObservationSectionHeader">
-          <Header as="h2">Temperatures</Header>
-        </div>
+        <Grid.Row className="firstSection " columns={5}>
         <Grid.Column width={5}>
           <div className="todaysdate">
             <div className="tempdisplays">
               <div className="temparature">
                 <span className="temparaturevalue">
-                  {" "}
                   {Math.ceil(dailyObservations[0].temperatures.max)}
                 </span>
                 <span className="temparaturesigns"> &#x2103;</span>
               </div>
               <div className="temparatureadd">
                 <span className="temparatureicon">
-                  {" "}
-                  {/* <ion-icon name="sunny" size="large"/> */}
                   <ion-icon name="sunny" size="large"/>
                 </span>
                 <span className="temparaturesign"> Sunny</span>
@@ -38,7 +30,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="restofweek">
             <div className="tempdisplay">
               <div className="dayofweek">
-                {moment(dailyObservations[1].date).format("dddd ")}
+                {moment(dailyObservations[6].date).format("dddd ")}
               </div>
               <div className="tempicon">
                 <ion-icon name="sunny" size="large"/>
@@ -46,7 +38,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
               <div className="temparature">
                 <span className="weektemparaturevalue">
                   {" "}
-                  {Math.ceil(dailyObservations[1].temperatures.max)}
+                  {Math.ceil(dailyObservations[6].temperatures.max)}
                 </span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
@@ -57,14 +49,32 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <div className="restofweek">
             <div className="tempdisplay">
               <div className="dayofweek">
-                {moment(dailyObservations[2].date).format("dddd ")}
+                {moment(dailyObservations[5].date).format("dddd ")}
               </div>
               <div className="tempicon">
                 <ion-icon name="sunny" size="large"/>
               </div>
               <div className="temparature">
                 <span className="weektemparaturevalue">
-                  {Math.ceil(dailyObservations[1].temperatures.max)}
+                  {Math.ceil(dailyObservations[5].temperatures.max)}
+                </span>
+                <span className="weektemparaturesign"> &#x2103;</span>
+              </div>
+            </div>
+          </div>
+        </Grid.Column>
+        <Grid.Column width={2}>
+          <div className="restofweek">
+            <div className="tempdisplay">
+              <div className="dayofweek">
+                {moment(dailyObservations[4].date).format("dddd ")}
+              </div>
+              <div className="tempicon">
+                <ion-icon name="sunny" size="large"/>
+              </div>
+              <div className="temparature">
+                <span className="weektemparaturevalue">
+                  {Math.ceil(dailyObservations[4].temperatures.max)}
                 </span>
                 <span className="weektemparaturesign"> &#x2103;</span>
               </div>
@@ -89,26 +99,8 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
             </div>
           </div>
         </Grid.Column>
-        <Grid.Column width={2}>
-          <div className="restofweek">
-            <div className="tempdisplay">
-              <div className="dayofweek">
-                {moment(dailyObservations[4].date).format("dddd ")}
-              </div>
-              <div className="tempicon">
-                <ion-icon name="sunny" size="large"/>
-              </div>
-              <div className="temparature">
-                <span className="weektemparaturevalue">
-                  {Math.ceil(dailyObservations[3].temperatures.max)}
-                </span>
-                <span className="weektemparaturesign"> &#x2103;</span>
-              </div>
-            </div>
-          </div>
-        </Grid.Column>
       </Grid.Row>
-
+      <Divider section />
       <Grid.Row stretched className="dailyObservationsSection container">
         <Divider section />
         <div className="dailyObservationSectionHeader">
@@ -118,7 +110,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
       </Grid.Row>
 
       <Divider section />
-      <Grid.Row>
+      <Grid.Row className="sectionThree">
         <Divider section />
         <div className="dailyObservationSectionHeader">
           <Header as="h2">Summary</Header>

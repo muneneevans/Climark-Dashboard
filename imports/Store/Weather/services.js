@@ -43,4 +43,24 @@ export default class WeatherServcice {
       })
       .catch(error => error);
   }
+
+  static getNorms(ward, accessToken){
+    const url = HOST.concat(
+      `/v2/weather/locations/${ward.latitude},${ward.longitude}/norms/07-08,07-10?properties=temperatures,precipitation"`
+    );
+    const request = {
+      method: "GET",
+      mode: "cors",
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    };
+
+    return fetch(url, request)
+      .then(response => {
+        return response;
+      })
+      .catch(error => error);
+  }
+  
 }

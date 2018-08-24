@@ -264,6 +264,37 @@ export const getWardForecasts = ward => {
    
   };
 };
+export const getNorms = ward => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: actionTypes.FETCH_WARD_NORMS_REQUESTED,
+      payload: { ward }
+    });
+
+    const accessToken = getState().auth.auth.token;
+    //TODO get observations from awhere API
+    return WeatherService.getNorms(ward, getState().auth.auth.token).then(
+      response => {
+        if (response.status === 200) {
+          response.json().then(norms => {
+            //update the store
+
+            return dispatch({
+              type: actionTypes.FETCH_WARD_NORMS_SUCCEEDED,
+              payload: { ward, norms: norms.norms }
+            });
+          });
+        } else {
+          dispatch({
+            type: actionTypes.FETCH_WARD_NORMS_FAILED,
+            payload: { ward }
+          });
+        }
+      }
+    );
+   
+  };
+};
 
 //#endregion
 
@@ -311,6 +342,7 @@ export const addWardWidget = ward => {
 
     dispatch(getWardDailyObservations(ward));
     dispatch(getWardForecasts(ward));
+    dispatch(getNorms(ward));
   };
 };
 

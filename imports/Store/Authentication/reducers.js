@@ -32,7 +32,21 @@ export const authReducer = (state = initialState, action = {}) => {
     case actionTypes.LOG_IN_FAILED:
       return {
         ...state,
+        auth: {
+          isUserAuthenticated: false,
+          token: {}
+        },
         _loginProcess: { status: processTypes.ERROR }
+      };
+
+    case actionTypes.LOG_IN_SUCCEEDED:
+      return {
+        ...state,
+        auth: {
+          isUserAuthenticated: true,
+          token: action.payload.token
+        },
+        _loginProcess: { status: processTypes.SUCCESS }
       };
 
     case actionTypes.LOG_IN_INVALID:

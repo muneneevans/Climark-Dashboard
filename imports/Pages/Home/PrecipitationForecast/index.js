@@ -17,7 +17,7 @@ import {
   const dayForcacst = (day,format='hh a') => {
     return day.forecast.map(hour => {
       return {
-        ...hour.temperatures,
+        ...hour.precipitation,
         date: moment(hour.startTime).format(format)     
       };
     });
@@ -36,7 +36,7 @@ import {
   };
 
 
-const TemperatureForecast = ({ containerWidth, Forecasts, height=250 }) => {
+const PrecipitationForecast = ({ containerWidth, Forecasts, height=250 }) => {
   return(
 <div>
 
@@ -47,8 +47,8 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height=250 }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="max" stroke="#e67e22" />
-      <Line type="monotone" dataKey="min" stroke="#3498db" activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="chance" stroke="#e67e22" />
+      <Line type="monotone" dataKey="amount" stroke="#3498db" activeDot={{ r: 8 }} />
       <Line type="monotone" dataKey="value" stroke="#3498db" activeDot={{ r: 8 }} />
       </LineChart>
     </div>
@@ -60,8 +60,8 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height=250 }) => {
         <CartesianGrid strokeDasharray="3 3" />
         <Tooltip />
         <Legend />
-        <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} />
-      <Line type="monotone" dataKey="min" stroke="#3498db" activeDot={{ r: 1 }} dot={false}/>
+        <Line type="monotone" dataKey="chance" stroke="#e67e22" dot={false} />
+      <Line type="monotone" dataKey="amount" stroke="#3498db" activeDot={{ r: 1 }} dot={false}/>
       <Line type="monotone" dataKey="value" stroke="#3d3d3d" activeDot={{ r: 1 }} dot={false} />
       </LineChart>
     </div>
@@ -70,4 +70,4 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height=250 }) => {
     ) 
 };
 
-export default dimensions()(TemperatureForecast);
+export default dimensions()(PrecipitationForecast);

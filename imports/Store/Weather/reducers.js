@@ -45,8 +45,8 @@ const weatherReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         _addWardWidgetProcess: { status: processTypes.SUCCESS },
-        wardWidgets: [action.payload, ...state.wardWidgets],
-        wardData: addnewWardToWardData(state.wardData, action.payload)
+        wardWidgets: [action.payload.ward.WARD_NAME, ...state.wardWidgets],
+        wardData: addnewWardToWardData(state.wardData, action.payload.ward)
       };
 
     case actionTypes.FETCH_WARD_DAILY_OBSERVATIONS_REQUESTED:
@@ -100,13 +100,40 @@ const weatherReducer = (state = initialState, action = {}) => {
           }
         )
       };
+      case actionTypes.FETCH_WARD_NORMS_REQUESTED:
+      return {
+        ...state,
+        wardData: updateWardNorms(
+          state.wardData,
+          action.payload.ward.WARD_NAME,
+          {
+            _process: processTypes.PROCESSING,
+            data: []
+          }
+        )
+      };
+
+    case actionTypes.FETCH_WARD_NORMS_SUCCEEDED:
+      console.log(action);
+      return {
+        ...state,
+        wardData: updateWardNorms(
+          state.wardData,
+          action.payload.ward.WARD_NAME,
+          {
+            _process: processTypes.SUCCESS,
+            data: action.payload.norms
+          }
+        )
+      };
     default:
       return state;
   }
 };
 
 const addnewWardToWardData = (wardData, newWard) => {
-  wardData[newWard] = {
+  wardData[newWard.WARD_NAME] = {
+    wardDetails: newWard,
     dailyObservations: {
       _process: {
         status: processTypes.IDLE
@@ -114,6 +141,12 @@ const addnewWardToWardData = (wardData, newWard) => {
       data: []
     },
     forecasts: {
+      _process: {
+        status: processTypes.IDLE
+      },
+      data: []
+    },
+    norms: {
       _process: {
         status: processTypes.IDLE
       },
@@ -132,6 +165,12 @@ const updateWardDailyObservations = (wardData, ward, newWardData) => {
 const updateWardForecasts = (wardData, ward, newWardData) => {
   console.log(wardData);
   wardData[ward].forecasts = newWardData;
+  return wardData;
+};
+
+const updateWardNorms = (wardData, ward, newWardData) => {
+  console.log(wardData);
+  wardData[ward].norms = newWardData;
   return wardData;
 };
 

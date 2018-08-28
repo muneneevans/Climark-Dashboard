@@ -4,6 +4,7 @@ import TemperatureForecast from "../TemperatureForecast";
 import PrecipitationForecast from "../PrecipitationForecast";
 import WindForecast from "../WindForecast";
 import HumidityForecast from "../HumidityForecast";
+import ZeroWidget from "../ZeroWidget";
 
 const panes = [
   {
@@ -24,12 +25,12 @@ const panes = [
   },
   {
     menuItem: "Solar",
-    render: () => <Tab.Pane attached={false}>Solar</Tab.Pane>
+    render: ({ Norms }) => <ZeroWidget Norms={Norms} />
   }
 ];
 
-const Forecasts = ({ Forecasts }) => (
-  <Tab menu={{ pointing: true }} panes={panes} Forecasts={Forecasts} />
+const Forecasts = ({ Forecasts, Norms }) => (
+  <Tab menu={{ pointing: true }} panes={panes} Forecasts={Forecasts} Norms={Norms}/>
 );
 
 export default Forecasts;

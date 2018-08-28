@@ -46,7 +46,7 @@ export default class WeatherServcice {
 
   static getNorms(ward, accessToken){
     const url = HOST.concat(
-      `/v2/weather/locations/${ward.latitude},${ward.longitude}/norms/07-08,07-10?properties=temperatures,precipitation"`
+      `/v2/weather/locations/${ward.latitude},${ward.longitude}/norms/08-25,08-31?properties=precipitation,temperature"`
     );
     const request = {
       method: "GET",

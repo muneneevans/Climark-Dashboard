@@ -49,7 +49,7 @@ class FieldSelectionWidget extends Component {
             <Grid.Row columns={3}>
               <Grid.Column computer={1} mobile={16} />
               <Grid.Column computer={6} mobile={16}>
-                <Header as="h1">Add a field</Header>
+                <Header as="h1">Select a location </Header>
                 <Header as="h4">
                   Select an area of your choice to view a weather summary at
                   that location. You can further view each field by selecting

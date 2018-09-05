@@ -3,6 +3,7 @@ import { Grid, Image, Divider, Header } from "semantic-ui-react";
 import HumidityChart from "../HumidityChart";
 import "./style.css";
 import moment from "moment";
+import HistoricalMap from "../../../ui/HistoricalMap";
 
 const WeatherWidget = ({ graphs, dailyObservations }) => (
   <div className="weatherwidget">
@@ -107,6 +108,13 @@ const WeatherWidget = ({ graphs, dailyObservations }) => (
           <Header as="h2">Humidity</Header>
         </div>
         <HumidityChart data={graphs.dailyObservations.data} height={400} />
+      </Grid.Row>
+      <Grid.Row stretched className="dailyObservationsSection container">
+        <Divider section />
+        <div className="dailyObservationSectionHeader">
+          {/* <Header as="h2">Humidity</Header> */}
+        </div>
+        <HistoricalMap/>
       </Grid.Row>
 
       <Divider section />

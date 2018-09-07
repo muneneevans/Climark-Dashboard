@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TitleBar from './TitleBar';
-import {AdvisoryRD} from './../api/advisoryRD';
+// import {AdvisoryRD} from './../api/advisoryRD';
 import {LastSevenDaysRD} from './../api/lastSevenDaysRD'
 import {Tracker} from 'meteor/tracker';
 

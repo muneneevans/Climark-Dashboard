@@ -1,12 +1,14 @@
 import {Mongo} from 'meteor/mongo';
 import {Meteor} from 'meteor/meteor';
 import currentWeekNumber from 'current-week-number';
-export const AdvisoryMA=new Mongo.Collection('advisoryMA');
+export const pastRainfallCondition=new Mongo.Collection('pastRainfallCondition');
+
+//Publishing a method
 
 if(Meteor.isServer){
-  Meteor.publish('advisoryMA',()=>{
+  Meteor.publish('pastRainfallCondition',()=>{
     let weekNo = currentWeekNumber();
-    return AdvisoryMA.find({$and:[{
+    return pastRainfallCondition.find({$and:[{
       $or: [
         {
           locationId: "10275441"

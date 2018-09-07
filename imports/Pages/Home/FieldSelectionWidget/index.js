@@ -11,6 +11,9 @@ import {
 
 import "./style.css";
 
+import {AdvisoryDroughtIndex} from './../../../api/advisorydraughtIndex';
+// import {LastSevenDaysDI} from './../../../api/lastSevenDaysDI';
+
 class FieldSelectionWidget extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +25,18 @@ class FieldSelectionWidget extends Component {
     this.handleWardChange = this.handleWardChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+
+  //mounting components
+  componentDidMount() {
+    console.log('Component mounted: Field Selection Widget');
+    this.droughtIndexTracker = Tracker.autorun(() => {
+      Meteor.subscribe('advisoryDroughtIndex');
+      // Meteor.subscribe('lastsevendaysdi');
+
+    })
+  }
+  //
   handleCountyChange = (event, data) => {
     this.props.countyChanged(
       data.options.find(option => option.value === data.value).county
@@ -29,7 +44,7 @@ class FieldSelectionWidget extends Component {
   };
 
   handleWardChange = (event, data) => {
-    
+
     this.setState({
       ...this.state,
       ward: data.options.find(option => option.value === data.value).ward

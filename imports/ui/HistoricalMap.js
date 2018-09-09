@@ -13,12 +13,12 @@ export default class HistoricalMap extends React.Component {
           </div>
 
         </div>
-        <div className='item__sub'>
+        {/* <div className='item__sub'>
           <div className='item__line'>
             <h1 className='item__title'>Moisture Availability Index</h1>
             <Iframe url="https://amfratechdiag403.blob.core.windows.net/maps/july_last_30_days_ma/index.html" height="450px" id="myId" className="item__line" display="initial" position="relative" allowFullScreen="allowFullScreen"/>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>);
   }

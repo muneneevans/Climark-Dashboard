@@ -43,7 +43,7 @@ const panes = [
       return (
         <div>
           {_process === processTypes.SUCCESS && (
-            <Forecasts Forecasts={wardData.forecasts.data} />
+            <Forecasts Forecasts={wardData.forecasts.data} Norms={wardData.norms.data}/>
           )}
         </div>
       );
@@ -77,7 +77,7 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
         <Grid divided celled="internally">
           <Grid.Row columns={2}>
             <Grid.Column computer={4} tablet={16} mobile={16}>
-              {/* <ForecastMap /> */}
+              {/* <ForecastMap/> */}
               <WardMap ward={wardData.wardDetails} />
             </Grid.Column>
 

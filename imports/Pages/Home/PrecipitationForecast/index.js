@@ -2,6 +2,8 @@ import React from "react";
 import { Grid, Image, Divider, Header } from "semantic-ui-react";
 import "./style.css";
 import moment from "moment";
+import HistoricalMap from "../../../ui/ForecastMap";
+
 import {
     LineChart,
     Line,
@@ -12,6 +14,7 @@ import {
     Legend
   } from "recharts";
   import dimensions from "react-dimensions";
+import ForecastMap from "../../../ui/ForecastMap";
   
 
   const dayForcacst = (day,format='hh a') => {
@@ -36,7 +39,7 @@ import {
   };
 
 
-const PrecipitationForecast = ({ containerWidth, Forecasts, height=250 }) => {
+const PrecipitationForecast = ({ containerWidth, Forecasts, Norms, height=250 }) => {
   return(
 <div>
 
@@ -64,6 +67,13 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height=250 }) => {
       <Line type="monotone" dataKey="amount" stroke="#3498db" activeDot={{ r: 1 }} dot={false}/>
       <Line type="monotone" dataKey="value" stroke="#3d3d3d" activeDot={{ r: 1 }} dot={false} />
       </LineChart>
+    </div>
+
+    <div>
+        <ForecastMap/>
+    </div>
+    <div>
+      <div> {Norms}</div>
     </div>
 
 </div>

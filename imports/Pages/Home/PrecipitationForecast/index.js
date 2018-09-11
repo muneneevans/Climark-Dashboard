@@ -70,7 +70,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, Norms, height=250 })
     </div>
 
     <div>
-        <ForecastMap />
+        <ForecastMap/>
     </div>
     <div>
       <div> {Norms}</div>

@@ -1,6 +1,6 @@
 import {Mongo} from 'meteor/mongo';
 import {Meteor} from 'meteor/meteor';
-export const AdvisoryDroughtIndex = new Mongo.Collection('advisoryDraughtIndex');
+export const AdvisoryDroughtIndex = new Mongo.Collection('advisoryDroughtIndex');
 import currentWeekNumber from 'current-week-number';
 
 //Publishing a method

@@ -11,7 +11,7 @@ import {
 
 import "./style.css";
 
-import {AdvisoryDroughtIndex} from './../../../api/advisorydraughtIndex';
+import {AdvisoryDroughtIndex} from './../../../api/advisorydroughtIndex';
 // import {LastSevenDaysDI} from './../../../api/lastSevenDaysDI';
 
 class FieldSelectionWidget extends Component {

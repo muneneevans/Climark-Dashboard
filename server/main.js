@@ -6,11 +6,12 @@ import Papa from 'papaparse';
 import fs from 'fs';
 import {NextSevenDays} from './../imports/api/nextsevendays';
 import {AdvisoryMA} from './../imports/api/advisoryMA';
-import {AdvisoryDroughtIndex} from './../imports/api/advisorydraughtIndex';
+import {AdvisoryDroughtIndex} from './../imports/api/advisorydroughtIndex';
 import {pastMoistureCondition} from './../imports/api/pastMoistureCondition';
 import {pastRainfallCondition} from './../imports/api/pastRainfallCondition';
 import currentWeekNumber from 'current-week-number';
 import querystring from 'querystring';
+import getRemoteContent from 'remote-content';
 
 //
 import {Restivus} from 'meteor/nimble:restivus';
@@ -58,6 +59,10 @@ Meteor.startup(() => {
   });
   //API End
   console.log('Papa parse imported');
+  //import files
+  getRemoteContent('/home/catzer/Development/scripts',function(err,contents){
+    console.log(contents);
+  });
   //load ftp data
   let nextSevenDayForecast = Assets.getText('180715_next7.csv');
   let lastSevenDayData = Assets.getText('180715_past30.csv');

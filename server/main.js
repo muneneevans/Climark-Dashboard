@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import {HTTP} from 'meteor/http';
 import Papa from 'papaparse';
 import fs from 'fs';
-import {NextSevenDays} from './../imports/api/nextsevendays';
 import {AdvisoryMA} from './../imports/api/advisoryMA';
 import {AdvisoryDroughtIndex} from './../imports/api/advisorydraughtIndex';
 import {pastMoistureCondition} from './../imports/api/pastMoistureCondition';
@@ -90,9 +89,9 @@ Meteor.startup(() => {
   let dataNextSevenDays = resultsNextSevenDaysForecast.data;
   let dataLastThirtyDays = resultsLastThirtyDaysData.data;
   console.log(resultsLastThirtyDaysData.data[0]);
-  dataNextSevenDays.forEach(function(doc) {
-    NextSevenDays.insert(doc);
-  });
+  // dataNextSevenDays.forEach(function(doc) {
+  //   NextSevenDays.insert(doc);
+  // });
 
   //moisture Availability Forecast classification and loading into database
   dataNextSevenDays.forEach(function(doc) {

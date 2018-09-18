@@ -73,12 +73,13 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
             View More
           </Button>
         </Header>
-        <div className="Advisory">
-        <Advisories wardData={wardData}/>
-        </div>
+        
       </div>
       <Segment>
         <Grid divided celled="internally">
+          <Grid.Row className="advisory">
+          <Advisories wardData={wardData}/>
+          </Grid.Row>
           <Grid.Row columns={2}>
             <Grid.Column computer={4} tablet={16} mobile={16}>
               {/* <ForecastMap/> */}

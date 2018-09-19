@@ -17,7 +17,7 @@ import LocationWidget from "../LocationWidget";
 
 import "./style.css";
 
-const panes = [ 
+const panes = [
   {
     menuItem: "Daily Observations",
     render: ({ graphs, wardData }) => {
@@ -49,12 +49,12 @@ const panes = [
       );
     }
   },
-  {
-    menuItem: "Current Conditions",
-    render: () => (
-      <Image src="https://im2.ezgif.com/tmp/ezgif-2-7543dffd0d.gif" />
-    )
-  }
+  // {
+  //   menuItem: "Current Conditions",
+  //   render: () => (
+  //     <Image src="https://im2.ezgif.com/tmp/ezgif-2-7543dffd0d.gif" />
+  //   )
+  // }
 ];
 
 const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
@@ -75,11 +75,11 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
       </div>
       <Segment>
         <Grid divided celled="internally">
-          <Grid.Row columns={2}>
-            <Grid.Column computer={4} tablet={16} mobile={16}>
+          <Grid.Row columns={1}>
+            {/* <Grid.Column computer={4} tablet={16} mobile={16}> */}
               {/* <ForecastMap/> */}
-              <WardMap ward={wardData.wardDetails} />
-            </Grid.Column>
+              {/* <WardMap ward={wardData.wardDetails} /> */}
+            {/* </Grid.Column> */}
 
             <Grid.Column computer={12} tablet={16} mobile={16}>
               <Tab

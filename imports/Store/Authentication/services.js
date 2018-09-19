@@ -2,7 +2,7 @@ import { HOST } from "../Shared/defaults";
 
 export default class AuthService {
   static login(apiCredentials) {
-    const url = "http://127.0.0.1:8000/api/auth/awheretoken/";
+    const url = "http://40.89.150.188:8000/api/auth/awheretoken/";
     const request = {
       method: "GET",
       headers: {

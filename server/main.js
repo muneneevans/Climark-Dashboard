@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import {HTTP} from 'meteor/http';
 import Papa from 'papaparse';
 import fs from 'fs';
-import {NextSevenDays} from './../imports/api/nextsevendays';
 import {AdvisoryMA} from './../imports/api/advisoryMA';
 import {AdvisoryDroughtIndex} from './../imports/api/advisorydroughtIndex';
 import {pastMoistureCondition} from './../imports/api/pastMoistureCondition';
@@ -79,36 +78,21 @@ Meteor.startup(() => {
     let lastSevenDayData = Assets.getText('180916_past30.csv');
     let lastThirtyDaysData = Assets.getText('180916_past30.csv');
 
-    //parse the data for the next 7 days
-    let resultsNextSevenDaysForecast = Papa.parse(nextSevenDayForecast, {
-      // download: true,
-      delimiter: ",",
-      header: true,
-      preview: 3000,
-      complete: function(resultsNextSevenDaysForecast) {
-        //console.log(resultsNextSevenDaysForecast);
-      }
-    });
-    //parse the last 30 days data
-    let resultsLastThirtyDaysData = Papa.parse(lastThirtyDaysData, {
-      // download: true,
-      delimiter: ",",
-      header: true,
-      preview: 3000,
-      complete: function(resultsLastThirtyDaysData) {
-        //console.log(resultsNextSevenDaysForecast);
-      }
-    });
-    //Get the week number
-    let weekNo = currentWeekNumber();
+  //insert into the database
+  let dataNextSevenDays = resultsNextSevenDaysForecast.data;
+  let dataLastThirtyDays = resultsLastThirtyDaysData.data;
+  console.log(resultsLastThirtyDaysData.data[0]);
+  // dataNextSevenDays.forEach(function(doc) {
+  //   NextSevenDays.insert(doc);
+  // });
 
-    //insert into the database
-    let dataNextSevenDays = resultsNextSevenDaysForecast.data;
-    let dataLastThirtyDays = resultsLastThirtyDaysData.data;
-    console.log(resultsLastThirtyDaysData.data[0]);
-    dataNextSevenDays.forEach(function(doc) {
-      NextSevenDays.insert(doc);
-    });
+    // //insert into the database
+    // let dataNextSevenDays = resultsNextSevenDaysForecast.data;
+    // let dataLastThirtyDays = resultsLastThirtyDaysData.data;
+    // console.log(resultsLastThirtyDaysData.data[0]);
+    // dataNextSevenDays.forEach(function(doc) {
+    //   NextSevenDays.insert(doc);
+    // });
 
     //moisture Availability Forecast classification and loading into database
     dataNextSevenDays.forEach(function(doc) {

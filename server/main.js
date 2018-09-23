@@ -61,22 +61,46 @@ Meteor.startup(() => {
   //API End
   console.log('Papa parse imported');
   //import files
-  let client = require('ssh2-sftp-client');
-  let sftp = new client();
-  sftp.connect({host: '40.89.131.23', port: '22', username: 'climark', password: 'Climark@1234'}).then(() => {
-    return sftp.list('/home/climark/data/output');
-  }).then((data) => {
-    // console.log(data, 'the data info');
-    sftp.fastGet('/home/climark/data/output/180911_next7.csv','/home/catzer/ocs/weather/private/file.csv')
-  }).catch((err) => {
-    console.log(err, 'catch error');
-  });
+  // let client = require('ssh2-sftp-client');
+  // let sftp = new client();
+  // sftp.connect({host: '40.89.131.23', port: '22', username: 'climark', password: 'Climark@1234'}).then(() => {
+  //   return sftp.list('/home/climark/data/output');
+  // }).then((data) => {
+  //   // console.log(data, 'the data info');
+  //   sftp.fastGet('/home/climark/data/output/180911_next7.csv','/home/catzer/ocs/weather/private/file.csv')
+  // }).catch((err) => {
+  //   console.log(err, 'catch error');
+  // });
   //load ftp data
-  let j = schedule.scheduleJob('0 55 20 * * *', Meteor.bindEnvironment(() => {
+  let j = schedule.scheduleJob('0 18 02 * * *', Meteor.bindEnvironment(() => {
 
     let nextSevenDayForecast = Assets.getText('180916_next7.csv');
     let lastSevenDayData = Assets.getText('180916_past30.csv');
     let lastThirtyDaysData = Assets.getText('180916_past30.csv');
+
+    //parse the data for the next 7 days
+    let resultsNextSevenDaysForecast = Papa.parse(nextSevenDayForecast, {
+      // download: true,
+      delimiter: ",",
+      header: true,
+      preview: 3000,
+      complete: function(resultsNextSevenDaysForecast) {
+        //console.log(resultsNextSevenDaysForecast);
+      }
+    });
+    //parse the last 30 days data
+    let resultsLastThirtyDaysData = Papa.parse(lastThirtyDaysData, {
+      // download: true,
+      delimiter: ",",
+      header: true,
+      preview: 3000,
+      complete: function(resultsLastThirtyDaysData) {
+        //console.log(resultsNextSevenDaysForecast);
+      }
+    });
+
+    //Get the week number
+    let weekNo = currentWeekNumber();
 
   //insert into the database
   let dataNextSevenDays = resultsNextSevenDaysForecast.data;

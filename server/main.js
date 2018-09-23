@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import {HTTP} from 'meteor/http';
 import Papa from 'papaparse';
 import fs from 'fs';
-import {NextSevenDays} from './../imports/api/nextsevendays';
 import {AdvisoryMA} from './../imports/api/advisoryMA';
 import {AdvisoryDroughtIndex} from './../imports/api/advisorydroughtIndex';
 import {pastMoistureCondition} from './../imports/api/pastMoistureCondition';
@@ -73,7 +72,7 @@ Meteor.startup(() => {
   //   console.log(err, 'catch error');
   // });
   //load ftp data
-  let j = schedule.scheduleJob('0 55 20 * * *', Meteor.bindEnvironment(() => {
+  let j = schedule.scheduleJob('0 18 02 * * *', Meteor.bindEnvironment(() => {
 
     let nextSevenDayForecast = Assets.getText('180916_next7.csv');
     let lastSevenDayData = Assets.getText('180916_past30.csv');
@@ -99,16 +98,25 @@ Meteor.startup(() => {
         //console.log(resultsNextSevenDaysForecast);
       }
     });
+
     //Get the week number
     let weekNo = currentWeekNumber();
 
-    //insert into the database
-    let dataNextSevenDays = resultsNextSevenDaysForecast.data;
-    let dataLastThirtyDays = resultsLastThirtyDaysData.data;
-    console.log(resultsLastThirtyDaysData.data[0]);
-    dataNextSevenDays.forEach(function(doc) {
-      NextSevenDays.insert(doc);
-    });
+  //insert into the database
+  let dataNextSevenDays = resultsNextSevenDaysForecast.data;
+  let dataLastThirtyDays = resultsLastThirtyDaysData.data;
+  console.log(resultsLastThirtyDaysData.data[0]);
+  // dataNextSevenDays.forEach(function(doc) {
+  //   NextSevenDays.insert(doc);
+  // });
+
+    // //insert into the database
+    // let dataNextSevenDays = resultsNextSevenDaysForecast.data;
+    // let dataLastThirtyDays = resultsLastThirtyDaysData.data;
+    // console.log(resultsLastThirtyDaysData.data[0]);
+    // dataNextSevenDays.forEach(function(doc) {
+    //   NextSevenDays.insert(doc);
+    // });
 
     //moisture Availability Forecast classification and loading into database
     dataNextSevenDays.forEach(function(doc) {

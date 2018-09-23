@@ -14,6 +14,7 @@ import DailyObservations from "../DailyObservations";
 import Forecasts from "../Forecasts";
 import WardMap from "../LocationWidget";
 import LocationWidget from "../LocationWidget";
+import Advisories from "../Advisories"
 
 import "./style.css";
 
@@ -72,14 +73,18 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
             View More
           </Button>
         </Header>
+
       </div>
       <Segment>
         <Grid divided celled="internally">
+          <Grid.Row className="advisory">
+        <Advisories wardData={wardData}/>
+        </Grid.Row>
           <Grid.Row columns={1}>
-            {/* <Grid.Column computer={4} tablet={16} mobile={16}> */}
+            <Grid.Column computer={4} tablet={16} mobile={16}>
               {/* <ForecastMap/> */}
-              {/* <WardMap ward={wardData.wardDetails} /> */}
-            {/* </Grid.Column> */}
+              <WardMap ward={wardData.wardDetails} />
+            </Grid.Column>
 
             <Grid.Column computer={12} tablet={16} mobile={16}>
               <Tab

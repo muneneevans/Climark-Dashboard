@@ -22,20 +22,30 @@ const dayForcacst = (day, format = "hh a") => {
   });
 };
 
+const round = (number, decimal) => {
+  return +(Math.round(number + `e+${decimal}`) + `e-${decimal}`);
+};
+
 const dayAverage = (day, format = "hh a") => {
   return {
-    max:
+    max: round(
       day.forecast.reduce((total, hour, counter) => {
         return total + hour.temperatures.max;
       }, 0) / day.forecast.length,
-    min:
-      day.forecast.reduce((total, hour, counter) => {
-        return total + hour.temperatures.min;
-      }, 0) / day.forecast.length,
-    value:
+      2
+    ),
+    value: round(
       day.forecast.reduce((total, hour, counter) => {
         return total + hour.temperatures.value;
       }, 0) / day.forecast.length,
+      2
+    ),
+    min: round(
+      day.forecast.reduce((total, hour, counter) => {
+        return total + hour.temperatures.min;
+      }, 0) / day.forecast.length,
+      2
+    ),
     units: day.forecast[0].units,
     date: moment(day.date).format(format)
   };
@@ -51,21 +61,14 @@ const flattenAllDays = forecasts => {
   return forecasts.map(day => {
     return dayAverage(day, "dddd");
   });
-  // .reduce((accumulator, current) => {
-  //   return [...accumulator, ...current];
-  // }, []);
-
-  // return flatten(forecasts, "dddd Do").reduce((accumulator, current) => {
-  //   return [...accumulator, ...current];
-  // }, []);
 };
-
-const averageAllDays = forecasts => {};
 
 const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
+      <Divider section hidden />
       <div>
+        <Header as="h3">Hourly Temperature forecasts</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -73,27 +76,30 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis />
+          <YAxis label="celsius" />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="max" stroke="#e67e22" />
           <Line
             type="monotone"
-            dataKey="min"
-            stroke="#3498db"
+            dataKey="value"
+            stroke="#4CAF50"
             activeDot={{ r: 8 }}
           />
           <Line
             type="monotone"
-            dataKey="value"
+            dataKey="min"
             stroke="#3498db"
             activeDot={{ r: 8 }}
           />
         </LineChart>
       </div>
 
+      <Divider section />
+      <Divider section hidden/>
       <div>
+        <Header as="h3">Average Temperature forecasts for the week</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -101,23 +107,26 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          {/* <YAxis domain={["dataMin", "dataMax"]}  /> */}
-          <YAxis domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]} />
+          <YAxis
+            scale={"linear"}
+            domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
+            label="celsius"
+          />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} />
           <Line
             type="monotone"
-            dataKey="min"
-            stroke="#3498db"
+            dataKey="value"
+            stroke="#3d3d3d"
             activeDot={{ r: 1 }}
             dot={false}
           />
           <Line
             type="monotone"
-            dataKey="value"
-            stroke="#3d3d3d"
+            dataKey="min"
+            stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
           />

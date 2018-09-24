@@ -49,7 +49,8 @@ export default class Advisory extends React.Component {
         })
         .fetch();
 
-
+        this.setState({ droughtIndex: droughtIndex[0], pastMoisture: pastMoisture[0], pastRainfall: pastRainfall[0] });
+       
       console.log("MoistureAvailability");
       console.log(moistureAvailability);
       console.log("past moisture condition");
@@ -60,6 +61,9 @@ export default class Advisory extends React.Component {
       console.log(droughtIndex);
       console.log("past Rainfall condition");
       console.log(pastRainfall);
+      console.log(this.state.droughtIndex.advisoryA)
+      console.log(this.state.pastRainfall.advisoryA)
+      console.log(this.state.pastMoisture.advisoryA)
     });
   }
 
@@ -79,7 +83,7 @@ export default class Advisory extends React.Component {
             <Grid.Column>
               <div className="AdvisoryHeader"> Drought Advisory Index</div>
               <Container>
-                <div className="ui bulleted list">
+                {/* <div className="ui bulleted list">
                   <div className="item">
                     {this.state.droughtIndex.advisoryA}
                   </div>
@@ -92,7 +96,7 @@ export default class Advisory extends React.Component {
                   <div className="item">
                     {this.state.droughtIndex.advisoryD}
                   </div>
-                </div>
+                </div> */}
               </Container>
             </Grid.Column>
             <Grid.Column>
@@ -109,12 +113,12 @@ export default class Advisory extends React.Component {
             <Grid.Column>
               <div className="AdvisoryHeader"> Past Rainfall Condition</div>
               <Container>
-                <div className="ui bulleted list">
-                  {/* <div className="item">{this.state.pastRainfall.data}</div>
+                {/* <div className="ui bulleted list">
+                  <div className="item">{this.state.pastRainfall.advisoryA}</div>
                 <div className="item">{this.state.pastRainfall.advisoryB}</div>
                 <div className="item">{this.state.pastRainfall.advisoryC}</div>
-                <div className="item">{this.state.pastRainfall.advisoryD}</div> */}
-                </div>
+                <div className="item">{this.state.pastRainfall.advisoryD}</div>
+                </div> */}
               </Container>
             </Grid.Column>
           </Grid.Row>

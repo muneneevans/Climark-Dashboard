@@ -28,7 +28,7 @@ class Home extends Component {
 
     return (
       <div>
-        <Visibility
+        {/* <Visibility
           as="div"
           onBottomPassed={this.showFixedMenu}
           onBottomVisible={this.hideFixedMenu}
@@ -112,9 +112,11 @@ class Home extends Component {
               </Grid.Row>
             </Grid>
           </Segment>
-        </Visibility>
+        </Visibility> */}
 
-        
+       <div className="ui container containeryakwanza"  >
+       kdjbvaidshbvasdbvisdubviusdbviub
+       </div>
       </div>
     );
   }

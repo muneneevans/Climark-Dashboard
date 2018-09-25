@@ -27,7 +27,7 @@ export default class Advisory extends React.Component {
     console.log("Component mounted: Draught Index");
     this.droughtIndexTracker = Tracker.autorun(() => {
       Meteor.subscribe("pastRainfallCondition");
-      Meteor.subscribe("advisoryMa");
+      Meteor.subscribe("advisoryMA");
       Meteor.subscribe("pastMoistureCondition");
       Meteor.subscribe("advisoryDroughtIndex");
 
@@ -49,7 +49,8 @@ export default class Advisory extends React.Component {
         })
         .fetch();
 
-        this.setState({ droughtIndex: droughtIndex[0], pastMoisture: pastMoisture[0], pastRainfall: pastRainfall[0] });
+        this.setState({ droughtIndex: droughtIndex[0], pastMoisture: pastMoisture[0], pastRainfall: pastRainfall[0] ,moistureAvailability:moistureAvailability[0]});
+       
        
       console.log("MoistureAvailability");
       console.log(moistureAvailability);
@@ -78,12 +79,12 @@ export default class Advisory extends React.Component {
   render() {
     return (
       <div>
-        <Grid columns={3} divided>
+        <Grid columns={4} divided>
           <Grid.Row>
             <Grid.Column>
               <div className="AdvisoryHeader"> Drought Advisory Index</div>
               <Container>
-                {/* <div className="ui bulleted list">
+                <div className="ui bulleted list">
                   <div className="item">
                     {this.state.droughtIndex.advisoryA}
                   </div>
@@ -96,29 +97,47 @@ export default class Advisory extends React.Component {
                   <div className="item">
                     {this.state.droughtIndex.advisoryD}
                   </div>
-                </div> */}
+                  <div className="ImplicationHeader"> Implication </div>
+                  <div className="item">
+                    {this.state.droughtIndex.implication}
+                  </div>
+                </div>
               </Container>
             </Grid.Column>
             <Grid.Column>
               <div className="AdvisoryHeader"> Past Moisture Conditions</div>
               <Container>
-                {/* <div className="ui bulleted list">
+                <div className="ui bulleted list">
                   <div className="item">{this.state.pastMoisture.advisoryA}</div>
                 <div className="item">{this.state.pastMoisture.advisoryB}</div>
-                <div className="item">{this.state.pastMoisture.advisoryC}</div>
-                <div className="item">{this.state.pastMoisture.advisoryD}</div>
-                </div> */}
+                <div className="ImplicationHeader"> Implication </div>
+                <div className="item">{this.state.pastMoisture.implication}</div>
+                
+                </div>
               </Container>
             </Grid.Column>
             <Grid.Column>
               <div className="AdvisoryHeader"> Past Rainfall Condition</div>
               <Container>
-                {/* <div className="ui bulleted list">
+                <div className="ui bulleted list">
                   <div className="item">{this.state.pastRainfall.advisoryA}</div>
                 <div className="item">{this.state.pastRainfall.advisoryB}</div>
                 <div className="item">{this.state.pastRainfall.advisoryC}</div>
-                <div className="item">{this.state.pastRainfall.advisoryD}</div>
-                </div> */}
+                <div className="ImplicationHeader"> Implication </div>
+                <div className="item">{this.state.pastRainfall.implication}</div>
+                </div>
+              </Container>
+            </Grid.Column>
+            <Grid.Column>
+              <div className="AdvisoryHeader"> Moisture Availability </div>
+              <Container>
+                <div className="ui bulleted list">
+                  <div className="item">{this.state.moistureAvailability.advisoryA}</div>
+                <div className="item">{this.state.moistureAvailability.advisoryB}</div>
+                <div className="ImplicationHeader"> Implication </div>
+                <div className="item">{this.state.moistureAvailability.implication}</div>
+               
+                </div>
               </Container>
             </Grid.Column>
           </Grid.Row>

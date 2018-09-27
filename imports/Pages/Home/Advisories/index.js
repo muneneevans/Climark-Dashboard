@@ -50,8 +50,8 @@ export default class Advisory extends React.Component {
         .fetch();
 
         this.setState({ droughtIndex: droughtIndex[0], pastMoisture: pastMoisture[0], pastRainfall: pastRainfall[0] ,moistureAvailability:moistureAvailability[0]});
-       
-       
+
+
       console.log("MoistureAvailability");
       console.log(moistureAvailability);
       console.log("past moisture condition");
@@ -112,15 +112,15 @@ export default class Advisory extends React.Component {
                 <div className="item">{this.state.pastMoisture.advisoryB}</div>
                 <div className="ImplicationHeader"> Implication </div>
                 <div className="item">{this.state.pastMoisture.implication}</div>
-                
+
                 </div>
               </Container>
             </Grid.Column>
             <Grid.Column>
-<<<<<<< HEAD
-              <Image src="https://react.semantic-ui.com/images/wireframe/media-paragraph.png" />
 
-=======
+              {/* <Image src="https://react.semantic-ui.com/images/wireframe/media-paragraph.png" /> */}
+
+
               <div className="AdvisoryHeader"> Past Rainfall Condition</div>
               <Container>
                 <div className="ui bulleted list">
@@ -131,7 +131,7 @@ export default class Advisory extends React.Component {
                 <div className="item">{this.state.pastRainfall.implication}</div>
                 </div>
               </Container>
->>>>>>> 53289e5fc72c55d2db95a669edf2ee05a749d45b
+{/* >>>>>>> 53289e5fc72c55d2db95a669edf2ee05a749d45b */}
             </Grid.Column>
             <Grid.Column>
               <div className="AdvisoryHeader"> Moisture Availability </div>
@@ -141,7 +141,7 @@ export default class Advisory extends React.Component {
                 <div className="item">{this.state.moistureAvailability.advisoryB}</div>
                 <div className="ImplicationHeader"> Implication </div>
                 <div className="item">{this.state.moistureAvailability.implication}</div>
-               
+
                 </div>
               </Container>
             </Grid.Column>

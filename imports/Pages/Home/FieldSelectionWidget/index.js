@@ -11,7 +11,14 @@ import {
 
 import "./style.css";
 
+<<<<<<< HEAD
 import {AdvisoryDroughtIndex} from './../../../api/advisorydroughtIndex';
+=======
+import {AdvisoryDroughtIndex} from './../../../api/advisorydraughtIndex';
+import { AdvisoryMA } from "./../../../api/advisoryMA";
+import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
+import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";
+>>>>>>> 53289e5fc72c55d2db95a669edf2ee05a749d45b
 // import {LastSevenDaysDI} from './../../../api/lastSevenDaysDI';
 
 class FieldSelectionWidget extends Component {
@@ -31,7 +38,11 @@ class FieldSelectionWidget extends Component {
   componentDidMount() {
     console.log('Component mounted: Field Selection Widget');
     this.droughtIndexTracker = Tracker.autorun(() => {
-      Meteor.subscribe('advisoryDroughtIndex');
+      Meteor.subscribe("pastRainfallCondition");
+      Meteor.subscribe("advisoryMA");
+      Meteor.subscribe("pastMoistureCondition");
+      Meteor.subscribe("advisoryDroughtIndex");
+
       // Meteor.subscribe('lastsevendaysdi');
 
     })

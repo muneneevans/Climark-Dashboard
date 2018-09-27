@@ -1,10 +1,10 @@
 import {Mongo} from 'meteor/mongo';
 import {Meteor} from 'meteor/meteor';
 import currentWeekNumber from 'current-week-number';
-export const AdvisoryMA=new Mongo.Collection('advisoryMA');
+export const AdvisoryMA = new Mongo.Collection('advisoryMA');
 
 if(Meteor.isServer){
-  Meteor.publish('advisoryMA',()=>{
+  Meteor.publish('advisoryMA',() => {
     let weekNo = currentWeekNumber();
     return AdvisoryMA.find({$and:[{
       $or: [

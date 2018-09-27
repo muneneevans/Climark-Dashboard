@@ -72,7 +72,7 @@ Meteor.startup(() => {
   //   console.log(err, 'catch error');
   // });
   //load ftp data
-  let j = schedule.scheduleJob('0 18 02 * * *', Meteor.bindEnvironment(() => {
+  let j = schedule.scheduleJob('0 14 21 * * *', Meteor.bindEnvironment(() => {
 
     let nextSevenDayForecast = Assets.getText('180916_next7.csv');
     let lastSevenDayData = Assets.getText('180916_past30.csv');

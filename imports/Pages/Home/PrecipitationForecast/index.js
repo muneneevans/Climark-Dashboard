@@ -31,14 +31,42 @@ import ForecastMap from "../../../ui/ForecastMap";
       return dayForcacst(day, format);
     });
   };
-  
+  // const round = (number, decimal) => {
+  //   return +(Math.round(number + `e+${decimal}`) + `e-${decimal}`);
+  // };
+
+  // const dayAverage = (day, format = "hh a") => {
+  //   return {
+  //     chance: round(
+  //       day.forecast.reduce((total, hour, counter) => {
+  //         return total + hour.temperatures.chance;
+  //       }, 0) / day.forecast.length,
+  //       2
+  //     ),
+  //     amount: round(
+  //       day.forecast.reduce((total, hour, counter) => {
+  //         return total + hour.temperatures.amount;
+  //       }, 0) / day.forecast.length,
+  //       2
+  //     ),
+  //     min: round(
+  //       day.forecast.reduce((total, hour, counter) => {
+  //         return total + hour.temperatures.min;
+  //       }, 0) / day.forecast.length,
+  //       2
+  //     ),
+  //     units: day.forecast[0].units,
+  //     date: moment(day.date).format(format)
+  //   };
+  // };
+
+
   const flattenAllDays = forecasts => {
-    return flatten(forecasts, "dddd Do").reduce((accumulator, current) => {
+    return flatten(forecasts, "dddd").reduce((accumulator, current) => {
       return [...accumulator, ...current];
     }, []);
   };
-
-
+  
 const PrecipitationForecast = ({ containerWidth, Forecasts, Norms, height=250 }) => {
   return(
 <div>

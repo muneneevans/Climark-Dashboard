@@ -24,3 +24,4 @@ accounts-base
 accounts-password
 nimble:restivus
 simple:json-routes
+nathantreid:static-assets

@@ -47,3 +47,100 @@ body {
 .description {
   font-size: 1.33em;
 }
+.heading {
+  font-family: "Aldrich", sans-serif;
+}
+
+.featuerHeader {
+  padding-bottom: 2em;
+  font-weight: lighter;
+}
+.featuresContent {
+  padding-top: 4em;
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.featureCard {
+  background: #f4f4f4;
+  padding: 15px 10px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+.advisoryCard {
+  background: #f2ecfd;
+  padding: 15px 10px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+.featureIcon {
+  height: 50px;
+  width: 50px;
+}
+
+.featureCardHeader {
+  margin-top: 0px;
+  font-weight: lighter;
+  color: #673ab7;
+  padding-top: 10px;
+}
+
+.featureCardDescription {
+  padding-top: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.outlineButton {
+  border: solid 1px #673ab7;
+  padding: 10px 30px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #673ab7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.findOutMoreSection {
+  padding-top: 2em;
+  padding-bottom: 10px;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .featuresContent {
+    padding: 0em;
+    padding-top: 1.5em;
+  }
+  .findOutMoreSection {
+    text-align: center;
+  }
+  .outlineButton {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .findOutMoreSection {
+      padding-left: 15px;
+    }
+    .outlineButton {
+      min-width: 200px;
+      text-align: center;
+      margin: 0 auto;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

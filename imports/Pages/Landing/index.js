@@ -29,60 +29,22 @@ class Home extends Component {
 
     return (
       <div>
-          <div class='ui grid'>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div class='column'>
-    <img src='https://react.semantic-ui.com/images/wireframe/image.png' class='ui image' />
-  </div>
-  <div> kjabfasdbkjvbskjvbhjb</div>
-</div>
-       
-       </div>
-    
+        <section className="headerblock">
+          <div className="container" />
+        </section>
+
+        <section className="headercontent">
+          <div className="container" />
+        </section>
+
+        <section className="headerimage">
+          <div className="container" />
+        </section>
+
+        <section className="headerabout">
+          <div className="container" />
+        </section>
+      </div>
     );
   }
 }

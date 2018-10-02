@@ -19,7 +19,7 @@ import Landing from "../Landing";
 const Routes = () => (
   <Router>
     <div>
-      <Menu
+      {/* <Menu
         fixed={"top"}
         inverted={false}
         pointing={false}
@@ -48,7 +48,7 @@ const Routes = () => (
             </Button>
           </Menu.Item>
         </Container>
-      </Menu>
+      </Menu> */}
       <Switch>
         <Route path="/ward/:ward" component={Field} />
         <Route path="/dashboard" component={Home} />
@@ -56,7 +56,7 @@ const Routes = () => (
         <Route exact path="/" component={Landing} />
       </Switch>
 
-      <Segment inverted vertical style={{ padding: "5em 0em" }}>
+      {/* <Segment inverted vertical style={{ padding: "5em 0em" }}>
         <Container>
           <Grid divided inverted stackable stretched center>
             <Grid.Row centered>
@@ -66,7 +66,7 @@ const Routes = () => (
             </Grid.Row>
           </Grid>
         </Container>
-      </Segment>
+      </Segment> */}
     </div>
   </Router>
 );

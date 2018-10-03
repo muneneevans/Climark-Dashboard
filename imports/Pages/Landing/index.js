@@ -24,6 +24,11 @@ import marker from "./icons/marker.svg";
 import notebook from "./icons/notebook.svg";
 import binoculars from "./icons/binoculars.svg";
 
+//import images
+import tabletDashbaord from "./images/tablet.png";
+import ctaLogo from "./images/cta.png";
+import amfratechLogo from "./images/amfratech.png";
+
 class Home extends Component {
   state = {};
 
@@ -92,6 +97,105 @@ class Home extends Component {
     </section>
   );
 
+  getHeaderSelection = () => (
+    <section className="headerContent">
+      <div className="header climarklogo"> CLIMARK</div>
+      <Container>
+        <Grid
+          className="contentSection"
+          columns={2}
+          reversed="mobile vertically"
+        >
+          <Grid.Row verticalAlign="bottom">
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerSectionButtonContainer">
+                <button className="ui headerSectionButton primaryButton">
+                  Find out more
+                </button>
+              </div>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerBannerContainer">
+                <div className="headerBanner">
+                  <h1 className="headerBannerHeader"> Respond, Overcome</h1>
+                  <div className="headerBannerContentContainer">
+                    <p className="headerBannerContent">
+                      {" "}
+                      Leveraging the power of technology to thrive in areas of
+                      harsh weather
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </section>
+  );
+
+  getDashboardSection = () => (
+    <div className="dashboardSection">
+      <Grid columns={2}>
+        <Grid.Row>
+          <Grid.Column only="tablet computer" tablet={8} computer={8}>
+            <img src={tabletDashbaord} className="dashboardImage" />
+          </Grid.Column>
+          <Grid.Column
+            mobile={16}
+            tablet={8}
+            computer={8}
+            verticalAlign="middle"
+          >
+            <Container>
+              <div>
+                <h1 className="heading">Dashboards</h1>
+                <p className="dashboardContent">
+                  Customize your experience by selecting any location within the
+                  country and get data specific to that locality.
+                </p>
+
+                <Link className="primaryButton dashboardButton" to="/dashboard">
+                  Proceed to dashboards
+                </Link>
+              </div>
+            </Container>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
+
+  getSponsorsSection = () => (
+    <div className="sponsorsSection">
+      <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column verticalAlign="middle">
+              <h1 className="heading">Sponsors</h1>
+              <p className="sponsorContent">
+                {" "}
+                We are proud to work in close collaboration with our partners.
+              </p>
+            </Grid.Column>
+            <Grid.Column>
+              <Grid columns={2}>
+                <Grid.Row className="logosContainer">
+                  <Grid.Column>
+                    <img src={ctaLogo} className="sponsorImage" />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <img src={amfratechLogo} className="sponsorImage" />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </div>
+  );
+
   render() {
     const { visible } = this.state;
 
@@ -100,8 +204,10 @@ class Home extends Component {
         <section className="headerblock">
           <div className="container" />
         </section>
-
+        {this.getHeaderSelection()}
         {this.getFeatureSection()}
+        {this.getDashboardSection()}
+        {this.getSponsorsSection()}
 
         <section className="headerimage">
           <div className="container" />

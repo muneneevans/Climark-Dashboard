@@ -93,7 +93,7 @@ class Home extends Component {
   );
 
   getHeaderSelection = () => (
-    <section className="headercontent">
+    <section className="headerContent">
       <div className="header climarklogo"> CLIMARK</div>
       <Container>
         <Grid

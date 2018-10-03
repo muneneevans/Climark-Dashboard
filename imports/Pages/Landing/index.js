@@ -94,12 +94,39 @@ class Home extends Component {
 
   getHeaderSelection = () => (
     <section className="headercontent">
-    
       <div className="header climarklogo"> CLIMARK</div>
-      
-     
-      <div className="contentsection">
-      
+      <Container>
+        <Grid
+          className="contentSection"
+          columns={2}
+          reversed="mobile vertically"
+        >
+          <Grid.Row verticalAlign="bottom">
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerSectionButtonContainer">
+                <button className="ui headerSectionButton">Find out more</button>
+              </div>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerBannerContainer">
+                <div className="headerBanner">
+                  <h1 className="headerBannerHeader"> Respond, Overcome</h1>
+                  <div className="headerBannerContentContainer">
+                    <p className="headerBannerContent">
+                      {" "}
+                      Leveraging the power of technology to thrive in areas of
+                      harsh weather
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+
+      {/* <div className="contentsection">
+        <div>adsfadsfa leorm </div>
         <div className="heading featureheader"> Respond , Overcome</div>
         <div className="footercontent">
         
@@ -110,9 +137,7 @@ class Home extends Component {
       </div>
       <div className="headerbutton">
           <button class="ui button">Find out more</button>
-        </div>
-
-      
+        </div> */}
     </section>
   );
 

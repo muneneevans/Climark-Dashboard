@@ -92,6 +92,30 @@ class Home extends Component {
     </section>
   );
 
+  getHeaderSelection = () => (
+    <section className="headercontent">
+    
+      <div className="header climarklogo"> CLIMARK</div>
+      
+     
+      <div className="contentsection">
+      
+        <div className="heading featureheader"> Respond , Overcome</div>
+        <div className="footercontent">
+        
+          Leveraging the power of technology to work in areas of harsh weather
+        </div>
+       
+        
+      </div>
+      <div className="headerbutton">
+          <button class="ui button">Find out more</button>
+        </div>
+
+      
+    </section>
+  );
+
   render() {
     const { visible } = this.state;
 
@@ -100,7 +124,7 @@ class Home extends Component {
         <section className="headerblock">
           <div className="container" />
         </section>
-
+        {this.getHeaderSelection()}
         {this.getFeatureSection()}
 
         <section className="headerimage">

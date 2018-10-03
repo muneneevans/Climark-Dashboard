@@ -8,6 +8,7 @@ import fs from 'fs';
 import querystring from 'querystring';
 import './scheduleFileLoading';
 import './../imports/api/mobileAppApi';
+import './../imports/api/tumatextApi';
 // import Client from 'ssh2-sftp-client';
 // import getRemoteContent from 'remote-content';
 

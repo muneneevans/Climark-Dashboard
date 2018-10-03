@@ -47,17 +47,7 @@ export const Job = schedule.scheduleJob('0 14 21 * * *', Meteor.bindEnvironment(
 let dataNextSevenDays = resultsNextSevenDaysForecast.data;
 let dataLastThirtyDays = resultsLastThirtyDaysData.data;
 console.log(resultsLastThirtyDaysData.data[0]);
-// dataNextSevenDays.forEach(function(doc) {
-//   NextSevenDays.insert(doc);
-// });
 
-  // //insert into the database
-  // let dataNextSevenDays = resultsNextSevenDaysForecast.data;
-  // let dataLastThirtyDays = resultsLastThirtyDaysData.data;
-  // console.log(resultsLastThirtyDaysData.data[0]);
-  // dataNextSevenDays.forEach(function(doc) {
-  //   NextSevenDays.insert(doc);
-  // });
 
   //moisture Availability Forecast classification and loading into database
   dataNextSevenDays.forEach(function(doc) {

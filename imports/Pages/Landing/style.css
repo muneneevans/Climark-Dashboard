@@ -108,6 +108,7 @@ body {
   background-image: url(https://images.unsplash.com/photo-1496151763167-abae6c394463?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6a4aa6ece68e66e42194232facde8e88&auto=format&fit=crop&w=1500&q=80) !important;
   background-size: cover !important;
   height: 90vh;
+  min-height: 420px;
 }
 .climarklogo {
   text-align: left;
@@ -153,6 +154,8 @@ body {
 }
 .headerSectionButton {
   padding: 1em 5em;
+}
+.primaryButton {
   background-color: #673ab7;
   color: #ffffff;
 
@@ -160,6 +163,29 @@ body {
   border-radius: 2px;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+}
+
+/*
+Dasbhoard section
+*/
+.dashboardSection {
+  padding-top: 1em;
+  background: #f4f4f4;
+}
+
+.dashboardImage {
+  width: 100%;
+  height: 100%;
+}
+
+.dashboardContent {
+  max-width: 300px;
+  padding: 1em 0em 2em 0em;
+  font-size: 1em;
+  font-family: "montserrat";
+}
+.dashboardButton {
+  padding: 1em 2em;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -189,10 +215,20 @@ body {
   .headerBannerContent {
     font-size: 1.5em;
   }
+  .dashboardContent {
+    font-size: 2em;
+  }
   .outlineButton {
     min-width: 200px;
     text-align: center;
     margin: 0 auto;
+  }
+
+  .dashboardSection {
+    padding-top: 5em;
+  }
+  .dashboardButton {
+    padding: 1em 2em;
   }
 }
 

@@ -24,6 +24,9 @@ import marker from "./icons/marker.svg";
 import notebook from "./icons/notebook.svg";
 import binoculars from "./icons/binoculars.svg";
 
+//import images
+import tabletDashbaord from "./images/tablet.png";
+
 class Home extends Component {
   state = {};
 
@@ -104,7 +107,9 @@ class Home extends Component {
           <Grid.Row verticalAlign="bottom">
             <Grid.Column mobile={16} tablet={8} computer={8}>
               <div className="headerSectionButtonContainer">
-                <button className="ui headerSectionButton">Find out more</button>
+                <button className="ui headerSectionButton primaryButton">
+                  Find out more
+                </button>
               </div>
             </Grid.Column>
             <Grid.Column mobile={16} tablet={8} computer={8}>
@@ -124,21 +129,36 @@ class Home extends Component {
           </Grid.Row>
         </Grid>
       </Container>
-
-      {/* <div className="contentsection">
-        <div>adsfadsfa leorm </div>
-        <div className="heading featureheader"> Respond , Overcome</div>
-        <div className="footercontent">
-        
-          Leveraging the power of technology to work in areas of harsh weather
-        </div>
-       
-        
-      </div>
-      <div className="headerbutton">
-          <button class="ui button">Find out more</button>
-        </div> */}
     </section>
+  );
+
+  getDashboardSection = () => (
+    <div className="dashboardSection">
+      <Grid columns={2}>
+        <Grid.Row>
+          <Grid.Column only="tablet computer" tablet={8} computer={8}>
+            <img src={tabletDashbaord} className="dashboardImage" />
+          </Grid.Column>
+          <Grid.Column
+            mobile={16}
+            tablet={8}
+            computer={8}
+            verticalAlign="middle"
+          >
+            <Container>
+              <div>
+                <h1 className="heading">Dashboards</h1>
+                <p className="dashboardContent">
+                  Customize your experience by selecting any location within the
+                  country and get data specific to that locality.
+                </p>
+                <button className="primaryButton dashboardButton">Proceed to dashboards</button>
+              </div>
+            </Container>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
   );
 
   render() {
@@ -151,6 +171,7 @@ class Home extends Component {
         </section>
         {this.getHeaderSelection()}
         {this.getFeatureSection()}
+        {this.getDashboardSection()}
 
         <section className="headerimage">
           <div className="container" />

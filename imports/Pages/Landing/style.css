@@ -106,6 +106,7 @@ body {
 }
 .headerContent {
   background-image: url(https://images.unsplash.com/photo-1496151763167-abae6c394463?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6a4aa6ece68e66e42194232facde8e88&auto=format&fit=crop&w=1500&q=80) !important;
+  background-position: center bottom;
   background-size: cover !important;
   height: 90vh;
   min-height: 420px;
@@ -188,6 +189,31 @@ Dasbhoard section
   padding: 1em 2em;
 }
 
+/*
+sponsors section
+*/
+.sponsorsSection {
+  padding: 2em;
+}
+.sponsorImage {
+  height: 120px;
+  width: 120px;
+}
+.sponsorContent {
+  max-width: 300px;
+  padding: 1em 0em 2em 0em;
+  font-size: 1em;
+  font-family: "montserrat";
+}
+
+.logosContainer {
+  /* vertical-align: middle; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   .featuresContent {
@@ -216,7 +242,10 @@ Dasbhoard section
     font-size: 1.5em;
   }
   .dashboardContent {
-    font-size: 2em;
+    font-size: 1.5em;
+  }
+  .sponsorContent {
+    font-size: 1.5em;
   }
   .outlineButton {
     min-width: 200px;
@@ -229,6 +258,9 @@ Dasbhoard section
   }
   .dashboardButton {
     padding: 1em 2em;
+  }
+  .sponsorsSection {
+    padding: 5em;
   }
 }
 

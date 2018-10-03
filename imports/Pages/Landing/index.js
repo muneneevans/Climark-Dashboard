@@ -26,6 +26,8 @@ import binoculars from "./icons/binoculars.svg";
 
 //import images
 import tabletDashbaord from "./images/tablet.png";
+import ctaLogo from "./images/cta.png";
+import amfratechLogo from "./images/amfratech.png";
 
 class Home extends Component {
   state = {};
@@ -152,12 +154,45 @@ class Home extends Component {
                   Customize your experience by selecting any location within the
                   country and get data specific to that locality.
                 </p>
-                <button className="primaryButton dashboardButton">Proceed to dashboards</button>
+
+                <Link className="primaryButton dashboardButton" to="/dashboard">
+                  Proceed to dashboards
+                </Link>
               </div>
             </Container>
           </Grid.Column>
         </Grid.Row>
       </Grid>
+    </div>
+  );
+
+  getSponsorsSection = () => (
+    <div className="sponsorsSection">
+      <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column verticalAlign="middle">
+              <h1 className="heading">Sponsors</h1>
+              <p className="sponsorContent">
+                {" "}
+                We are proud to work in close collaboration with our partners.
+              </p>
+            </Grid.Column>
+            <Grid.Column>
+              <Grid columns={2}>
+                <Grid.Row className="logosContainer">
+                  <Grid.Column>
+                    <img src={ctaLogo} className="sponsorImage" />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <img src={amfratechLogo} className="sponsorImage" />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
     </div>
   );
 
@@ -172,6 +207,7 @@ class Home extends Component {
         {this.getHeaderSelection()}
         {this.getFeatureSection()}
         {this.getDashboardSection()}
+        {this.getSponsorsSection()}
 
         <section className="headerimage">
           <div className="container" />

@@ -194,7 +194,53 @@ class Home extends Component {
         </Grid>
       </Container>
     </div>
-  );
+  )
+  getFooterSection = () => (
+
+    <div className="footerSection">
+
+     <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            
+            <Grid.Column>
+              <Grid columns={3}>
+                <Grid.Row className="logosContainer">
+                <Grid.Column>
+                  <h3 className="footerHeading">Product</h3>
+                    <ul className="footerContent">
+                      <li>Team</li>
+                      
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column>
+                  <h3 className="footerHeading">Company</h3>
+                    <ul className="footerContent">
+                      <li>About</li>
+                      <li>Contacts</li>
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column>
+                  <h3 className="footerHeading">Social</h3>
+                    <ul className="footerContent">
+                      <li>Facebook</li>
+                      <li>Twitter</li>
+                      <li>Blog</li>
+                    </ul>
+                  </Grid.Column>
+                  
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+            <Grid.Column verticalAlign="middle">
+              
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    
+    </div>
+  )
 
   render() {
     const { visible } = this.state;
@@ -208,6 +254,7 @@ class Home extends Component {
         {this.getFeatureSection()}
         {this.getDashboardSection()}
         {this.getSponsorsSection()}
+        {this.getFooterSection()}
 
         <section className="headerimage">
           <div className="container" />

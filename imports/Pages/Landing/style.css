@@ -47,3 +47,251 @@ body {
 .description {
   font-size: 1.33em;
 }
+.heading {
+  font-family: "Aldrich", sans-serif;
+}
+
+.featuerHeader {
+  padding-bottom: 2em;
+  font-weight: lighter;
+}
+.featuresContent {
+  padding-top: 4em;
+  padding-bottom: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.featureCard {
+  background: #f4f4f4;
+  padding: 15px 10px;
+  padding-bottom: 30px;
+  border-radius: 5px;
+}
+.advisoryCard {
+  background: #f2ecfd;
+  padding: 15px 10px;
+  border-radius: 5px;
+  padding-bottom: 30px;
+}
+.featureIcon {
+  height: 50px;
+  width: 50px;
+}
+
+.featureCardHeader {
+  margin-top: 0px;
+  font-weight: lighter;
+  color: #673ab7;
+  padding-top: 10px;
+}
+
+.featureCardDescription {
+  padding-top: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.outlineButton {
+  border: solid 1px #673ab7;
+  padding: 10px 30px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #673ab7;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.findOutMoreSection {
+  padding-top: 2em;
+  padding-bottom: 10px;
+}
+.headerContent {
+  background-image: url(https://images.unsplash.com/photo-1496151763167-abae6c394463?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6a4aa6ece68e66e42194232facde8e88&auto=format&fit=crop&w=1500&q=80) !important;
+  background-position: center;
+  background-size: cover !important;
+  height: 90vh;
+  min-height: 420px;
+}
+.climarklogo {
+  text-align: left;
+  font-size: 40px;
+  padding: 15px 0 0 15px;
+  color: beige;
+}
+
+.contentSection {
+  height: 80vh;
+  padding: 2em 1em;
+  /* background: red */
+}
+.headerSectionButtonContainer {
+  padding: 2em 1em;
+  padding-left: 1.5em;
+}
+.headerBannerContainer {
+  padding: 2em 1em;
+  padding-left: 1.5em;
+}
+.headerBanner {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 1em;
+  padding-bottom: 4em;
+  color: #ffffff;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.headerBannerContentContainer {
+  padding: 2em 0.5em;
+}
+.headerBannerHeader {
+  color: #ffffff;
+  font-size: 1.5em;
+  font-family: "montserrat";
+}
+.headerBannerContent {
+  font-size: 1em;
+  font-family: "montserrat";
+}
+.headerSectionButton {
+  padding: 1em 5em;
+}
+.primaryButton {
+  background-color: #673ab7;
+  color: #ffffff;
+
+  border: solid 1px #673ab7;
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+/*
+Dasbhoard section
+*/
+.dashboardSection {
+  padding-top: 1em;
+  background: #f4f4f4;
+}
+
+.dashboardImage {
+  width: 100%;
+  height: 100%;
+}
+
+.dashboardContent {
+  max-width: 300px;
+  padding: 1em 0em 2em 0em;
+  font-size: 1em;
+  font-family: "montserrat";
+}
+.dashboardButton {
+  padding: 1em 2em;
+}
+
+/*
+sponsors section
+*/
+.sponsorsSection {
+  padding: 2em;
+}
+.sponsorImage {
+  height: 120px;
+  width: 120px;
+}
+.sponsorContent {
+  max-width: 300px;
+  padding: 1em 0em 2em 0em;
+  font-size: 1em;
+  font-family: "montserrat";
+}
+
+.logosContainer {
+  /* vertical-align: middle; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/*Footer Section*/
+.footerSection {
+  padding: 2em;
+  background:#3b4045;
+}
+.footerHeading {
+  font-family: "montserrat";
+  color: #f3eadaad;
+}
+.footerContent{
+  color: #f3eadaad;
+  font-family: "montserrat";
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .featuresContent {
+    padding: 0em;
+    padding-top: 1.5em;
+  }
+  .findOutMoreSection {
+    text-align: center;
+  }
+  .outlineButton {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .findOutMoreSection {
+    padding-left: 15px;
+  }
+  .headerBannerHeader {
+    font-size: 2.5em;
+  }
+  .headerBannerContent {
+    font-size: 1.5em;
+  }
+  .dashboardContent {
+    font-size: 1.5em;
+  }
+  .sponsorContent {
+    font-size: 1.5em;
+  }
+  .outlineButton {
+    min-width: 200px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .dashboardSection {
+    padding-top: 5em;
+  }
+  .dashboardButton {
+    padding: 1em 2em;
+  }
+  .sponsorsSection {
+    padding: 5em;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .headerContent {
+    height: 65vh;
+  }
+  .contentSection {
+    height: 65vh;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

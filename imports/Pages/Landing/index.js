@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import { Grid, Image } from 'semantic-ui-react'
 
 import styles from "./style.css";
 
@@ -17,106 +18,252 @@ import {
   Visibility
 } from "semantic-ui-react";
 
+///import icons
+import wind from "./icons/wind.svg";
+import marker from "./icons/marker.svg";
+import notebook from "./icons/notebook.svg";
+import binoculars from "./icons/binoculars.svg";
+
+//import images
+import tabletDashbaord from "./images/tablet.png";
+import ctaLogo from "./images/cta.png";
+import amfratechLogo from "./images/amfratech.png";
+
 class Home extends Component {
   state = {};
 
   hideFixedMenu = () => this.setState({ visible: false });
   showFixedMenu = () => this.setState({ visible: true });
 
+  getFeatureSection = () => (
+    <section className="featuresContent">
+      <Container>
+        <h2 className="heading featuerHeader">
+          Communication through relevant information
+        </h2>
+      </Container>
+
+      <Grid divided="vertically" className="container">
+        <Grid.Row columns={4}>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+            <div className="featureCard">
+              <img src={marker} className="featureIcon" />
+              <h3 className="heading  featureCardHeader"> Custom Locations</h3>
+              <p className="featureCardDescription">
+                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
+                nesciunt. Reprehenderit sed minima iure ullam excepturi.
+                Cupiditate veritatis consectetur totam perspiciatis
+              </p>
+            </div>
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+            <div className="featureCard">
+              <img src={binoculars} className="featureIcon" />
+              <h3 className="heading  featureCardHeader"> Observations</h3>
+              <p className="featureCardDescription">
+                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
+                nesciunt. Reprehenderit sed minima iure ullam excepturi.
+                Cupiditate veritatis consectetur totam perspiciatis
+              </p>
+            </div>
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+            <div className="featureCard">
+              <img src={wind} className="featureIcon" />
+              <h3 className="heading  featureCardHeader"> Forecasts</h3>
+              <p className="featureCardDescription">
+                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
+                nesciunt. Reprehenderit sed minima iure ullam excepturi.
+                Cupiditate veritatis consectetur totam perspiciatis
+              </p>
+            </div>
+          </Grid.Column>
+          <Grid.Column mobile={16} tablet={8} computer={4}>
+            <div className=" advisoryCard">
+              <img src={notebook} className="featureIcon" />
+              <h3 className="heading  featureCardHeader">Advisories</h3>
+              <p className="featureCardDescription">
+                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
+                nesciunt. Reprehenderit sed minima iure ullam excepturi.
+                Cupiditate veritatis consectetur totam perspiciatis
+              </p>
+            </div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      <Container className="findOutMoreSection">
+        <button className="outlineButton"> Find out more</button>
+      </Container>
+    </section>
+  );
+
+  getHeaderSelection = () => (
+    <section className="headerContent">
+      <div className="header climarklogo"> CLIMARK</div>
+      <Container>
+        <Grid
+          className="contentSection"
+          columns={2}
+          reversed="mobile vertically"
+        >
+          <Grid.Row verticalAlign="bottom">
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerSectionButtonContainer">
+                <button className="ui headerSectionButton primaryButton">
+                  Find out more
+                </button>
+              </div>
+            </Grid.Column>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <div className="headerBannerContainer">
+                <div className="headerBanner">
+                  <h1 className="headerBannerHeader"> Respond, Overcome</h1>
+                  <div className="headerBannerContentContainer">
+                    <p className="headerBannerContent">
+                      {" "}
+                      Leveraging the power of technology to thrive in areas of
+                      harsh weather
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </section>
+  );
+
+  getDashboardSection = () => (
+    <div className="dashboardSection">
+      <Grid columns={2}>
+        <Grid.Row>
+          <Grid.Column only="tablet computer" tablet={8} computer={8}>
+            <img src={tabletDashbaord} className="dashboardImage" />
+          </Grid.Column>
+          <Grid.Column
+            mobile={16}
+            tablet={8}
+            computer={8}
+            verticalAlign="middle"
+          >
+            <Container>
+              <div>
+                <h1 className="heading">Dashboards</h1>
+                <p className="dashboardContent">
+                  Customize your experience by selecting any location within the
+                  country and get data specific to that locality.
+                </p>
+
+                <Link className="primaryButton dashboardButton" to="/dashboard">
+                  Proceed to dashboards
+                </Link>
+              </div>
+            </Container>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </div>
+  );
+
+  getSponsorsSection = () => (
+    <div className="sponsorsSection">
+      <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column verticalAlign="middle">
+              <h1 className="heading">Sponsors</h1>
+              <p className="sponsorContent">
+                {" "}
+                We are proud to work in close collaboration with our partners.
+              </p>
+            </Grid.Column>
+            <Grid.Column>
+              <Grid columns={2}>
+                <Grid.Row className="logosContainer">
+                  <Grid.Column>
+                    <img src={ctaLogo} className="sponsorImage" />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <img src={amfratechLogo} className="sponsorImage" />
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </div>
+  )
+  getFooterSection = () => (
+
+    <div className="footerSection">
+
+     <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            
+            <Grid.Column>
+              <Grid columns={3}>
+                <Grid.Row className="logosContainer">
+                <Grid.Column>
+                  <h3 className="footerHeading">Product</h3>
+                    <ul className="footerContent">
+                      <li>Team</li>
+                      
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column>
+                  <h3 className="footerHeading">Company</h3>
+                    <ul className="footerContent">
+                      <li>About</li>
+                      <li>Contacts</li>
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column>
+                  <h3 className="footerHeading">Social</h3>
+                    <ul className="footerContent">
+                      <li>Facebook</li>
+                      <li>Twitter</li>
+                      <li>Blog</li>
+                    </ul>
+                  </Grid.Column>
+                  
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+            <Grid.Column verticalAlign="middle">
+              
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    
+    </div>
+  )
+
   render() {
     const { visible } = this.state;
 
     return (
       <div>
-        {/* <Visibility
-          as="div"
-          onBottomPassed={this.showFixedMenu}
-          onBottomVisible={this.hideFixedMenu}
-          once={false}
-        >
-          <Segment
-            inverted
-            textAlign="center"
-            style={{ minHeight: 700, padding: "1em 0em" }}
-            vertical
-            className="banner"
-          >
-            
-            <div>
-              <Header
-                as="h2"
-                content="CLIMARK WEATHER DASHBOARDS" // inverted
-                style={{
-                  fontSize: "3em",
-                  marginBottom: 0,
-                  marginTop: "5em"
-                }}
-                as="h3"
-                className="heading"
-              />
-              <Header
-                as="h2"
-                content="plan for tomorrow's weather, today" // inverted
-                style={{ fontSize: "1.7em", fontWeight: "normal" }}
-              />
-            </div>
-          </Segment>
+        <section className="headerblock">
+          <div className="container" />
+        </section>
+        {this.getHeaderSelection()}
+        {this.getFeatureSection()}
+        {this.getDashboardSection()}
+        {this.getSponsorsSection()}
+        {this.getFooterSection()}
 
-          <Segment
-            style={{ padding: "8em 0em" }}
-            vertical
-            className="contentBlock"
-          >
-            <Grid container stackable verticalAlign="middle">
-              <Grid.Row>
-                <Grid.Column width={12}>
-                  <Header as="h3" style={{ fontSize: "2em" }}>
-                    What it is about
-                  </Header>
-                  <p className="description">
-                    Ducimus tempore mollitia est perspiciatis odio provident
-                    ipsum. Molestiae distinctio sapiente odit. Enim dolorem
-                    assumenda quos consequatur non recusandae nisi dolores. Eum
-                    explicabo voluptas voluptatem veniam quos sed adipisci
-                    voluptatem. Rerum autem sunt distinctio nihil unde accusamus
-                    quia eveniet. Et temporibus et et est magni iusto. Eum iusto
-                    non nemo. Quas voluptatem facere in. Optio hic ut
-                    praesentium et earum error. Corrupti consequatur officia
-                    modi quos quos iure libero qui. Molestiae magni eos autem.
-                    Incidunt cum eos consequatur. Debitis molestiae rerum
-                    necessitatibus expedita atque maxime facilis. Voluptatem
-                    pariatur eaque sit distinctio. Aperiam cum assumenda
-                    possimus numquam quo. Omnis et suscipit autem beatae
-                    veritatis et. Molestiae fugiat molestiae ut. Numquam est
-                    harum odit quisquam sit. Dolorum labore rerum quo iste
-                    assumenda magni eum deleniti. Asperiores ducimus sed ex
-                    consequatur ut hic sunt officiis. Laborum voluptatem amet
-                    praesentium illum ut sint quis facere. Dicta sunt
-                    necessitatibus excepturi dolore non sed maxime. Ut quo culpa
-                    corrupti placeat cum. Dolores dignissimos enim natus nobis
-                    quia doloribus. Similique accusantium neque ut qui rerum
-                    officia porro.
-                  </p>
-                </Grid.Column>
-                <Grid.Column floated="right" width={2} />
-              </Grid.Row>
-              <Grid.Row>
-                <Grid.Column textAlign="left">
-                  <Link to="/dashboard">
-                    <Button bordered size="huge">
-                      View Dashboard
-                      <Icon name="right arrow" />
-                    </Button>
-                  </Link>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Segment>
-        </Visibility> */}
+        <section className="headerimage">
+          <div className="container" />
+        </section>
 
-       
-       </div>
-    
+        <section className="headerabout">
+          <div className="container" />
+        </section>
+      </div>
     );
   }
 }

@@ -30,7 +30,7 @@ import {
   };
   
   const flattenAllDays = forecasts => {
-    return flatten(forecasts, "dddd Do").reduce((accumulator, current) => {
+    return flatten(forecasts, "dddd").reduce((accumulator, current) => {
       return [...accumulator, ...current];
     }, []);
   };

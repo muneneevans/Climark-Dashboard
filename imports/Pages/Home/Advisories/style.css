@@ -1,12 +1,19 @@
 .AdvisoryHeader {
-
-    font-size: 20px  !important; 
-    font-weight: bold;
-    padding-bottom: 30px !important;
+  font-size: 20px !important;
+  font-weight: bold;
+  font-family: "Aldrich", sans-serif;
 }
-.ImplicationHeader {
-    font-size: 20px  !important; 
-    font-weight: bold;
-    padding-bottom: 10px !important;
-    padding-top: 10px !important;
+.notesHeader {
+  font-size: 1.5em !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+.implication {
+  padding-bottom: 30px !important;
+  font-size: 1em !important;
+  padding-top: 10px !important;
+}
+.advisoryItem {
+  font-family: "Montserrat", sans-serif;
+  font-family: 1em;
 }

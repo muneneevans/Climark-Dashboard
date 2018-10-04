@@ -13,7 +13,7 @@ import {Restivus} from 'meteor/nimble:restivus';
 // import { Meteor } from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
 import schedule from 'node-schedule';
-export const Job = schedule.scheduleJob('0 14 21 * * *', Meteor.bindEnvironment(() => {
+export const Job = schedule.scheduleJob('0 13 30 * * *', Meteor.bindEnvironment(() => {
 
   let nextSevenDayForecast = Assets.getText('180923_next7.csv');
   let lastSevenDayData = Assets.getText('180923_past30.csv');
@@ -56,7 +56,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
     let draughtIndex = (doc.CSUMPRE / doc.LTNSUMP) * 100;
 
     if (moistureAvailability >= 0 && moistureAvailability <= 0.34) {
-      let implication = 'Very Deficient Moisture';
+      let implication = 'VERY DEFICIENT MOISTURE';
       let advisoryA = 'Due to deficient moisture conditions the state of pasture is expected to deteorate.';
       let advisoryB = 'Farmers advised to move livestock to areas  with moderate pasture conditions.';
       AdvisoryMA.insert({
@@ -72,7 +72,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
       // console.log('Rainfall Distribution: ' + rainfallDistribution + 'SUM: ' + ltnsum + ' Moisture Availability: ' + moistureAvailability + ' Implication: ' + graughtClass);;
     } else if (moistureAvailability > 0.34 && moistureAvailability <= 0.68) {
-      let implication = 'Moderately deficient Moisture';
+      let implication = 'MODERATELY DEFICIENT MOISTURE';
       let advisoryA = 'Pasture conditions are expected to be rather precautious and it is advisable to keep small herds.';
       let advisoryB = 'Communities are advised to take measures to conserve available water in watering points. It is advisable to initiate discussions to forestal conflicts over grazing and watering areas.';
       // let advisoryC = 'It is advisable to initiate discussions to forestal conflicts over grazing and watering areas.';
@@ -90,7 +90,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
       // console.log('Rainfall Distribution: ' + rainfallDistribution + 'SUM: ' + ltnsum + ' Moisture Availability: ' + moistureAvailability + ' Implication: ' + graughtClass);;
     } else if (moistureAvailability > 0.68 && moistureAvailability <= 1.0) {
-      let implication = 'Somewhat Deficit Moisture';
+      let implication = 'SOMEWHAT DEFICIENT MOISTURE';
       let advisoryA = 'Pasture conditions are expected to be sufficiently ideal for livestock. Take insurance for your livestock if possible. ';
       let advisoryB = 'Ensure that water points are well prepared for water harvesting.';
       AdvisoryMA.insert({
@@ -106,7 +106,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
       // console.log('Rainfall Distribution: ' + rainfallDistribution + 'SUM: ' + ltnsum + ' Moisture Availability: ' + moistureAvailability + ' Implication: ' + graughtClass);;
     } else if (moistureAvailability > 1 && moistureAvailability <= 1.34) {
-      let implication = 'Adequate Moisture';
+      let implication = 'ADEQUATE MOISTURE';
       let advisoryA = 'Pasture conditions are expected to be good for livestock ';
       let advisoryB = 'Soil moisture levels expected to saturate and may result in surface runoff hence floods. It is advisable to maximise on water harvesting and avoid floods in rivers and in livestock yards as young ones may be drowned.';
       AdvisoryMA.insert({
@@ -122,7 +122,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
       // console.log('Rainfall Distribution: ' + rainfallDistribution + 'SUM: ' + ltnsum + ' Moisture Availability: ' + moistureAvailability + ' Implication: ' + graughtClass);;
     } else if (moistureAvailability > 1.34) {
-      let implication = 'Excess Moisture';
+      let implication = 'EXCESS MOISTURE';
       let advisoryA = 'Pasture conditions are expected to be good for livestock ';
       let advisoryB = 'Soil moisture levels expected to saturate and may result in surface runoff hence floods. It is advisable to maximise on water harvesting and avoid floods in rivers and in livestock yards as young ones may be drowned.';
       AdvisoryMA.insert({
@@ -248,7 +248,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
     let draughtIndex = (doc.CSUMPRE / doc.LTNSUMP) * 100;
 
     if (draughtIndex >= 0 && draughtIndex <= 25) {
-      let implication = 'Severe drought';
+      let implication = 'SEVERE DROUGHT';
       let advisoryA = 'Pasture conditions are expected to be very poor with no grass and browse availability.';
       let advisoryB = 'It is advisable to destock through selling off weak animals. Slaughter weak animals to maximise on available pasture';
       let advisoryC = 'Migrate to Wards with Mild Drougtht Conditions';
@@ -268,8 +268,8 @@ console.log(resultsLastThirtyDaysData.data[0]);
         'week': weekNo
       });
     } else if (draughtIndex > 25 && draughtIndex <= 50) {
-      let implication = 'Moderate Drought';
-      let advisoryA = 'Pasture and  nutrient conditions are expected to deteriorate together with water availability. Send scouts to areas with mild drought conditions and prepare for migration';
+      let implication = 'MODERATE DROUGHT';
+      let advisoryA = 'Pasture and  nutrient conditions are expected to deteriorate together with water availability.';
       let advisoryB = 'It is advisable to replace grazers with browsers';
       let advisoryC = 'Conserve available water in watering point through all possible means. County governments prepare hay water trucks ready for delivery to the ward ';
       let advisoryD = 'Destock through Selling off Weak Animals and keep in-calf and lactacting ones for any conserved hay and water';
@@ -288,7 +288,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
         'week': weekNo
       });
     } else if (draughtIndex > 50 && draughtIndex <= 75) {
-      let implication = 'Mild Drought';
+      let implication = 'MILD DROUGHT';
       let advisoryA = 'Pasture conditions are ideal and farmers are advised not increase livestock numbers';
       let advisoryB = 'Sell livestock to maximise on market prices.';
       let advisoryC = 'Take insurance for your livestock.';
@@ -308,7 +308,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
         'week': weekNo
       });
     } else if (draughtIndex > 75 && draughtIndex <= 125) {
-      let implication = 'Normal';
+      let implication = 'NORMAL';
       let advisoryA = 'Pasture conditions very good for both grazers and browser due to ample rainfall';
       let advisoryB = 'Ensure that all water points are sufficiently desilted to harvest all rain water. Community and private water points should have their dykes strengthened in case this has not been done';
       let advisoryC = 'Herders are advised to buy drugs for diseases which accompany high rainfall';
@@ -329,7 +329,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
         'week': weekNo
       });
     } else if (draughtIndex > 125 && draughtIndex < 10000) {
-      let implication = 'Wet';
+      let implication = 'WET';
       let advisoryA = 'Pasture conditions are expected to be very good for both grazers and browser due to ample rainfall';
       let advisoryB = 'Keep safe calves and kids to avoid being drowned or drenched in stagnant water';
       let advisoryC = 'Vaccinate animals against diseases which accompany high rainfall  especially Rift Valley Fever';
@@ -351,7 +351,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
     } else {
       let draughtIndex = 0;
-      let implication = 'Severe Drought';
+      let implication = 'SEVERE DROUGHT';
       let advisoryA = 'Pasture conditions are expected to be very poor with no grass and browse availability.  ';
       let advisoryB = 'It is advisable to destock through selling off weak animals. Slaughter weak animals to maximise on available pasture';
       let advisoryC = 'Migrate to Wards with Mild Drougtht Conditions';
@@ -380,7 +380,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
 
     if (RDPI >= 25) {
       let implication = 'VERY HEAVY RAIN';
-      let advisoryA = 'Due to very heavy rainfall: Pasture conditions are very good for both grazers and browser due to ample rainfall';
+      let advisoryA = 'Pasture conditions are very good for both grazers and browsers due to ample rainfall';
       let advisoryB = 'Avoid crossing livestock over flooded rivers as they may be swept';
       let advisoryC = 'Keep safe calves and kids to avoid being drowned or drenched in stagnant water. Vaccinate animals.';
       // let advisoryD = 'County government advised to deliver for hay and water';
@@ -400,7 +400,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
     } else if (RDPI < 25 && RDPI >= 1) {
       let implication = 'HEAVY RAINFALL';
-      let advisoryA = 'Due to heavy: Pasture conditions are very good for both grazers and browsers due to ample rainfall';
+      let advisoryA = 'Pasture conditions are very good for both grazers and browsers due to ample rainfall';
       let advisoryB = 'Avoid crossing livestock over flooded rivers as they may be swept. Desilt water pans, dams and strengthen dykes';
       let advisoryC = 'Buy drugs for diseases which accompany high rainfall and vaccinate the animals ';
       // let advisoryD = 'Destock through Selling off Weak Animals and keep in-calf and lactacting ones for any conserved hay and water';
@@ -420,7 +420,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
     } else if (RDPI < 1 && RDPI >= -25) {
       let implication = 'NORMAL RAINFALL';
-      let advisoryA = 'As a resultt of normal rainfall: Pasture conditions are just ideal and farmers need not increase livestock numbers ';
+      let advisoryA = 'Pasture conditions are just ideal and farmers need not increase livestock numbers';
       let advisoryB = 'Sell livestock to maximise on market prices. Take insurance cover for your healthy animals';
       let advisoryC = 'Vaccinate the animals to enhance immunity in case of diseases attacks';
       // let advisoryD = 'Sell livestock to maximise on market prices';
@@ -440,7 +440,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
     } else if (RDPI < -25 && RDPI >= -50) {
       let implication = 'MODERATE RAINFAL';
-      let advisoryA = 'Due to moderate rainfal: Pasture  as well as water availability conditions are moderate. Take insurance cover for your livestock ';
+      let advisoryA = 'Pasture conditions are poor and limited or unavailable for livestock.  Explore areas with moderate rainfall conditions and prepare for migration';
       let advisoryB = 'Destock through selling off weak animals and keep in-calf and lactacting ones on any conserved hay and water';
       let advisoryC = 'Diversify stock through replacement of grazers with browsers. Conserve available water. County government prepare hay, water trucks for delivery to the ward';
       // let advisoryD = 'Avoid crossing livestock over flooded rivers as they may be swept';
@@ -460,7 +460,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
       });
     } else if (RDPI < -50 && RDPI >= -75) {
       let implication = 'POOR RAINFALL';
-      let advisoryA = 'Due to poor rainfall: Pasture conditions are poor and limited or unavailable for livestock.  Explore areas with moderate rainfall conditions and prepare for migration';
+      let advisoryA = 'Pasture conditions are poor and limited or unavailable for livestock.  Explore areas with moderate rainfall conditions and prepare for migration';
       let advisoryB = 'Destock through selling off weak animals. Slaughter weak animals to maximise on any available pasture/hay. County government need to deliver hay and water';
       let advisoryC = 'Migrate to areas with moderate rainfall conditions';
       // let advisoryD = 'Avoid crossing livestock over flooded rivers as they may be swept';
@@ -481,7 +481,7 @@ console.log(resultsLastThirtyDaysData.data[0]);
     } else if (RDPI < -75) {
 
       let implication = 'VERY POOR/FAILED RAINS';
-      let advisoryA = 'Due to very poor rainfall: Pasture is very poor and animal may die';
+      let advisoryA = 'Pasture is very poor and animal may die';
       let advisoryB = 'Utilise preserved hay or any available pasture. County government need to intensify delivery of hay and water';
       let advisoryC = 'Continue moving stronger animals to areas with better pasture conditions';
       // let advisoryD = 'County government advised to deliver for hay and water';

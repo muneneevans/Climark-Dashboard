@@ -85,12 +85,12 @@ export default class Advisory extends React.Component {
   render() {
     return (
       <div>
-        <Grid columns={4} divided>
+        <Grid columns={4}  stackable>
           {isUndefined(this.state.droughtIndex) ? (
             <h1>could not get the drought index</h1>
           ) : (
             <Grid.Row>
-              <Grid.Column>
+              <Grid.Column >
                 <div className="AdvisoryHeader">
                   {" "}
                   Expected Drought Conditions

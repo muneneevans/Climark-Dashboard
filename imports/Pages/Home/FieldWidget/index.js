@@ -67,19 +67,28 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
     <div className="fieldWidgetContainer">
       <Container>
         <div className="fieldHeaderContainer">
-          <Header as="h1">
-            <Icon name="map marker" />
-            <Header.Content>{title}</Header.Content>
-            <Button
-              onClick={() => {
-                history.push(`/ward/${title}`);
-              }}
-            >
-              View More
-            </Button>
-          </Header>
+          <Grid>
+            <Grid.Row>
+              <Grid.Column floated="left" width={5}>
+                <Header as="h1">
+                  <Icon name="map marker alternate" size="miny" />
+                  <Header.Content>{title}</Header.Content>
+                </Header>
+              </Grid.Column>
+              <Grid.Column floated="right" width={3}>
+                <button
+                  className="outlineButton fieldWidgetViewMoreButton montserrat"
+                  onClick={() => {
+                    history.push(`/ward/${title}`);
+                  }}
+                >
+                  View More
+                </button>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </div>
-        <Segment>
+        <Segment className="fw_dashbaordContainer">
           <Grid divided celled="internally">
             <Grid.Row className="advisory">
               <Advisories wardData={wardData} />

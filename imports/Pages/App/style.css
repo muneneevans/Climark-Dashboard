@@ -1,0 +1,20 @@
+.aldrich {
+  font-family: "Aldrich", sans-serif;
+}
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.primaryButton {
+  background-color: #673ab7;
+  color: #ffffff;
+  border: solid 1px #673ab7;
+  border-radius: 2px;
+  font-weight: bold;
+}
+.outlineButton {
+  border: solid 1px #673ab7;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #673ab7;
+}

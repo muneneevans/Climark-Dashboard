@@ -1,10 +1,10 @@
 .fieldWidgetContainer {
-  padding: 20px;
+  padding: 5px;
 }
 .fieldHeaderContainer {
   padding-top: 50px;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px; */
 }
 .advisory {
   background: #f2ecfd;
@@ -20,7 +20,13 @@
 .fieldWidgetViewMoreButton {
   padding: 1em 2em;
   float: left;
+  width: 100%;
 }
 .fw_dashbaordContainer {
   padding: 0px !important;
+}
+
+.dataWidgeContainer {
+  padding-top: 4em !important;
+  padding-bottom: 2em;
 }

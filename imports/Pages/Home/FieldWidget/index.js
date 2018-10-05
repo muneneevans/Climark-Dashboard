@@ -67,15 +67,15 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
     <div className="fieldWidgetContainer">
       <Container>
         <div className="fieldHeaderContainer">
-          <Grid>
+          <Grid stackable>
             <Grid.Row>
-              <Grid.Column floated="left" width={5}>
+              <Grid.Column floated="left" mobile={16} tablet={5} computer={5}>
                 <Header as="h1">
                   <Icon name="map marker alternate" size="miny" />
                   <Header.Content>{title}</Header.Content>
                 </Header>
               </Grid.Column>
-              <Grid.Column floated="right" width={3}>
+              <Grid.Column floated="right" mobile={16} tablet={3} computer={3}>
                 <button
                   className="outlineButton fieldWidgetViewMoreButton montserrat"
                   onClick={() => {
@@ -93,15 +93,11 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
             <Grid.Row className="advisory">
               <Advisories wardData={wardData} />
             </Grid.Row>
-            <Grid.Row columns={2}>
-              <Grid.Column computer={4} tablet={16} mobile={16}>
-                {/* <ForecastMap/> */}
-                <WardMap ward={wardData.wardDetails} />
-              </Grid.Column>
-
-              <Grid.Column computer={12} tablet={16} mobile={16}>
+            <Grid.Row columns={2} className="dataWidgeContainer">
+              
+              <Grid.Column computer={16} tablet={16} mobile={16}>
                 <Tab
-                  menu={{ secondary: true, pointing: true, stackable: true }}
+                  menu={{ secondary: true,  stackable: true }}
                   panes={panes}
                   graphs={graphs}
                   wardData={wardData}

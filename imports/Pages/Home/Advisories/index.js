@@ -85,37 +85,11 @@ export default class Advisory extends React.Component {
   render() {
     return (
       <div>
-        <Grid columns={4}  stackable>
+        <Grid columns={4} stackable>
           {isUndefined(this.state.droughtIndex) ? (
             <h1>could not get the drought index</h1>
           ) : (
             <Grid.Row>
-              <Grid.Column >
-                <div className="AdvisoryHeader">
-                  {" "}
-                  Expected Drought Conditions
-                </div>
-                <div className="item advisoryItem implication ">
-                  {this.state.droughtIndex.implication}
-                </div>
-                <Container>
-                  <div className="notesHeader"> Notes </div>
-                  <div className="ui bulleted list">
-                    <div className="item advisoryItem">
-                      {this.state.droughtIndex.advisoryA}
-                    </div>
-                    <div className="item advisoryItem">
-                      {this.state.droughtIndex.advisoryB}
-                    </div>
-                    <div className="item advisoryItem">
-                      {this.state.droughtIndex.advisoryC}
-                    </div>
-                    <div className="item advisoryItem">
-                      {this.state.droughtIndex.advisoryD}
-                    </div>
-                  </div>
-                </Container>
-              </Grid.Column>
               <Grid.Column>
                 <div className="AdvisoryHeader">
                   {" "}
@@ -154,6 +128,32 @@ export default class Advisory extends React.Component {
                     </div>
                     <div className="item advisoryItem">
                       {this.state.pastRainfall.advisoryC}
+                    </div>
+                  </div>
+                </Container>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="AdvisoryHeader">
+                  {" "}
+                  Expected Drought Conditions
+                </div>
+                <div className="item advisoryItem implication ">
+                  {this.state.droughtIndex.implication}
+                </div>
+                <Container>
+                  <div className="notesHeader"> Notes </div>
+                  <div className="ui bulleted list">
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryA}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryB}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryC}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryD}
                     </div>
                   </div>
                 </Container>

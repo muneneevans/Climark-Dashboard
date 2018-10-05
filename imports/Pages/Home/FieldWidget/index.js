@@ -53,12 +53,6 @@ const panes = [
         </div>
       );
     }
-  },
-  {
-    menuItem: "Current Conditions",
-    render: () => (
-      <Image src="https://im2.ezgif.com/tmp/ezgif-2-7543dffd0d.gif" />
-    )
   }
 ];
 
@@ -94,10 +88,9 @@ const FieldWidget = ({ title = "Some Place", graphs, history, wardData }) => {
               <Advisories wardData={wardData} />
             </Grid.Row>
             <Grid.Row columns={2} className="dataWidgeContainer">
-              
               <Grid.Column computer={16} tablet={16} mobile={16}>
                 <Tab
-                  menu={{ secondary: true,  stackable: true }}
+                  menu={{ secondary: true, stackable: true }}
                   panes={panes}
                   graphs={graphs}
                   wardData={wardData}

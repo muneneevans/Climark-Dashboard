@@ -7,7 +7,7 @@ import HistoricalMap from "../../../ui/HistoricalMap";
 
 const createTemperaturetable = dailyObservations => {
   console.log("called");
-  let table = new Array()
+  let table = new Array();
   // console.log(dailyObservations);
 
   for (let i = 6; i > 2; i--) {
@@ -40,7 +40,7 @@ const createTemperaturetable = dailyObservations => {
 };
 const createHumiditytable = dailyObservations => {
   console.log("called");
-  let table = new Array()
+  let table = new Array();
   // console.log(dailyObservations);
 
   for (let i = 6; i > 2; i--) {
@@ -74,7 +74,7 @@ const createHumiditytable = dailyObservations => {
 
 const createRainfalltable = dailyObservations => {
   console.log("called");
-  let table = new Array()
+  let table = new Array();
   // console.log(dailyObservations);
 
   for (let i = 6; i > 2; i--) {
@@ -108,7 +108,7 @@ const createRainfalltable = dailyObservations => {
 
 const createWindtable = dailyObservations => {
   console.log("called");
-  let table = new Array()
+  let table = new Array();
   // console.log(dailyObservations);
 
   for (let i = 6; i > 2; i--) {
@@ -140,14 +140,12 @@ const createWindtable = dailyObservations => {
   return table;
 };
 
-
-
 const WeatherWidget = ({ graphs, dailyObservations }) => {
   return (
     <div className="weatherwidget">
-      <Grid>
+      <Grid centered>
         <Grid.Row className="firstSection " columns={5}>
-          <Grid.Column width={5}>
+          <Grid.Column width={4}>
             <div className="todaysdate">
               <div className="tempdisplays">
                 <div className="temparature">
@@ -167,11 +165,10 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
           </Grid.Column>
 
           {createTemperaturetable(dailyObservations)}
-                  
         </Grid.Row>
         <Divider section />
         <Grid.Row className="firstSection " columns={5}>
-          <Grid.Column width={5}>
+          <Grid.Column width={4}>
             <div className="todaysdate">
               <div className="tempdisplays">
                 <div className="temparature">
@@ -191,11 +188,10 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
           </Grid.Column>
 
           {createHumiditytable(dailyObservations)}
-                  
         </Grid.Row>
         <Divider section />
         <Grid.Row className="firstSection " columns={5}>
-          <Grid.Column width={5}>
+          <Grid.Column width={4}>
             <div className="todaysdate">
               <div className="tempdisplays">
                 <div className="temparature">
@@ -215,11 +211,10 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
           </Grid.Column>
 
           {createRainfalltable(dailyObservations)}
-                  
         </Grid.Row>
         <Divider section />
         <Grid.Row className="firstSection " columns={5}>
-          <Grid.Column width={5}>
+          <Grid.Column width={4}>
             <div className="todaysdate">
               <div className="tempdisplays">
                 <div className="temparature">
@@ -239,20 +234,14 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
           </Grid.Column>
 
           {createWindtable(dailyObservations)}
-                  
         </Grid.Row>
 
-
-
-        
         <Divider section />
-       <Grid.Row>
-       <HistoricalMap />
-       </Grid.Row>
-        
-
-        
-        
+        <Grid.Row>
+          <Grid.Column width={16}>
+            <HistoricalMap />
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     </div>
   );

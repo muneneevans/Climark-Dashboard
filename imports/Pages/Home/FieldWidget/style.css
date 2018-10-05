@@ -12,3 +12,6 @@
     padding-right: 10px !important;
     padding-bottom: 30px !important;
 }
+.fieldWidgetContainer:nth-child(even) {
+  background: #f2f2f2;
+}

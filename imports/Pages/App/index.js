@@ -10,6 +10,7 @@ import {
   Header
 } from "semantic-ui-react";
 
+import "./style.css"
 import store from "../../Store/configureStore";
 
 import Home from "../Home";

@@ -92,7 +92,7 @@ class Home extends Component {
         </Grid.Row>
       </Grid>
       <Container className="findOutMoreSection">
-        <button className="outlineButton"> Find out more</button>
+        <button className="outlineButton featuresButton"> Find out more</button>
       </Container>
     </section>
   );
@@ -109,7 +109,7 @@ class Home extends Component {
           <Grid.Row verticalAlign="bottom">
             <Grid.Column mobile={16} tablet={8} computer={8}>
               <div className="headerSectionButtonContainer">
-                <button className="ui headerSectionButton primaryButton">
+                <button className="ui headerSectionButton primaryButton montserrat">
                   Find out more
                 </button>
               </div>
@@ -155,7 +155,7 @@ class Home extends Component {
                   country and get data specific to that locality.
                 </p>
 
-                <Link className="primaryButton dashboardButton" to="/dashboard">
+                <Link className="dashboardButton primaryButton  montserrat" to="/dashboard">
                   Proceed to dashboards
                 </Link>
               </div>

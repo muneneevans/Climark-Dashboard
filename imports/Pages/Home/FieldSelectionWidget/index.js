@@ -11,7 +11,7 @@ import {
 
 import "./style.css";
 
-import {AdvisoryDroughtIndex} from './../../../api/advisorydraughtIndex';
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
 import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
 import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";
@@ -29,10 +29,8 @@ class FieldSelectionWidget extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   //mounting components
   componentDidMount() {
-    console.log('Component mounted: Field Selection Widget');
     this.droughtIndexTracker = Tracker.autorun(() => {
       Meteor.subscribe("pastRainfallCondition");
       Meteor.subscribe("advisoryMA");
@@ -40,8 +38,7 @@ class FieldSelectionWidget extends Component {
       Meteor.subscribe("advisoryDroughtIndex");
 
       // Meteor.subscribe('lastsevendaysdi');
-
-    })
+    });
   }
   //
   handleCountyChange = (event, data) => {
@@ -51,7 +48,6 @@ class FieldSelectionWidget extends Component {
   };
 
   handleWardChange = (event, data) => {
-
     this.setState({
       ...this.state,
       ward: data.options.find(option => option.value === data.value).ward
@@ -71,12 +67,12 @@ class FieldSelectionWidget extends Component {
             <Grid.Row columns={3}>
               <Grid.Column computer={1} mobile={16} />
               <Grid.Column computer={6} mobile={16}>
-                <Header as="h1">Select a location </Header>
-                <Header as="h4">
+                <h1 className="heading">Select a location </h1>
+                <p className="fieldSelectionWidgetFormContent">
                   Select an area of your choice to view a weather summary at
                   that location. You can further view each field by selecting
                   the More button in the field widget.
-                </Header>
+                </p>
               </Grid.Column>
               <Grid.Column computer={6} mobile={16}>
                 <Card fluid>
@@ -105,14 +101,12 @@ class FieldSelectionWidget extends Component {
                         />
                       </Form.Field>
                       <Form.Field>
-                        <Button
-                          toggle
-                          active={true}
-                          fluid
+                        <button
                           onClick={this.handleSubmit}
+                          className="primaryButton fieldSelectionWidgetFormButton montserrat"
                         >
                           Add
-                        </Button>
+                        </button>
                       </Form.Field>
                     </Form>
                   </Card.Content>

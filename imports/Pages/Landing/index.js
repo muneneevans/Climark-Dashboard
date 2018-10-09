@@ -99,7 +99,12 @@ class Home extends Component {
 
   getHeaderSelection = () => (
     <section className="headerContent">
-      <div className="header climarklogo"> CLIMARK</div>
+      <div className="header climarklogo">
+        <h1>CLIMARK</h1>
+        <p className="headingDescription">
+          Lorem ipsum sit amet dolor consecateour
+        </p>
+      </div>
       <Container>
         <Grid
           className="contentSection"
@@ -149,14 +154,17 @@ class Home extends Component {
           >
             <Container>
               <div>
-                <h1 className="heading">Dashboards</h1>
+                <h1 className="heading">Weather Information Dashboard</h1>
                 <p className="dashboardContent">
                   Customize your experience by selecting any location within the
                   country and get data specific to that locality.
                 </p>
 
-                <Link className="dashboardButton primaryButton  montserrat" to="/dashboard">
-                  Proceed to dashboards
+                <Link
+                  className="dashboardButton primaryButton  montserrat"
+                  to="/dashboard"
+                >
+                  Proceed to the Selection Dashboard
                 </Link>
               </div>
             </Container>

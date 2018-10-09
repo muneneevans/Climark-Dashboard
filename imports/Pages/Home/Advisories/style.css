@@ -2,11 +2,13 @@
   font-size: 20px !important;
   font-weight: bold;
   font-family: "Aldrich", sans-serif;
+  color: #673ab7;
 }
 .notesHeader {
-  font-size: 1.5em !important;
+  font-size: 1.2em !important;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
+  color: #858585;
 }
 .implication {
   padding-bottom: 30px !important;

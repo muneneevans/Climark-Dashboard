@@ -44,6 +44,10 @@ body {
   margin-bottom: 0;
   margin-top: "5em";
 }
+.headingDescription {
+  font-size: 0.75em;
+}
+
 .description {
   font-size: 1.33em;
 }
@@ -102,7 +106,7 @@ body {
   background-position: center;
   background-size: cover !important;
   height: 90vh;
-  min-height: 420px;
+  min-height: 500px;
 }
 .climarklogo {
   text-align: left;
@@ -112,7 +116,7 @@ body {
 }
 
 .contentSection {
-  height: 80vh;
+  height: 45vh;
   padding: 2em 1em;
   /* background: red */
 }
@@ -125,7 +129,7 @@ body {
   padding-left: 1.5em;
 }
 .headerBanner {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.35);
   padding: 1em;
   padding-bottom: 4em;
   color: #ffffff;
@@ -236,6 +240,11 @@ sponsors section
   .findOutMoreSection {
     padding-left: 15px;
   }
+
+  .headingDescription {
+    /* font-size: 2em; */
+  }
+
   .headerBannerHeader {
     font-size: 2.5em;
   }
@@ -272,10 +281,10 @@ sponsors section
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .headerContent {
-    height: 65vh;
+    height: 85vh;
   }
   .contentSection {
-    height: 65vh;
+    height: 50vh;
   }
 }
 

@@ -99,7 +99,7 @@ export default class Advisory extends React.Component {
                   {this.state.pastMoisture.implication}
                 </div>
                 <Container>
-                  <div className="notesHeader"> Notes </div>
+                  <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastMoisture.advisoryA}
@@ -118,7 +118,7 @@ export default class Advisory extends React.Component {
                   {this.state.pastRainfall.implication}
                 </div>
                 <Container>
-                  <div className="notesHeader"> Notes </div>
+                  <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastRainfall.advisoryA}
@@ -141,7 +141,7 @@ export default class Advisory extends React.Component {
                   {this.state.droughtIndex.implication}
                 </div>
                 <Container>
-                  <div className="notesHeader"> Notes </div>
+                  <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.droughtIndex.advisoryA}
@@ -166,7 +166,7 @@ export default class Advisory extends React.Component {
                   {this.state.moistureAvailability.implication}
                 </div>
                 <Container>
-                  <div className="notesHeader"> Notes </div>
+                  <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.moistureAvailability.advisoryA}

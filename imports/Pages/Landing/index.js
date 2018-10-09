@@ -102,7 +102,7 @@ class Home extends Component {
       <div className="header climarklogo">
         <h1>CLIMARK</h1>
         <p className="headingDescription">
-          Lorem ipsum sit amet dolor consecateour
+          Enhancing Market Response to Resilince in Livestock Value Chains
         </p>
       </div>
       <Container>

@@ -41,11 +41,22 @@ class Home extends Component {
         <h2 className="heading featuerHeader">
           Communication through relevant information
         </h2>
+        <div className="featureCard">
+              <img src={marker} className="featureIcon" />
+              <h3 className="heading  featureCardHeader"> About Climark </h3>
+              <p className="featureCardDescription">
+              This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural 
+Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable 
+the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and
+actionable recommendations in order to safeguard their livelihoods.
+
+              </p>
+            </div>
       </Container>
 
       <Grid divided="vertically" className="container">
-        <Grid.Row columns={4}>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+        <Grid.Row columns={3}>
+          {/* <Grid.Column mobile={16} tablet={8} computer={4}>
             <div className="featureCard">
               <img src={marker} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Custom Locations</h3>
@@ -55,7 +66,7 @@ class Home extends Component {
                 Cupiditate veritatis consectetur totam perspiciatis
               </p>
             </div>
-          </Grid.Column>
+          </Grid.Column> */}
           <Grid.Column mobile={16} tablet={8} computer={4}>
             <div className="featureCard">
               <img src={binoculars} className="featureIcon" />

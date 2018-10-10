@@ -28,7 +28,7 @@ import binoculars from "./icons/binoculars.svg";
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
-
+import aWhereLogo from "./images/aWhereLogo.png"
 class Home extends Component {
   state = {};
 
@@ -203,10 +203,13 @@ actionable recommendations in order to safeguard their livelihoods.
               </p>
             </Grid.Column>
             <Grid.Column mobile={16} tablet={8} computer={8}>
-              <Grid columns={2}>
+              <Grid columns={3}>
                 <Grid.Row className="logosContainer">
                   <Grid.Column>
                     <img src={ctaLogo} className="sponsorImage" />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <img src={aWhereLogo} className="sponsorImage" />
                   </Grid.Column>
                   <Grid.Column>
                     <img src={amfratechLogo} className="sponsorImage" />

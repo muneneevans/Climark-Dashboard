@@ -76,8 +76,8 @@ class Home extends Component {
         {addWardWidgetsProcess.status == processTypes.SUCCESS && (
           <TransitionGroup className="">
             {wardWidgets.map((ward, i) => (
-              <CSSTransition key={i} timeout={300} classNames="fade">
-                <FieldWidget key={i} title={ward} graphs={wardWidgetGraphs[ward]} history={history} wardData={wardData[ward]} />
+              <CSSTransition key={ward} timeout={300} classNames="fade">
+                <FieldWidget key={ward} title={ward} graphs={wardWidgetGraphs[ward]} history={history} wardData={wardData[ward]} />
               </CSSTransition>
             ))}
           </TransitionGroup>

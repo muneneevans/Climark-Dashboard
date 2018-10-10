@@ -18,9 +18,9 @@ const createTemperaturetable = dailyObservations => {
             <div className="dayofweek">
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
-            <div className="tempicon">
+            {/* <div className="tempicon">
               <ion-icon name="sunny" size="large" />
-            </div>
+            </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
                 {" "}
@@ -51,9 +51,9 @@ const createHumiditytable = dailyObservations => {
             <div className="dayofweek">
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
-            <div className="tempicon">
-              <ion-icon name="" size="large" />
-            </div>
+            {/* <div className="tempicon">
+              <ion-icon name="rainy" size="large" />
+            </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
                 {" "}
@@ -85,9 +85,9 @@ const createRainfalltable = dailyObservations => {
             <div className="dayofweek">
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
-            <div className="tempicon">
-              <ion-icon name="" size="large" />
-            </div>
+            {/* <div className="tempicon">
+              <ion-icon name="rainy" size="large" />
+            </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
                 {" "}
@@ -119,9 +119,9 @@ const createWindtable = dailyObservations => {
             <div className="dayofweek">
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
-            <div className="tempicon">
-              <ion-icon name="" size="large" />
-            </div>
+            {/* <div className="tempicon">
+              <ion-icon name="rainy" size="large" />
+            </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
                 {" "}
@@ -179,7 +179,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    {/* <ion-icon name="sunny" size="large" /> */}
+                    <ion-icon name="water" size="large" />
                   </span>
                   <span className="temparaturesign"> Humidity</span>
                 </div>
@@ -202,7 +202,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    <ion-icon name="rain" size="large" />
+                    <ion-icon name="rainy" size="large" />
                   </span>
                   <span className="temparaturesign"> rainfall </span>
                 </div>
@@ -225,7 +225,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    <ion-icon name="wind" size="large" />
+                    <ion-icon name="swap" size="large" />
                   </span>
                   <span className="temparaturesign"> wind</span>
                 </div>

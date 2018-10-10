@@ -41,7 +41,7 @@ class Home extends Component {
         <h2 className="heading featuerHeader">
           Communication through relevant information
         </h2>
-        <div className="featureCard">
+        <div className="featureCard mainCard">
               <img src={marker} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> About Climark </h3>
               <p className="featureCardDescription">
@@ -56,47 +56,38 @@ actionable recommendations in order to safeguard their livelihoods.
 
       <Grid divided="vertically" className="container">
         <Grid.Row columns={3}>
-          {/* <Grid.Column mobile={16} tablet={8} computer={4}>
-            <div className="featureCard">
-              <img src={marker} className="featureIcon" />
-              <h3 className="heading  featureCardHeader"> Custom Locations</h3>
-              <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
-              </p>
-            </div>
-          </Grid.Column> */}
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+          
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className="featureCard">
               <img src={binoculars} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Observations</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+                Get weather conditions of the previous weeks of the particular region 
+                you want. This is visualised beautifully to show trends and provide crucial information for the
+                forecasting and prediction of pasture conditions for pastrolists.
               </p>
             </div>
           </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className="featureCard">
               <img src={wind} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Forecasts</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+                Give the local community accurate forecasts of their respective areas
+                 upcoming weather patterns of the next week
+                tailored specifically  to the its needs and interests. 
+                 
               </p>
             </div>
           </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className=" advisoryCard">
               <img src={notebook} className="featureIcon" />
               <h3 className="heading  featureCardHeader">Advisories</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+               These is advises we give to the stakeholders for resilience actions. 
+               Tangible steps that local communities can follow inorder to prrotect
+               their livelihood from adverse weather conditions that they already face.
               </p>
             </div>
           </Grid.Column>

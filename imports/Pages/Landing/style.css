@@ -87,6 +87,10 @@ to {
   padding-bottom: 30px;
   border-radius: 5px;
 }
+.mainCard {
+
+  margin-bottom: 25px;
+}
 .advisoryCard {
   background: #f2ecfd;
   padding: 15px 10px;

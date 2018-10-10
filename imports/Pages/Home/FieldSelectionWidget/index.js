@@ -9,6 +9,8 @@ import {
   Button
 } from "semantic-ui-react";
 
+import { isEmpty, isUndefined, isNull } from "../../../lib/utils";
+
 import "./style.css";
 
 import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
@@ -45,6 +47,10 @@ class FieldSelectionWidget extends Component {
     this.props.countyChanged(
       data.options.find(option => option.value === data.value).county
     );
+    this.setState({
+      ...this.state,
+      ward: {}
+    });
   };
 
   handleWardChange = (event, data) => {
@@ -84,6 +90,7 @@ class FieldSelectionWidget extends Component {
                           placeholder="select a county"
                           fluid
                           search
+                          defaultUpward
                           selection
                           options={counties}
                           onChange={this.handleCountyChange}
@@ -96,16 +103,18 @@ class FieldSelectionWidget extends Component {
                           fluid
                           search
                           selection
+                          defaultUpward
                           options={wards}
                           onChange={this.handleWardChange}
                         />
                       </Form.Field>
                       <Form.Field>
                         <button
+                          disabled={isEmpty(this.state.ward)}
                           onClick={this.handleSubmit}
                           className="primaryButton fieldSelectionWidgetFormButton montserrat"
                         >
-                          Add
+                          {isEmpty(this.state.ward) ? "Select a ward" : "Add"}
                         </button>
                       </Form.Field>
                     </Form>

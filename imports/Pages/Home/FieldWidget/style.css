@@ -1,5 +1,6 @@
 .fieldWidgetContainer {
   padding: 5px;
+  padding-bottom: 50px;
 }
 .fieldHeaderContainer {
   padding-top: 50px;
@@ -21,10 +22,17 @@
   background: #eceff1;
 }
 
+fieldWidgetButtonsContainer {
+  display: inline;
+  float: right;
+}
+
+.fieldWidgetHideButton {
+  padding: 1em 2em;
+}
 .fieldWidgetViewMoreButton {
   padding: 1em 2em;
-  float: left;
-  width: 100%;
+  float: right;
 }
 .fw_dashbaordContainer {
   padding: 0px !important;

@@ -78,25 +78,29 @@ class FieldWidget extends Component {
               </Grid.Row>
             </Grid>
           </div>
-          {!this.state.hideWidget && (
-            <Segment className="fw_dashbaordContainer">
-              <Grid divided celled="internally">
-                <Grid.Row className="advisory">
-                  <Advisories wardData={wardData} />
-                </Grid.Row>
-                <Grid.Row columns={2} className="dataWidgeContainer">
-                  <Grid.Column computer={16} tablet={16} mobile={16}>
-                    <Tab
-                      menu={{ secondary: true, stackable: true }}
-                      panes={panes}
-                      graphs={graphs}
-                      wardData={wardData}
-                    />
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
-            </Segment>
-          )}
+          {/* {!this.state.hideWidget && ( */}
+          <Segment
+            className={`fw_dashbaordContainer  ${
+              this.state.hideWidget ? "m-fadeOut" : "m-fadeIn"
+            } `}
+          >
+            <Grid divided celled="internally">
+              <Grid.Row className="advisory">
+                <Advisories wardData={wardData} />
+              </Grid.Row>
+              <Grid.Row columns={2} className="dataWidgeContainer">
+                <Grid.Column computer={16} tablet={16} mobile={16}>
+                  <Tab
+                    menu={{ secondary: true, stackable: true }}
+                    panes={panes}
+                    graphs={graphs}
+                    wardData={wardData}
+                  />
+                </Grid.Column>
+              </Grid.Row>
+            </Grid>
+          </Segment>
+          {/* )} */}
         </Container>
       </div>
     );

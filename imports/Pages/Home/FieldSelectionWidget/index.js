@@ -62,6 +62,10 @@ class FieldSelectionWidget extends Component {
 
   handleSubmit = () => {
     this.props.submitAction(this.state.ward);
+    this.setState({
+      ...this.state,
+      ward: {}
+    });
   };
 
   render() {

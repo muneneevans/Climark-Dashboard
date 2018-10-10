@@ -46,3 +46,16 @@ fieldWidgetButtonsContainer {
 a.active {
   background: #f2ecfd !important;
 }
+
+
+.m-fadeOut {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s linear 300ms, opacity 300ms, height 500ms;
+}
+.m-fadeIn {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0s linear 0s, opacity 300ms;
+}

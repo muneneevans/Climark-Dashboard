@@ -9,16 +9,14 @@ import {
   Button
 } from "semantic-ui-react";
 
+import { isEmpty, isUndefined, isNull } from "../../../lib/utils";
+
 import "./style.css";
 
-// // <<<<<<< HEAD
-// import {AdvisoryDroughtIndex} from './../../../api/advisorydroughtIndex';
-// // =======
-import {AdvisoryDroughtIndex} from './../../../api/advisorydroughtIndex';
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
 import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
 import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";
-// >>>>>>> 53289e5fc72c55d2db95a669edf2ee05a749d45b
 // import {LastSevenDaysDI} from './../../../api/lastSevenDaysDI';
 
 class FieldSelectionWidget extends Component {
@@ -33,10 +31,8 @@ class FieldSelectionWidget extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
   //mounting components
   componentDidMount() {
-    console.log('Component mounted: Field Selection Widget');
     this.droughtIndexTracker = Tracker.autorun(() => {
       Meteor.subscribe("pastRainfallCondition");
       Meteor.subscribe("advisoryMA");
@@ -44,18 +40,20 @@ class FieldSelectionWidget extends Component {
       Meteor.subscribe("advisoryDroughtIndex");
 
       // Meteor.subscribe('lastsevendaysdi');
-
-    })
+    });
   }
   //
   handleCountyChange = (event, data) => {
     this.props.countyChanged(
       data.options.find(option => option.value === data.value).county
     );
+    this.setState({
+      ...this.state,
+      ward: {}
+    });
   };
 
   handleWardChange = (event, data) => {
-
     this.setState({
       ...this.state,
       ward: data.options.find(option => option.value === data.value).ward
@@ -64,6 +62,10 @@ class FieldSelectionWidget extends Component {
 
   handleSubmit = () => {
     this.props.submitAction(this.state.ward);
+    this.setState({
+      ...this.state,
+      ward: {}
+    });
   };
 
   render() {
@@ -75,12 +77,12 @@ class FieldSelectionWidget extends Component {
             <Grid.Row columns={3}>
               <Grid.Column computer={1} mobile={16} />
               <Grid.Column computer={6} mobile={16}>
-                <Header as="h1">Select a location </Header>
-                <Header as="h4">
+                <h1 className="heading">Select a location </h1>
+                <p className="fieldSelectionWidgetFormContent">
                   Select an area of your choice to view a weather summary at
                   that location. You can further view each field by selecting
                   the More button in the field widget.
-                </Header>
+                </p>
               </Grid.Column>
               <Grid.Column computer={6} mobile={16}>
                 <Card fluid>
@@ -92,6 +94,7 @@ class FieldSelectionWidget extends Component {
                           placeholder="select a county"
                           fluid
                           search
+                          defaultUpward
                           selection
                           options={counties}
                           onChange={this.handleCountyChange}
@@ -104,19 +107,19 @@ class FieldSelectionWidget extends Component {
                           fluid
                           search
                           selection
+                          defaultUpward
                           options={wards}
                           onChange={this.handleWardChange}
                         />
                       </Form.Field>
                       <Form.Field>
-                        <Button
-                          toggle
-                          active={true}
-                          fluid
+                        <button
+                          disabled={isEmpty(this.state.ward)}
                           onClick={this.handleSubmit}
+                          className="primaryButton fieldSelectionWidgetFormButton montserrat"
                         >
-                          Add
-                        </Button>
+                          {isEmpty(this.state.ward) ? "Select a ward" : "Add"}
+                        </button>
                       </Form.Field>
                     </Form>
                   </Card.Content>

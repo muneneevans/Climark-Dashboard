@@ -44,6 +44,26 @@ body {
   margin-bottom: 0;
   margin-top: "5em";
 }
+.headingDescription {
+  font-size: 0.5em;
+}
+.headingDescription{
+  position: absolute;
+  white-space: nowrap;
+  animation: floatText 5s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes floatText{
+from {
+  left: 00%;
+}
+
+to {
+  /* left: auto; */
+  left: 100%;
+}
+}
+
 .description {
   font-size: 1.33em;
 }
@@ -67,6 +87,10 @@ body {
   padding-bottom: 30px;
   border-radius: 5px;
 }
+.mainCard {
+
+  margin-bottom: 25px;
+}
 .advisoryCard {
   background: #f2ecfd;
   padding: 15px 10px;
@@ -89,15 +113,8 @@ body {
   padding-top: 20px;
   font-family: "Montserrat", sans-serif;
 }
-
-.outlineButton {
-  border: solid 1px #673ab7;
-  padding: 10px 30px;
-  border-radius: 2px;
-  background-color: #ffffff;
-  color: #673ab7;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
+.featuresButton {
+  padding: 1em 4em;
 }
 
 .findOutMoreSection {
@@ -109,7 +126,7 @@ body {
   background-position: center;
   background-size: cover !important;
   height: 90vh;
-  min-height: 420px;
+  min-height: 500px;
 }
 .climarklogo {
   text-align: left;
@@ -119,7 +136,7 @@ body {
 }
 
 .contentSection {
-  height: 80vh;
+  height: 45vh;
   padding: 2em 1em;
   /* background: red */
 }
@@ -132,7 +149,7 @@ body {
   padding-left: 1.5em;
 }
 .headerBanner {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.35);
   padding: 1em;
   padding-bottom: 4em;
   color: #ffffff;
@@ -156,15 +173,6 @@ body {
 .headerSectionButton {
   padding: 1em 5em;
 }
-.primaryButton {
-  background-color: #673ab7;
-  color: #ffffff;
-
-  border: solid 1px #673ab7;
-  border-radius: 2px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: bold;
-}
 
 /*
 Dasbhoard section
@@ -181,12 +189,15 @@ Dasbhoard section
 
 .dashboardContent {
   max-width: 300px;
-  padding: 1em 0em 2em 0em;
+  padding: 1em 0em 2em 0.5em;
   font-size: 1em;
   font-family: "montserrat";
 }
 .dashboardButton {
+  margin: 0 auto;
+  text-align: center;
   padding: 1em 2em;
+  width: 90%;
 }
 
 /*
@@ -217,13 +228,13 @@ sponsors section
 /*Footer Section*/
 .footerSection {
   padding: 2em;
-  background:#3b4045;
+  background: #3b4045;
 }
 .footerHeading {
   font-family: "montserrat";
   color: #f3eadaad;
 }
-.footerContent{
+.footerContent {
   color: #f3eadaad;
   font-family: "montserrat";
 }
@@ -237,7 +248,7 @@ sponsors section
   .findOutMoreSection {
     text-align: center;
   }
-  .outlineButton {
+  .featuresButton {
     width: 90%;
     text-align: center;
     margin: 0 auto;
@@ -249,6 +260,11 @@ sponsors section
   .findOutMoreSection {
     padding-left: 15px;
   }
+
+  .headingDescription {
+    /* font-size: 2em; */
+  }
+
   .headerBannerHeader {
     font-size: 2.5em;
   }
@@ -261,7 +277,7 @@ sponsors section
   .sponsorContent {
     font-size: 1.5em;
   }
-  .outlineButton {
+  .featuresButton {
     min-width: 200px;
     text-align: center;
     margin: 0 auto;
@@ -285,10 +301,10 @@ sponsors section
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
   .headerContent {
-    height: 65vh;
+    height: 85vh;
   }
   .contentSection {
-    height: 65vh;
+    height: 50vh;
   }
 }
 

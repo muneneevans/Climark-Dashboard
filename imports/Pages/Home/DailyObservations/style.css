@@ -6,20 +6,18 @@
   padding-top: 50px;
   padding-bottom: 20px;
 }
-.firstSection{
+.firstSection {
   padding: 30px 0px 30px 0px !important;
 }
-.dailyObservationsSection{
+.dailyObservationsSection {
   padding: 30px 0px 30px 0px !important;
   background-color: white !important;
 }
-.sectionThree{
-
+.sectionThree {
   padding: 30px 0px 30px 0px !important;
-  
 }
-.dayofweek{
-  font-size: 15px
+.dayofweek {
+  font-size: 15px;
 }
 
 .temparaturevalue {
@@ -63,3 +61,7 @@
   transform: translate(-50%, -50%);
 }
 
+.weektemparaturevalue {
+  font-size: 2em;
+  color: black;
+}

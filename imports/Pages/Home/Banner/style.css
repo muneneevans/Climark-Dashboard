@@ -1,8 +1,8 @@
 .homeBanner {
-  padding: 2em 4em;
-  min-height: 450px;
+  padding: 2em 1em;
+  min-height: 250px;
   background: url(https://images.pexels.com/photos/693776/pexels-photo-693776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
-    no-repeat center;
+  no-repeat center;
   background-size: cover;
   -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
@@ -21,4 +21,34 @@
 .masthead h2 {
   font-size: 1.7em;
   font-weight: normal;
+}
+
+.bannerHeader {
+  font-family: "Aldrich", sans-serif ;
+  font-size: 5em;
+  color: #fff;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .homeBanner {
+    padding: 2em 4em;
+    min-height: 450px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

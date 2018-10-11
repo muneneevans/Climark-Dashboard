@@ -13,7 +13,7 @@ module.exports = {
   app: {
     // TODO: change app name and path
     name: 'climark',
-    path: '/home/catzer/ocs/weather',
+    path: '/home/catzer/ocs/climark-dashboard',
 
     servers: {
       one: {},

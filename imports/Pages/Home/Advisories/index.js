@@ -1,5 +1,5 @@
 import React from "react";
-import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydroughtIndex";
 
 import { isUndefined } from "../../../lib/utils";
 

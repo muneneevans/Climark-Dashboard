@@ -17,7 +17,7 @@ import dimensions from "react-dimensions";
 const dayForcacst = (day, format = "hh a") => {
   return day.forecast.map(hour => {
     return {
-      ...hour.temperatures,
+      ...hour.solar,
       date: moment(hour.startTime).format(format)
     };
   });
@@ -29,15 +29,10 @@ const round = (number, decimal) => {
 
 const dayAverage = (day, format = "hh a") => {
   return {
-    max: round(day.forecast.reduce((total, hour, counter) => {
-      return total + hour.temperatures.max;
+    amount: round(day.forecast.reduce((total, hour, counter) => {
+      return total + hour.solar.amount;
     }, 0) / day.forecast.length, 2),
-    value: round(day.forecast.reduce((total, hour, counter) => {
-      return total + hour.temperatures.value;
-    }, 0) / day.forecast.length, 2),
-    min: round(day.forecast.reduce((total, hour, counter) => {
-      return total + hour.temperatures.min;
-    }, 0) / day.forecast.length, 2),
+
     units: day.forecast[0].units,
     date: moment(day.date).format(format)
   };
@@ -55,7 +50,7 @@ const flattenAllDays = forecasts => {
   });
 };
 
-const TemperatureForecast = ({
+const SolarForecast = ({
   containerWidth,
   Forecasts,
   height = 350
@@ -63,35 +58,25 @@ const TemperatureForecast = ({
   return (<div>
     <Divider section="section" hidden="hidden"/>
     <div>
-      <Header as="h3">Hourly Temperature forecasts</Header>
+      <Header as="h3">Hourly Solar Forecasts</Header>
       <LineChart width={containerWidth} height={height} data={flatten(Forecasts)[0]} margin={{
           top: 5,
           right: 30,
           left: 30,
           bottom: 5
         }}>
-        <XAxis dataKey="date"/> {/* <YAxis label="&#x2103;" /> */
-        }
-        {/* <YAxis label={{ value:"&#x2103;" , angle: -90, position: 'insideLeft' }} /> */
-        }
+        <XAxis dataKey="date"/>
         <YAxis>
-          <Label value="&#x2103;" angle={-90} position="Left"/>
+          <Label value="Wh/m^2" angle={-90} position="insideLeft"/>
         </YAxis>
-
-        {/* <YAxis
-            scale={"linear"}
-            domain={["Math.ceil(dataMin)-10", "Math.ceil(dataMax)+10"]}
-            label="&#x2103;"
-          /> */
-        }
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
         <Legend/>
-        <Line type="monotone" dataKey="max" stroke="#e67e22"/>
-        <Line type="monotone" dataKey="value" stroke="#4CAF50" activeDot={{
+        <Line type="monotone" dataKey="" stroke="#e67e22"/>
+        <Line type="monotone" dataKey="amount" stroke="#4CAF50" activeDot={{
             r: 8
           }}/>
-        <Line type="monotone" dataKey="min" stroke="#3498db" activeDot={{
+        <Line type="monotone" dataKey="" stroke="#3498db" activeDot={{
             r: 8
           }}/>
       </LineChart>
@@ -100,7 +85,7 @@ const TemperatureForecast = ({
     <Divider section="section"/>
     <Divider section="section" hidden="hidden"/>
     <div>
-      <Header as="h3">Average Temperature forecasts for the week</Header>
+      <Header as="h3">Average Solar forecasts for the week</Header>
       <LineChart width={containerWidth} height={height} data={flattenAllDays(Forecasts)} margin={{
           top: 5,
           right: 30,
@@ -108,19 +93,17 @@ const TemperatureForecast = ({
           bottom: 5
         }}>
         <XAxis dataKey="date"/>
-        <YAxis scale={"linear"} domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-          // label="&#x2103;"
-        >
-            <Label value="&#x2103;" angle={-90} position="Left"/>
+        <YAxis scale={"linear"} domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}>
+          <Label value="Wh/m^2" angle={-90} position="insideLeft"/>
         </YAxis>
         <CartesianGrid strokeDasharray="3 3"/>
         <Tooltip/>
         <Legend/>
-        <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false}/>
-        <Line type="monotone" dataKey="value" stroke="#3d3d3d" activeDot={{
+        <Line type="monotone" dataKey="" stroke="#e67e22" dot={false}/>
+        <Line type="monotone" dataKey="amount" stroke="#3d3d3d" activeDot={{
             r: 1
           }} dot={false}/>
-        <Line type="monotone" dataKey="min" stroke="#3498db" activeDot={{
+        <Line type="monotone" dataKey="" stroke="#3498db" activeDot={{
             r: 1
           }} dot={false}/>
       </LineChart>
@@ -128,4 +111,4 @@ const TemperatureForecast = ({
   </div>);
 };
 
-export default dimensions()(TemperatureForecast);
+export default dimensions()(SolarForecast);

@@ -9,6 +9,7 @@
     "debug": "meteor run --inspect"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.2",
     "africastalking": "^0.3.2",
     "current-week-number": "^1.0.7",
     "fs": "0.0.1-security",

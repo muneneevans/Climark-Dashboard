@@ -147,7 +147,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
       <Grid centered>
         <Grid.Row className="firstSection " columns={5}>
           <Grid.Column width={4}>
-            <ion-icon className="observationIcon"  name="sunny" size="large" />
+            <ion-icon color="blue"  name="sunny" size="large" />
             <Grid.Row>
               <div className="tempdisplays">
                 <div className="temparature">
@@ -169,7 +169,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
         <Divider section />
         <Grid.Row className="firstSection " columns={5}>
           <Grid.Column width={4}>
-            <ion-icon className="observationIcon"  name="water" size="large" color="yellow" />
+            <ion-icon className="observationIcon"  name="water" size="large"  />
             <Grid.Row>
               <div className="todaysdate">
                 <div className="tempdisplays">

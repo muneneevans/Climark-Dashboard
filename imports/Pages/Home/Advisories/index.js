@@ -85,75 +85,103 @@ export default class Advisory extends React.Component {
   render() {
     return (
       <div>
-        <Grid columns={4} stackable >
-          {isUndefined(this.state.droughtIndex) ? (
-            <h1>could not get the drought index</h1>
-          ) : (
+        {isUndefined(this.state.droughtIndex) ? (
+          <h1>could not get the drought index</h1>
+        ) : (
+          <Grid columns={2} stackable >
             <Grid.Row>
-              <Card.Group>
-                <Card>
-                  <Card.Content header="Current Moisture Condictions" />
-                  <Card.Content>
-                    {this.state.pastMoisture.advisoryA}
-                  </Card.Content>
-                  <Card.Content>
-                    {this.state.pastMoisture.advisoryB}
-                  </Card.Content>
-                  <Card.Content extra>
+              <Grid.Column>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    {" "}
+                    Current Moisture Condictions
+                  </div>
+                  <div className="item advisoryItem implication">
                     {this.state.pastMoisture.implication}
-                  </Card.Content>
-                </Card>
-                <Card>
-                  <Card.Content header="Current Rainfall Distribution" />
-                  <Card.Content>
-                    {this.state.pastRainfall.advisoryA}
-                  </Card.Content>
-                  <Card.Content>
-                    {this.state.pastRainfall.advisoryB}
-                  </Card.Content>
-                  <Card.Content>
-                    {this.state.pastRainfall.advisoryC}
-                  </Card.Content>
-                </Card>
-
-                <Card>
-                  <Card.Content header="Expected Drought Conditions" />
-                  <Card.Content>
-                    {this.state.droughtIndex.advisoryA}
-                  </Card.Content>
-
-                  <Card.Content>
-                    {this.state.droughtIndex.advisoryB}
-                  </Card.Content>
-
-                  <Card.Content>
-                    {this.state.droughtIndex.advisoryC}
-                  </Card.Content>
-
-                  <Card.Content>
-                    {this.state.droughtIndex.advisoryD}
-                  </Card.Content>
-
-                  <Card.Content extra>
-                    {this.state.droughtIndex.implication}
-                  </Card.Content>
-                </Card>
-                <Card>
-                  <Card.Content header=" Expected Moisture Conditions" />
-                  <Card.Content>
-                    {this.state.moistureAvailability.advisoryA}
-                  </Card.Content>
-                  <Card.Content>
-                    {this.state.moistureAvailability.advisoryB}
-                  </Card.Content>
-                  <Card.Content extra>
-                    {this.state.moistureAvailability.implication}
-                  </Card.Content>
-                </Card>
-              </Card.Group>
+                  </div>
+                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="ui bulleted list">
+                    <div className="item advisoryItem">
+                      {this.state.pastMoisture.advisoryA}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.pastMoisture.advisoryB}
+                    </div>
+                  </div>
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    Current Rainfall Distribution
+                  </div>
+                  <div className="item advisoryItem implication">
+                    {this.state.pastRainfall.implication}
+                  </div>
+                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="ui bulleted list">
+                    <div className="item advisoryItem">
+                      {this.state.pastRainfall.advisoryA}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.pastRainfall.advisoryB}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.pastRainfall.advisoryC}
+                    </div>
+                  </div>
+                </div>
+              </Grid.Column>
             </Grid.Row>
-          )}
-        </Grid>
+            <Grid.Row>
+              <Grid.Column>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    {" "}
+                    Expected Drought Conditions
+                  </div>
+                  <div className="item advisoryItem implication ">
+                    {this.state.droughtIndex.implication}
+                  </div>
+                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="ui bulleted list">
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryA}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryB}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryC}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.droughtIndex.advisoryD}
+                    </div>
+                  </div>
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    Expected Moisture Conditions
+                  </div>
+                  <div className="item advisoryItem implication">
+                    {this.state.moistureAvailability.implication}
+                  </div>
+                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="ui bulleted list">
+                    <div className="item advisoryItem">
+                      {this.state.moistureAvailability.advisoryA}
+                    </div>
+                    <div className="item advisoryItem">
+                      {this.state.moistureAvailability.advisoryB}
+                    </div>
+                  </div>
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        )}
       </div>
     );
   }

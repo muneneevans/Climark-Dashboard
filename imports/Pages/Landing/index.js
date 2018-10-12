@@ -103,13 +103,14 @@ class Home extends Component {
     </section>
   );
 
-  getHeaderSelection = () => (
+  getHeaderSection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-        <h1>CLIMARK</h1> <img src={climarkLogo} className="climarklogo2" />
-        <p className="headingDescription">
-          Enhancing Market Response to Resilince in Livestock Value Chains
-        </p>
+        <h1 class="logoText">Climark</h1>
+        <img src={climarkLogo} className="climarklogo2" />
+      </div>
+      <div>
+       
       </div>
       <Container>
         <Grid
@@ -242,12 +243,14 @@ class Home extends Component {
                     <h3 className="footerHeading">Social</h3>
                     <ul className="footerContent">
                       <li>
-                       
-                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">Facebook</a>
+                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
+                          Facebook
+                        </a>
                       </li>
                       <li>
-                       
-                        <a href="https://twitter.com/ClimarkProject">Twitter </a>
+                        <a href="https://twitter.com/ClimarkProject">
+                          Twitter{" "}
+                        </a>
                       </li>
 
                       <li>Blog</li>
@@ -271,7 +274,7 @@ class Home extends Component {
         <section className="headerblock">
           <div className="container" />
         </section>
-        {this.getHeaderSelection()}
+        {this.getHeaderSection()}
         {this.getFeatureSection()}
         {this.getDashboardSection()}
         {this.getSponsorsSection()}

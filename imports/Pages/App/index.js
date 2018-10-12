@@ -10,12 +10,13 @@ import {
   Header
 } from "semantic-ui-react";
 
-import "./style.css"
+import "./style.css";
 import store from "../../Store/configureStore";
 
 import Home from "../Home";
 import Field from "../Field";
 import Landing from "../Landing";
+import About from "../About";
 
 const Routes = () => (
   <Router>
@@ -54,6 +55,7 @@ const Routes = () => (
         <Route path="/ward/:ward" component={Field} />
         <Route path="/dashboard" component={Home} />
         <Route path="/home" component={Landing} />
+        <Route path="/about" component={About} />
         <Route exact path="/" component={Landing} />
       </Switch>
 

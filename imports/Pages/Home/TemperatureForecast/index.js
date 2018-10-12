@@ -76,7 +76,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="celsius" />
+          <YAxis label="&#x2103;" />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
@@ -110,7 +110,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <YAxis
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label="celsius"
+            label="&#x2103;"
           />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />

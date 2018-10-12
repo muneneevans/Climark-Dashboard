@@ -110,7 +110,7 @@ const WindForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <YAxis
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label="celsius"
+            label="m/sec"
           />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />

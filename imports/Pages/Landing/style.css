@@ -45,7 +45,23 @@ body {
   margin-top: "5em";
 }
 .headingDescription {
-  font-size: 0.75em;
+  font-size: 0.5em;
+}
+.headingDescription{
+  position: absolute;
+  white-space: nowrap;
+  animation: floatText 5s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes floatText{
+from {
+  left: 00%;
+}
+
+to {
+  /* left: auto; */
+  left: 100%;
+}
 }
 
 .description {
@@ -70,6 +86,10 @@ body {
   padding: 15px 10px;
   padding-bottom: 30px;
   border-radius: 5px;
+}
+.mainCard {
+
+  margin-bottom: 25px;
 }
 .advisoryCard {
   background: #f2ecfd;
@@ -153,7 +173,10 @@ body {
 .headerSectionButton {
   padding: 1em 5em;
 }
-
+.climarklogo2{
+  height: 80px;
+  width: 80px;
+}
 /*
 Dasbhoard section
 */

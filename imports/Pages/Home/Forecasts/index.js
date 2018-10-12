@@ -5,6 +5,7 @@ import PrecipitationForecast from "../PrecipitationForecast";
 import WindForecast from "../WindForecast";
 import HumidityForecast from "../HumidityForecast";
 import ZeroWidget from "../ZeroWidget";
+import SolarForecast from "../SolarForecast";
 
 const panes = [
   {
@@ -25,7 +26,7 @@ const panes = [
   },
   {
     menuItem: "Solar",
-    render: ({ Norms }) => <ZeroWidget Norms={Norms} />
+    render: ({ Forecasts }) => <SolarForecast Forecasts={Forecasts} />
   }
 ];
 

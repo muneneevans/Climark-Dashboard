@@ -28,7 +28,8 @@ import binoculars from "./icons/binoculars.svg";
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
-
+import aWhereLogo from "./images/aWhereLogo.png";
+import climarkLogo from "./images/climarklogo.png";
 class Home extends Component {
   state = {};
 
@@ -41,51 +42,56 @@ class Home extends Component {
         <h2 className="heading featuerHeader">
           Communication through relevant information
         </h2>
+        <div className="featureCard mainCard">
+          <img src={marker} className="featureIcon" />
+          <h3 className="heading  featureCardHeader"> About Climark </h3>
+          <p className="featureCardDescription">
+            This CLIMARK Project has been setup by the Technical Center for
+            Agriculture and Rural Co-operation (CTA) in collaboration with
+            aWhere and Amfratech Ltd to design and deploy a blended weather
+            information management system that will enable the local
+            pastoralists communities be aware of the weather patterns in the
+            short term and long term, for pro-active and actionable
+            recommendations in order to safeguard their livelihoods.{" "}
+            <a href="">Read more</a>
+          </p>
+        </div>
       </Container>
 
       <Grid divided="vertically" className="container">
-        <Grid.Row columns={4}>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
-            <div className="featureCard">
-              <img src={marker} className="featureIcon" />
-              <h3 className="heading  featureCardHeader"> Custom Locations</h3>
-              <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
-              </p>
-            </div>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+        <Grid.Row columns={3}>
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className="featureCard">
               <img src={binoculars} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Observations</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+                Get weather conditions of the previous weeks of the particular
+                region you want. This is visualised beautifully to show trends
+                and provide crucial information for the forecasting and
+                prediction of pasture conditions for pastrolists.
               </p>
             </div>
           </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className="featureCard">
               <img src={wind} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Forecasts</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+                Give the local community accurate forecasts of their respective
+                areas upcoming weather patterns of the next week tailored
+                specifically to the its needs and interests.
               </p>
             </div>
           </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={4}>
+          <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className=" advisoryCard">
               <img src={notebook} className="featureIcon" />
               <h3 className="heading  featureCardHeader">Advisories</h3>
               <p className="featureCardDescription">
-                Magnam repudiandae alias deleniti ab non. Numquam rem rerum nisi
-                nesciunt. Reprehenderit sed minima iure ullam excepturi.
-                Cupiditate veritatis consectetur totam perspiciatis
+                These is advises we give to the stakeholders for resilience
+                actions. Tangible steps that local communities can follow
+                inorder to prrotect their livelihood from adverse weather
+                conditions that they already face.
               </p>
             </div>
           </Grid.Column>
@@ -100,9 +106,9 @@ class Home extends Component {
   getHeaderSelection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-        <h1>CLIMARK</h1>
+        <h1>CLIMARK</h1> <img src={climarkLogo} className="climarklogo2" />
         <p className="headingDescription">
-          Lorem ipsum sit amet dolor consecateour
+          Enhancing Market Response to Resilince in Livestock Value Chains
         </p>
       </div>
       <Container>
@@ -192,10 +198,13 @@ class Home extends Component {
               </p>
             </Grid.Column>
             <Grid.Column mobile={16} tablet={8} computer={8}>
-              <Grid columns={2}>
+              <Grid columns={3}>
                 <Grid.Row className="logosContainer">
                   <Grid.Column>
                     <img src={ctaLogo} className="sponsorImage" />
+                  </Grid.Column>
+                  <Grid.Column>
+                    <img src={aWhereLogo} className="sponsorImage" />
                   </Grid.Column>
                   <Grid.Column>
                     <img src={amfratechLogo} className="sponsorImage" />
@@ -232,8 +241,15 @@ class Home extends Component {
                   <Grid.Column mobile={8} tablet={5} computer={5}>
                     <h3 className="footerHeading">Social</h3>
                     <ul className="footerContent">
-                      <li>Facebook</li>
-                      <li>Twitter</li>
+                      <li>
+                       
+                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">Facebook</a>
+                      </li>
+                      <li>
+                       
+                        <a href="https://twitter.com/ClimarkProject">Twitter </a>
+                      </li>
+
                       <li>Blog</li>
                     </ul>
                   </Grid.Column>

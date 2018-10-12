@@ -19,7 +19,7 @@ const createTemperaturetable = dailyObservations => {
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
             {/* <div className="tempicon">
-              <ion-icon name="sunny" size="large" />
+              <ion-icon name="sunny" size="small" />
             </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
@@ -52,7 +52,7 @@ const createHumiditytable = dailyObservations => {
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
             {/* <div className="tempicon">
-              <ion-icon name="rainy" size="large" />
+              <ion-icon name="rainy" size="small" />
             </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
@@ -86,7 +86,7 @@ const createRainfalltable = dailyObservations => {
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
             {/* <div className="tempicon">
-              <ion-icon name="rainy" size="large" />
+              <ion-icon name="rainy" size="small" />
             </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
@@ -120,7 +120,7 @@ const createWindtable = dailyObservations => {
               {moment(dailyObservations[i].date).format("dddd ")}
             </div>
             {/* <div className="tempicon">
-              <ion-icon name="rainy" size="large" />
+              <ion-icon name="rainy" size="small" />
             </div> */}
             <div className="temparature">
               <span className="weektemparaturevalue">
@@ -146,20 +146,18 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
       <Grid centered>
         <Grid.Row className="firstSection " columns={5}>
           <Grid.Column width={4}>
-            <div className="todaysdate">
-              <div className="tempdisplays">
-                <div className="temparature">
-                  <span className="temparaturevalue">
-                    {Math.ceil(dailyObservations[0].temperatures.max)}
-                  </span>
-                  <span className="temparaturesigns"> &#x2103;</span>
-                </div>
-                <div className="temparatureadd">
-                  <span className="temparatureicon">
-                    <ion-icon name="sunny" size="large" />
-                  </span>
-                  <span className="temparaturesign"> Sunny</span>
-                </div>
+            <div className="tempdisplays">
+              <div className="temparature">
+                <span className="temparaturevalue">
+                  {Math.ceil(dailyObservations[0].temperatures.max)}
+                </span>
+                <span className="temparaturesigns"> &#x2103;</span>
+              </div>
+              <div className="temparatureadd">
+                <span className="temparatureicon">
+                  <ion-icon name="sunny" size="small" />
+                </span>
+                <span className="temparaturesign"> Sunny</span>
               </div>
             </div>
           </Grid.Column>
@@ -179,7 +177,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    <ion-icon name="water" size="large" />
+                    <ion-icon name="water" size="small" />
                   </span>
                   <span className="temparaturesign"> Humidity</span>
                 </div>
@@ -202,7 +200,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    <ion-icon name="rainy" size="large" />
+                    <ion-icon name="rainy" size="small" />
                   </span>
                   <span className="temparaturesign"> rainfall </span>
                 </div>
@@ -225,7 +223,7 @@ const WeatherWidget = ({ graphs, dailyObservations }) => {
                 </div>
                 <div className="temparatureadd">
                   <span className="temparatureicon">
-                    <ion-icon name="swap" size="large" />
+                    <ion-icon name="swap" size="small" />
                   </span>
                   <span className="temparaturesign"> wind</span>
                 </div>

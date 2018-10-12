@@ -88,7 +88,7 @@ class FieldWidget extends Component {
               <Grid.Row className="advisory">
                 <Advisories wardData={wardData} />
               </Grid.Row>
-              <Grid.Row columns={2} className="dataWidgeContainer">
+              <Grid.Row columns={2} className="dataWidgetContainer">
                 <Grid.Column computer={16} tablet={16} mobile={16}>
                   <Tab
                     menu={{ secondary: true, stackable: true }}

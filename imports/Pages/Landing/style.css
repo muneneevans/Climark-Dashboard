@@ -28,13 +28,7 @@ body {
   background-position: center center !important;
 }
 
-
 /*veritcal text*/
-
-
-
-
-
 
 .contentBlock {
   background-color: #f2c318 !important;
@@ -242,8 +236,10 @@ sponsors section
 
 .logosContainer {
   /* vertical-align: middle; */
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }

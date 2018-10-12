@@ -28,7 +28,7 @@ import binoculars from "./icons/binoculars.svg";
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
-import aWhereLogo from "./images/aWhereLogo.png";
+import aWhereLogo from "./images/awhere.png";
 import climarkLogo from "./images/climarklogo.png";
 class Home extends Component {
   state = {};
@@ -109,9 +109,7 @@ class Home extends Component {
         <h1 class="logoText">Climark</h1>
         <img src={climarkLogo} className="climarklogo2" />
       </div>
-      <div>
-       
-      </div>
+      <div />
       <Container>
         <Grid
           className="contentSection"
@@ -200,16 +198,13 @@ class Home extends Component {
             </Grid.Column>
             <Grid.Column mobile={16} tablet={8} computer={8}>
               <Grid columns={3}>
-                <Grid.Row className="logosContainer">
-                  <Grid.Column>
+                <Grid.Row>
+                  <div className="logosContainer">
                     <img src={ctaLogo} className="sponsorImage" />
-                  </Grid.Column>
-                  <Grid.Column>
                     <img src={aWhereLogo} className="sponsorImage" />
-                  </Grid.Column>
-                  <Grid.Column>
                     <img src={amfratechLogo} className="sponsorImage" />
-                  </Grid.Column>
+                  </div>
+
                 </Grid.Row>
               </Grid>
             </Grid.Column>

@@ -68,5 +68,9 @@
 }
 
 .observationIcon {
-  font-size: 2em;
+  font-size: 200px;
+  color: blue;
+}
+.observationIcon svg {
+  color: blue;
 }

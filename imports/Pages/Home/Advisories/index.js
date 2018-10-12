@@ -85,20 +85,20 @@ export default class Advisory extends React.Component {
   render() {
     return (
       <div>
-        <Grid columns={4} stackable>
-          {isUndefined(this.state.droughtIndex) ? (
-            <h1>could not get the drought index</h1>
-          ) : (
+        {isUndefined(this.state.droughtIndex) ? (
+          <h1>could not get the drought index</h1>
+        ) : (
+          <Grid columns={2} stackable >
             <Grid.Row>
               <Grid.Column>
-                <div className="AdvisoryHeader">
-                  {" "}
-                  Current Moisture Condictions
-                </div>
-                <div className="item advisoryItem implication">
-                  {this.state.pastMoisture.implication}
-                </div>
-                <Container>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    {" "}
+                    Current Moisture Condictions
+                  </div>
+                  <div className="item advisoryItem implication">
+                    {this.state.pastMoisture.implication}
+                  </div>
                   <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
@@ -108,16 +108,16 @@ export default class Advisory extends React.Component {
                       {this.state.pastMoisture.advisoryB}
                     </div>
                   </div>
-                </Container>
+                </div>
               </Grid.Column>
               <Grid.Column>
-                <div className="AdvisoryHeader">
-                  Current Rainfall Distribution
-                </div>
-                <div className="item advisoryItem implication">
-                  {this.state.pastRainfall.implication}
-                </div>
-                <Container>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    Current Rainfall Distribution
+                  </div>
+                  <div className="item advisoryItem implication">
+                    {this.state.pastRainfall.implication}
+                  </div>
                   <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
@@ -130,17 +130,19 @@ export default class Advisory extends React.Component {
                       {this.state.pastRainfall.advisoryC}
                     </div>
                   </div>
-                </Container>
+                </div>
               </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
               <Grid.Column>
-                <div className="AdvisoryHeader">
-                  {" "}
-                  Expected Drought Conditions
-                </div>
-                <div className="item advisoryItem implication ">
-                  {this.state.droughtIndex.implication}
-                </div>
-                <Container>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    {" "}
+                    Expected Drought Conditions
+                  </div>
+                  <div className="item advisoryItem implication ">
+                    {this.state.droughtIndex.implication}
+                  </div>
                   <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
@@ -156,16 +158,16 @@ export default class Advisory extends React.Component {
                       {this.state.droughtIndex.advisoryD}
                     </div>
                   </div>
-                </Container>
+                </div>
               </Grid.Column>
               <Grid.Column>
-                <div className="AdvisoryHeader">
-                  Expected Moisture Conditions
-                </div>
-                <div className="item advisoryItem implication">
-                  {this.state.moistureAvailability.implication}
-                </div>
-                <Container>
+                <div className="advisoryDisplayCard">
+                  <div className="AdvisoryHeader">
+                    Expected Moisture Conditions
+                  </div>
+                  <div className="item advisoryItem implication">
+                    {this.state.moistureAvailability.implication}
+                  </div>
                   <div className="notesHeader"> Advisory Notes </div>
                   <div className="ui bulleted list">
                     <div className="item advisoryItem">
@@ -175,11 +177,11 @@ export default class Advisory extends React.Component {
                       {this.state.moistureAvailability.advisoryB}
                     </div>
                   </div>
-                </Container>
+                </div>
               </Grid.Column>
             </Grid.Row>
-          )}
-        </Grid>
+          </Grid>
+        )}
       </div>
     );
   }

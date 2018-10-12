@@ -28,7 +28,8 @@ import binoculars from "./icons/binoculars.svg";
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
-import aWhereLogo from "./images/aWhereLogo.png"
+import aWhereLogo from "./images/aWhereLogo.png";
+import climarkLogo from "./images/climarklogo.png";
 class Home extends Component {
   state = {};
 
@@ -42,29 +43,32 @@ class Home extends Component {
           Communication through relevant information
         </h2>
         <div className="featureCard mainCard">
-              <img src={marker} className="featureIcon" />
-              <h3 className="heading  featureCardHeader"> About Climark </h3>
-              <p className="featureCardDescription">
-              This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural 
-Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable 
-the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and
-actionable recommendations in order to safeguard their livelihoods.
-
-              </p>
-            </div>
+          <img src={marker} className="featureIcon" />
+          <h3 className="heading  featureCardHeader"> About Climark </h3>
+          <p className="featureCardDescription">
+            This CLIMARK Project has been setup by the Technical Center for
+            Agriculture and Rural Co-operation (CTA) in collaboration with
+            aWhere and Amfratech Ltd to design and deploy a blended weather
+            information management system that will enable the local
+            pastoralists communities be aware of the weather patterns in the
+            short term and long term, for pro-active and actionable
+            recommendations in order to safeguard their livelihoods.{" "}
+            <a href="">Read more</a>
+          </p>
+        </div>
       </Container>
 
       <Grid divided="vertically" className="container">
         <Grid.Row columns={3}>
-          
           <Grid.Column mobile={16} tablet={8} computer={5}>
             <div className="featureCard">
               <img src={binoculars} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Observations</h3>
               <p className="featureCardDescription">
-                Get weather conditions of the previous weeks of the particular region 
-                you want. This is visualised beautifully to show trends and provide crucial information for the
-                forecasting and prediction of pasture conditions for pastrolists.
+                Get weather conditions of the previous weeks of the particular
+                region you want. This is visualised beautifully to show trends
+                and provide crucial information for the forecasting and
+                prediction of pasture conditions for pastrolists.
               </p>
             </div>
           </Grid.Column>
@@ -73,10 +77,9 @@ actionable recommendations in order to safeguard their livelihoods.
               <img src={wind} className="featureIcon" />
               <h3 className="heading  featureCardHeader"> Forecasts</h3>
               <p className="featureCardDescription">
-                Give the local community accurate forecasts of their respective areas
-                 upcoming weather patterns of the next week
-                tailored specifically  to the its needs and interests. 
-                 
+                Give the local community accurate forecasts of their respective
+                areas upcoming weather patterns of the next week tailored
+                specifically to the its needs and interests.
               </p>
             </div>
           </Grid.Column>
@@ -85,9 +88,10 @@ actionable recommendations in order to safeguard their livelihoods.
               <img src={notebook} className="featureIcon" />
               <h3 className="heading  featureCardHeader">Advisories</h3>
               <p className="featureCardDescription">
-               These is advises we give to the stakeholders for resilience actions. 
-               Tangible steps that local communities can follow inorder to prrotect
-               their livelihood from adverse weather conditions that they already face.
+                These is advises we give to the stakeholders for resilience
+                actions. Tangible steps that local communities can follow
+                inorder to prrotect their livelihood from adverse weather
+                conditions that they already face.
               </p>
             </div>
           </Grid.Column>
@@ -102,10 +106,24 @@ actionable recommendations in order to safeguard their livelihoods.
   getHeaderSelection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-        <h1>CLIMARK</h1>
-        <p className="headingDescription">
-          Enhancing Market Response to Resilince in Livestock Value Chains
-        </p>
+        <h1>CLIMARK</h1> <img src={climarkLogo} className="climarklogo2" />
+      </div>
+     <div>
+      <div className="Iam">
+        <p>Enhancing</p>
+        <b>
+          <div class="innerIam">
+            
+            <br />Market Resilience
+            <br />
+            Livestock
+            <br />
+            Value Chains
+            <br />
+            .
+          </div>
+        </b>
+      </div>
       </div>
       <Container>
         <Grid
@@ -237,8 +255,17 @@ actionable recommendations in order to safeguard their livelihoods.
                   <Grid.Column mobile={8} tablet={5} computer={5}>
                     <h3 className="footerHeading">Social</h3>
                     <ul className="footerContent">
-                      <li>Facebook</li>
-                      <li>Twitter</li>
+                      <li>
+                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
+                          Facebook
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/ClimarkProject">
+                          Twitter{" "}
+                        </a>
+                      </li>
+
                       <li>Blog</li>
                     </ul>
                   </Grid.Column>

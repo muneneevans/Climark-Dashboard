@@ -16,7 +16,7 @@ import dimensions from "react-dimensions";
 const dayForcacst = (day, format = "hh a") => {
   return day.forecast.map(hour => {
     return {
-      ...hour.relativeHumidity,
+      ...hour.solar,
       date: moment(hour.startTime).format(format)
     };
   });
@@ -28,24 +28,13 @@ const round = (number, decimal) => {
 
 const dayAverage = (day, format = "hh a") => {
   return {
-    max: round(
+    amount: round(
       day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.max;
+        return total + hour.solar.amount;
       }, 0) / day.forecast.length,
       2
     ),
-    average: round(
-      day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.average;
-      }, 0) / day.forecast.length,
-      2
-    ),
-    min: round(
-      day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.min;
-      }, 0) / day.forecast.length,
-      2
-    ),
+    
     units: day.forecast[0].units,
     date: moment(day.date).format(format)
   };
@@ -63,12 +52,12 @@ const flattenAllDays = forecasts => {
   });
 };
 
-const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
+const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Relative Humidity Forecasts</Header>
+        <Header as="h3">Hourly Solar Forecasts</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -76,20 +65,20 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="" />
+          <YAxis label="Wh/m^2" />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="max" stroke="#e67e22" />
+          <Line type="monotone" dataKey="" stroke="#e67e22" />
           <Line
             type="monotone"
-            dataKey="average"
+            dataKey="amount"
             stroke="#4CAF50"
             activeDot={{ r: 8 }}
           />
           <Line
             type="monotone"
-            dataKey="min"
+            dataKey=""
             stroke="#3498db"
             activeDot={{ r: 8 }}
           />
@@ -99,7 +88,7 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden/>
       <div>
-        <Header as="h3">Average Relative Humidity forecasts for the week</Header>
+        <Header as="h3">Average Solar forecasts for the week</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -110,22 +99,22 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <YAxis
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label=""
+            label="Wh/m^2"
           />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} />
+          <Line type="monotone" dataKey="" stroke="#e67e22" dot={false} />
           <Line
             type="monotone"
-            dataKey="average"
+            dataKey="amount"
             stroke="#3d3d3d"
             activeDot={{ r: 1 }}
             dot={false}
           />
           <Line
             type="monotone"
-            dataKey="min"
+            dataKey=""
             stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
@@ -136,4 +125,4 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   );
 };
 
-export default dimensions()(HumidityForecast);
+export default dimensions()(SolarForecast);

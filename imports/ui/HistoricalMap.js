@@ -8,8 +8,8 @@ export default class HistoricalMap extends React.Component {
       <div className='item'>
         <div className='item__sub'>
           <div className='item__line'>
-            <h1 className='item__title'>Rainfall Distribution</h1>
-            <Iframe url="https://amfratechdiag403.blob.core.windows.net/maps/July_last_30_days_rd/index.html"  height="450px" width="850px" id="myId" className="item__line" display="initial" position="relative" allowFullScreen="allowFullScreen"/>
+            <h1 className='item__title'>Rainfall Distribution:Sep 10- Oct 10</h1>
+            <Iframe url="https://amfratechdiag403.blob.core.windows.net/maps/oct_10_last30days/index.html"  height="450px"  id="myId" className="item__line" display="initial" position="relative" allowFullScreen="allowFullScreen"/>
           </div>
 
         </div>

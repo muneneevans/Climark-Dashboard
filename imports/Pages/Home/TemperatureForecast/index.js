@@ -76,7 +76,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="celsius" />
+          <YAxis label="Celsius"/>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />

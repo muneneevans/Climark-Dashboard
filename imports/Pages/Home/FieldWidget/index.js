@@ -50,7 +50,7 @@ class FieldWidget extends Component {
                 <Grid.Column
                   floated="right"
                   mobile={16}
-                  tablet={4}
+                  tablet={8}
                   computer={4}
                   className={"fieldWidgetButtonsContainer"}
                 >

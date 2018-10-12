@@ -107,9 +107,23 @@ class Home extends Component {
     <section className="headerContent">
       <div className="header climarklogo">
         <h1>CLIMARK</h1> <img src={climarkLogo} className="climarklogo2" />
-        <p className="headingDescription">
-          Enhancing Market Response to Resilince in Livestock Value Chains
-        </p>
+      </div>
+     <div>
+      <div className="Iam">
+        <p>Enhancing</p>
+        <b>
+          <div class="innerIam">
+            
+            <br />Market Resilience
+            <br />
+            Livestock
+            <br />
+            Value Chains
+            <br />
+            .
+          </div>
+        </b>
+      </div>
       </div>
       <Container>
         <Grid
@@ -242,12 +256,14 @@ class Home extends Component {
                     <h3 className="footerHeading">Social</h3>
                     <ul className="footerContent">
                       <li>
-                       
-                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">Facebook</a>
+                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
+                          Facebook
+                        </a>
                       </li>
                       <li>
-                       
-                        <a href="https://twitter.com/ClimarkProject">Twitter </a>
+                        <a href="https://twitter.com/ClimarkProject">
+                          Twitter{" "}
+                        </a>
                       </li>
 
                       <li>Blog</li>

@@ -28,6 +28,8 @@ body {
   background-position: center center !important;
 }
 
+/*veritcal text*/
+
 .contentBlock {
   background-color: #f2c318 !important;
 }
@@ -37,6 +39,19 @@ body {
   color: #000000 !important;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.logoText {
+  font-size: 1.5em;
+  font-family: "Aldrich", sans-serif;
+  color: #ffffff;
+  margin: 0px;
+}
 .heading {
   color: black;
   font-size: "2.5em";
@@ -47,21 +62,21 @@ body {
 .headingDescription {
   font-size: 0.5em;
 }
-.headingDescription{
+.headingDescription {
   position: absolute;
   white-space: nowrap;
   animation: floatText 5s infinite alternate ease-in-out;
 }
 
-@-webkit-keyframes floatText{
-from {
-  left: 00%;
-}
+@-webkit-keyframes floatText {
+  from {
+    left: 00%;
+  }
 
-to {
-  /* left: auto; */
-  left: 100%;
-}
+  to {
+    /* left: auto; */
+    left: 100%;
+  }
 }
 
 .description {
@@ -88,7 +103,6 @@ to {
   border-radius: 5px;
 }
 .mainCard {
-
   margin-bottom: 25px;
 }
 .advisoryCard {
@@ -154,9 +168,9 @@ to {
   padding-bottom: 4em;
   color: #ffffff;
   border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(105, 105, 105, 1);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(105, 105, 105, 1);
+  box-shadow: 0px 0px 5px 0px rgba(105, 105, 105, 1);
 }
 .headerBannerContentContainer {
   padding: 2em 0.5em;
@@ -173,7 +187,7 @@ to {
 .headerSectionButton {
   padding: 1em 5em;
 }
-.climarklogo2{
+.climarklogo2 {
   height: 80px;
   width: 80px;
 }
@@ -222,8 +236,10 @@ sponsors section
 
 .logosContainer {
   /* vertical-align: middle; */
+  width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
 }

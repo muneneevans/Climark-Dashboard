@@ -35,7 +35,7 @@ class FieldWidget extends Component {
           <div className="fieldHeaderContainer">
             <Grid stackable>
               <Grid.Row>
-                <Grid.Column floated="left" mobile={16} tablet={5} computer={5}>
+                <Grid.Column floated="left" mobile={16} tablet={8} computer={5}>
                   <Header as="h1">
                     <Icon name="map marker alternate" size="miny" />
                     <Header.Content>{title}</Header.Content>
@@ -44,36 +44,31 @@ class FieldWidget extends Component {
                 <Grid.Column
                   floated="right"
                   mobile={16}
-                  tablet={3}
-                  computer={3}
-                />
-                <Grid.Column
-                  floated="right"
-                  mobile={16}
-                  tablet={8}
-                  computer={4}
-                  className={"fieldWidgetButtonsContainer"}
+                  tablet={6}
+                  computer={5}
                 >
-                  <button
-                    className=" outlineButton fieldWidgetHideButton montserrat"
-                    onClick={() => {
-                      hideWidget: false;
-                      this.setState({
-                        ...this.state,
-                        hideWidget: !this.state.hideWidget
-                      });
-                    }}
-                  >
-                    {this.state.hideWidget ? "Expand" : "Hide"}
-                  </button>
-                  <button
-                    className=" primaryButton fieldWidgetViewMoreButton montserrat"
-                    onClick={() => {
-                      history.push(`/ward/${title}`);
-                    }}
-                  >
-                    View More
-                  </button>
+                  <div className={"fieldWidgetButtonsContainer"}>
+                    <button
+                      className=" outlineButton fieldWidgetHideButton montserrat"
+                      onClick={() => {
+                        hideWidget: false;
+                        this.setState({
+                          ...this.state,
+                          hideWidget: !this.state.hideWidget
+                        });
+                      }}
+                    >
+                      {this.state.hideWidget ? "Expand" : "Hide"}
+                    </button>
+                    <button
+                      className=" primaryButton fieldWidgetViewMoreButton montserrat"
+                      onClick={() => {
+                        history.push(`/ward/${title}`);
+                      }}
+                    >
+                      View More
+                    </button>
+                  </div>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import ImageSlider from "./../../ui/ImageSlider";
 // import { Grid, Image } from 'semantic-ui-react'
 
 import styles from "./style.css";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import {
   Button,
@@ -61,7 +63,7 @@ class Home extends Component {
             <h3 className="heading  featureCardHeader">
               Observations</h3>
             <p className="featureCardDescription">
-              Get weather conditions of the previous weeks of the particular region you want. This is visualised beautifully to show trends and provide crucial information for the forecasting and prediction of pasture conditions for pastrolists.
+              We use our historical weather data to provide our users with the previous weather trends for appreciation of the short-term and long term weather pattern. Using graphical representation, we provide you with weather patterns for the past one month to current.
             </p>
           </div>
         </Grid.Column>
@@ -71,7 +73,7 @@ class Home extends Component {
             <h3 className="heading  featureCardHeader">
               Forecasts</h3>
             <p className="featureCardDescription">
-              Give the local community accurate forecasts of their respective areas upcoming weather patterns of the next week tailored specifically to the its needs and interests.
+              We provide our users with near real-time weather information of their respective areas, with upcoming weather forecasts of the next one week to be able to plan for their needs and interests.
             </p>
           </div>
         </Grid.Column>
@@ -80,16 +82,16 @@ class Home extends Component {
             <img src={notebook} className="featureIcon"/>
             <h3 className="heading  featureCardHeader">Advisories</h3>
             <p className="featureCardDescription">
-              These is advises we give to the stakeholders for resilience actions. Tangible steps that local communities can follow inorder to prrotect their livelihood from adverse weather conditions that they already face.
+              Climark Provides stakeholders with advisories towards resilience actions and offer tangible steps that local communities can follow for pro-active actionable recommendations in order to safeguard their livelihoods.
+These advisories are simplified to also highlight the impact of weather on pasture for livestock within the local pastoralists communities.
             </p>
           </div>
         </Grid.Column>
       </Grid.Row>
     </Grid>
-    <Container className="findOutMoreSection">
-      <button className="outlineButton featuresButton">
-        Find out more</button>
-    </Container>
+    {/* <Container className="findOutMoreSection">
+      <button className = "outlineButton featuresButton" > Find out more</button>
+    </Container> */}
   </section>);
 
   getHeaderSelection = () => (<section className="headerContent">
@@ -119,9 +121,9 @@ class Home extends Component {
         <Grid.Row verticalAlign="bottom">
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <div className="headerSectionButtonContainer">
-              <button className="ui headerSectionButton primaryButton montserrat">
+              {/* <button className="ui headerSectionButton primaryButton montserrat">
                 Find out more
-              </button>
+              </button> */}
             </div>
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
@@ -246,24 +248,29 @@ class Home extends Component {
   render() {
     const {visible} = this.state;
 
-    return (<div>
-      <section className="headerblock">
-        <div className="container"/>
-      </section>
-      {this.getHeaderSelection()}
-      {this.getFeatureSection()}
-      {this.getDashboardSection()}
-      {this.getSponsorsSection()}
-      {this.getFooterSection()}
-
-      <section className="headerimage">
-        <div className="container"/>
-      </section>
-
-      <section className="headerabout">
-        <div className="container"/>
-      </section>
-    </div>);
+    return (
+        <ImageSlider/>
+    //   <div>
+    //   <section className="headerblock">
+    //     <div className="container"/>
+    //   </section>
+    //
+    //   {this.getHeaderSelection()}
+    //   {this.getFeatureSection()}
+    //   {this.getDashboardSection()}
+    //   {this.getSponsorsSection()}
+    //   {this.getFooterSection()}
+    //
+    //
+    //   <section className="headerimage">
+    //     <div className="container"/>
+    //   </section>
+    //
+    //   <section className="headerabout">
+    //     <div className="container"/>
+    //   </section>
+    // </div>
+  );
   }
 }
 

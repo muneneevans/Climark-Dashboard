@@ -11,6 +11,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "africastalking": "^0.3.2",
+    "bcrypt": "^3.0.1",
     "current-week-number": "^1.0.7",
     "fs": "0.0.1-security",
     "meteor-node-stubs": "^0.4.1",

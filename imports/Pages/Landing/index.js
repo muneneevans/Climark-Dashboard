@@ -106,29 +106,8 @@ class Home extends Component {
   getHeaderSection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-<<<<<<< HEAD
-        <h1>CLIMARK</h1> <img src={climarkLogo} className="climarklogo2" />
-      </div>
-     <div>
-      <div className="Iam">
-        <p>Enhancing</p>
-        <b>
-          <div class="innerIam">
-            
-            <br />Market Resilience
-            <br />
-            Livestock
-            <br />
-            Value Chains
-            <br />
-            .
-          </div>
-        </b>
-      </div>
-=======
         <h1 class="logoText">Climark</h1>
         <img src={climarkLogo} className="climarklogo2" />
->>>>>>> 6cd5c915ad51a322090692c1a83138baabb361b6
       </div>
       <div />
       <Container>

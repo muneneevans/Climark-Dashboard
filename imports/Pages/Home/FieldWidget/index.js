@@ -44,20 +44,8 @@ class FieldWidget extends Component {
                 <Grid.Column
                   floated="right"
                   mobile={16}
-<<<<<<< HEAD
-                  tablet={3}
-                  computer={3}
-                />
-                <Grid.Column
-                  floated="right"
-                  mobile={16}
-                  tablet={8}
-                  computer={4}
-                  className={"fieldWidgetButtonsContainer"}
-=======
                   tablet={6}
                   computer={5}
->>>>>>> 6cd5c915ad51a322090692c1a83138baabb361b6
                 >
                   <div className={"fieldWidgetButtonsContainer"}>
                     <button

@@ -3,7 +3,7 @@ import { AdvisoryDroughtIndex } from "./../../../api/advisorydroughtIndex";
 
 import { isUndefined } from "../../../lib/utils";
 
-import { Container, Grid, Image } from "semantic-ui-react";
+import { Container, Grid, Dimmer, Loader } from "semantic-ui-react";
 import "./style.css";
 import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
@@ -84,11 +84,13 @@ export default class Advisory extends React.Component {
   ///render the rainfall distribution
   render() {
     return (
-      <div>
+      <Container>
         {isUndefined(this.state.droughtIndex) ? (
-          <h1>could not get the drought index</h1>
+          <Dimmer active>
+            <Loader size="huge">Loading Advisories</Loader>
+          </Dimmer>
         ) : (
-          <Grid columns={2} stackable >
+          <Grid columns={2} stackable divided>
             <Grid.Row>
               <Grid.Column>
                 <div className="advisoryDisplayCard">
@@ -182,7 +184,7 @@ export default class Advisory extends React.Component {
             </Grid.Row>
           </Grid>
         )}
-      </div>
+      </Container>
     );
   }
 }

@@ -30,7 +30,7 @@ import binoculars from "./icons/binoculars.svg";
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
-import aWhereLogo from "./images/aWhereLogo.png";
+import aWhereLogo from "./images/awhere.png";
 import climarkLogo from "./images/climarklogo.png";
 class Home extends Component {
   state = {};
@@ -40,17 +40,17 @@ class Home extends Component {
 
   getFeatureSection = () => (<section className="featuresContent">
     <Container>
-      <h2 className="heading featuerHeader">
-        Communication through relevant information
+      <h2 className="heading featureCardHeader">
+      ABOUT CLIMARK
       </h2>
       <div className="featureCard mainCard">
         <img src={marker} className="featureIcon"/>
-        <h3 className="heading  featureCardHeader">
-          About Climark
+        <h3 className="heading featureCardHeader">
+          CLIMARK PROJECT
         </h3>
         <p className="featureCardDescription">
-          This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and actionable recommendations in order to safeguard their livelihoods.{" "}
-          <a href="">Read more</a>
+          This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and actionable recommendations in order to safeguard their livelihoods. We have three components in the weather information dissemination: Observations, Forecast and Advisories.
+          {/* <a href="">Read more</a> */}
         </p>
       </div>
     </Container>
@@ -82,48 +82,42 @@ class Home extends Component {
             <img src={notebook} className="featureIcon"/>
             <h3 className="heading  featureCardHeader">Advisories</h3>
             <p className="featureCardDescription">
-              Climark Provides stakeholders with advisories towards resilience actions and offer tangible steps that local communities can follow for pro-active actionable recommendations in order to safeguard their livelihoods.
-These advisories are simplified to also highlight the impact of weather on pasture for livestock within the local pastoralists communities.
+              Climark Provides stakeholders with advisories towards resilience actions and offer tangible steps that local communities can follow for pro-active actionable recommendations in order to safeguard their livelihoods. These advisories are simplified to also highlight the impact of weather on pasture for livestock within the local pastoralists communities.
             </p>
           </div>
         </Grid.Column>
       </Grid.Row>
     </Grid>
-    {/* <Container className="findOutMoreSection">
-      <button className = "outlineButton featuresButton" > Find out more</button>
-    </Container> */}
+     <Container className="findOutMoreSection">
+      <Link className = "outlineButton featuresButton" to="/about"> Find out more</Link>
+    </Container>
+    {/* <Link className="dashboardButton primaryButton  montserrat" to="/dashboard">
+    Find Out More
+    </Link> */}
+
   </section>);
 
-  getHeaderSelection = () => (<section className="headerContent">
-    <div className="header climarklogo">
-      <h1>CLIMARK</h1>
-      <img src={climarkLogo} className="climarklogo2"/>
-    </div>
+  getHeaderSection = () => (<section className="headerContent">
     <div>
-      <div className="Iam">
-        <p>Enhancing</p>
-        <b>
-          <div class="innerIam">
-
-            <br/>Market Resilience
-            <br/>
-            Livestock
-            <br/>
-            Value Chains
-            <br/>
-            .
-          </div>
-        </b>
+      <div className="header climarklogo">
+        <h1 class="logoText">Climark</h1>
+        <img src={climarkLogo} className="climarklogo2"/>
+      </div>
+      <div>
+        <h2 className="headingDescription">
+          Enhancing Market Response to Resilience in Livestock Value Chains
+        </h2>
       </div>
     </div>
-    <Container>
+
+    {/* <Container>
       <Grid className="contentSection" columns={2} reversed="mobile vertically">
         <Grid.Row verticalAlign="bottom">
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <div className="headerSectionButtonContainer">
-              {/* <button className="ui headerSectionButton primaryButton montserrat">
+              <button className="ui headerSectionButton primaryButton montserrat">
                 Find out more
-              </button> */}
+              </button>
             </div>
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
@@ -139,10 +133,11 @@ These advisories are simplified to also highlight the impact of weather on pastu
                 </div>
               </div>
             </div>
-          </Grid.Column>
+            {/* </div> */}
+          {/* </Grid.Column>
         </Grid.Row>
       </Grid>
-    </Container>
+    </Container> */}
   </section>);
 
   getDashboardSection = () => (<div className="dashboardSection">
@@ -154,7 +149,7 @@ These advisories are simplified to also highlight the impact of weather on pastu
         <Grid.Column mobile={16} tablet={8} computer={8} verticalAlign="middle">
           <Container>
             <div>
-              <h1 className="heading">Weather Information Dashboard</h1>
+              <h1 className="heading featureCardHeader">Weather Information Dashboard</h1>
               <p className="dashboardContent">
                 Customize your experience by selecting any location within the country and get data specific to that locality.
               </p>
@@ -169,12 +164,43 @@ These advisories are simplified to also highlight the impact of weather on pastu
     </Grid>
   </div>);
 
+  // getSponsorsSection = () => (<div className="sponsorsSection">
+  //   <Container>
+  //     <Grid columns={2}>
+  //       <Grid.Row>
+  //         <Grid.Column verticalAlign="middle" mobile={16} tablet={8} computer={8}>
+  //           <h1 className="heading">Sponsors</h1>
+  //           <p className="sponsorContent">
+  //             {" "}
+  //             We are proud to work in close collaboration with our partners.
+  //           </p>
+  //         </Grid.Column>
+  //         <Grid.Column mobile={16} tablet={8} computer={8}>
+  //           <Grid columns={3}>
+  //             <Grid.Row className="logosContainer">
+  //               <Grid.Column>
+  //                 <img src={ctaLogo} className="sponsorImage"/>
+  //               </Grid.Column>
+  //               <Grid.Column>
+  //                 <img src={aWhereLogo} className="sponsorImage"/>
+  //               </Grid.Column>
+  //               <Grid.Column>
+  //                 <img src={amfratechLogo} className="sponsorImage"/>
+  //               </Grid.Column>
+  //             </Grid.Row>
+  //           </Grid>
+  //         </Grid.Column>
+  //       </Grid.Row>
+  //     </Grid>
+  //   </div>
+  // );
+
   getSponsorsSection = () => (<div className="sponsorsSection">
     <Container>
       <Grid columns={2}>
         <Grid.Row>
           <Grid.Column verticalAlign="middle" mobile={16} tablet={8} computer={8}>
-            <h1 className="heading">Sponsors</h1>
+            <h1 className="heading featureCardHeader">Sponsors</h1>
             <p className="sponsorContent">
               {" "}
               We are proud to work in close collaboration with our partners.
@@ -182,16 +208,13 @@ These advisories are simplified to also highlight the impact of weather on pastu
           </Grid.Column>
           <Grid.Column mobile={16} tablet={8} computer={8}>
             <Grid columns={3}>
-              <Grid.Row className="logosContainer">
-                <Grid.Column>
+              <Grid.Row>
+                <div className="logosContainer">
                   <img src={ctaLogo} className="sponsorImage"/>
-                </Grid.Column>
-                <Grid.Column>
                   <img src={aWhereLogo} className="sponsorImage"/>
-                </Grid.Column>
-                <Grid.Column>
                   <img src={amfratechLogo} className="sponsorImage"/>
-                </Grid.Column>
+                </div>
+
               </Grid.Row>
             </Grid>
           </Grid.Column>
@@ -248,29 +271,24 @@ These advisories are simplified to also highlight the impact of weather on pastu
   render() {
     const {visible} = this.state;
 
-    return (
-        <ImageSlider/>
-    //   <div>
-    //   <section className="headerblock">
-    //     <div className="container"/>
-    //   </section>
-    //
-    //   {this.getHeaderSelection()}
-    //   {this.getFeatureSection()}
-    //   {this.getDashboardSection()}
-    //   {this.getSponsorsSection()}
-    //   {this.getFooterSection()}
-    //
-    //
-    //   <section className="headerimage">
-    //     <div className="container"/>
-    //   </section>
-    //
-    //   <section className="headerabout">
-    //     <div className="container"/>
-    //   </section>
-    // </div>
-  );
+    return (<div>
+      <section className="headerblock">
+        <div className="container"/>
+      </section>
+      {this.getHeaderSection()}
+      {this.getFeatureSection()}
+      {this.getDashboardSection()}
+      {this.getSponsorsSection()}
+      {this.getFooterSection()}
+
+      <section className="headerimage">
+        <div className="container"/>
+      </section>
+
+      <section className="headerabout">
+        <div className="container"/>
+      </section>
+    </div>);
   }
 }
 

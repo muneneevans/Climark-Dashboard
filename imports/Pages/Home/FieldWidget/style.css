@@ -9,9 +9,11 @@
 }
 .advisory {
   /* background: #f2ecfd; */
-  padding-top: 30px !important;
+  background: #f4f4f4;
+  padding: 0px !important;
+  /* padding-top: 30px !important;
   padding-left: 5px !important;
-  padding-right: 5px !important;
+  padding-right: 5px !important; */
   padding-bottom: 30px !important;
 }
 .fieldWidgetContainer:nth-child(even) {
@@ -22,17 +24,20 @@
   background: #eceff1;
 }
 
-fieldWidgetButtonsContainer {
-  display: inline;
-  float: right;
+.fieldWidgetButtonsContainer {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5px;
 }
 
 .fieldWidgetHideButton {
+  margin: 0 5px;
   padding: 1em 2em;
 }
 .fieldWidgetViewMoreButton {
   padding: 1em 2em;
-  float: right;
 }
 .fw_dashbaordContainer {
   padding: 0px !important;
@@ -46,7 +51,6 @@ fieldWidgetButtonsContainer {
 a.active {
   background: #f2ecfd !important;
 }
-
 
 .m-fadeOut {
   height: 0;

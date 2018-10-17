@@ -53,7 +53,12 @@ class Home extends Component {
             pastoralists communities be aware of the weather patterns in the
             short term and long term, for pro-active and actionable
             recommendations in order to safeguard their livelihoods.{" "}
-            <a href="">Read more</a>
+            <Link
+                
+                  to="/about"
+                >
+                  Read More
+                </Link>
           </p>
         </div>
       </Container>
@@ -200,11 +205,28 @@ class Home extends Component {
               <Grid columns={3}>
                 <Grid.Row>
                   <div className="logosContainer">
-                    <img src={ctaLogo} className="sponsorImage" />
-                    <img src={aWhereLogo} className="sponsorImage" />
-                    <img src={amfratechLogo} className="sponsorImage" />
+                    <a href="https://www.cta.int/en/" target="_blank">
+                      <img
+                        src={ctaLogo}
+                        alt="cta logo"
+                        className="sponsorImage"
+                      />
+                    </a>
+                    <a href="http://www.awhere.com/" target="_blank">
+                      <img
+                        src={aWhereLogo}
+                        alt="awhere logo"
+                        className="sponsorImage"
+                      />
+                    </a>
+                    <a href="http://amfratech.com/" target="_blank">
+                      <img
+                        src={amfratechLogo}
+                        alt="awhere logo"
+                        className="sponsorImage"
+                      />
+                    </a>
                   </div>
-
                 </Grid.Row>
               </Grid>
             </Grid.Column>
@@ -230,7 +252,12 @@ class Home extends Component {
                   <Grid.Column mobile={8} tablet={5} computer={5}>
                     <h3 className="footerHeading">Company</h3>
                     <ul className="footerContent">
-                      <li>About</li>
+                    <Link
+                 
+                  to="/about"
+                >
+                  <li>About</li>
+                </Link>
                       <li>Contacts</li>
                     </ul>
                   </Grid.Column>

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Banner from "../Home/Banner";
 
-import { Container, Grid } from "semantic-ui-react";
+
+import { Container, Grid, Segment } from "semantic-ui-react";
+import "./style.css";
 
 class About extends Component {
   getAboutSection = () => (
     <section>
-      <div>
+      <div className="aboutSection">
         <h1> ABOUT CTA </h1>
         <p>
           The Technical Centre for Agricultural and Rural Cooperation (CTA) is
@@ -22,6 +25,8 @@ class About extends Component {
           under the framework of the Cotonou Partnership Agreement and is funded
           by the EU.
         </p>
+      </div>
+      <div className="aboutSection">
         <h1> ABOUT CLIMARK </h1>
         <p>
           Some 20 million livestock keepers in the Horn of Africa are threatened
@@ -69,8 +74,56 @@ class About extends Component {
   );
   render() {
     return (
-      <div>
-        <Container>{this.getAboutSection()}</Container>
+      <div className="aboutPage">
+         <Banner />
+        <Container>
+          <Segment>{this.getAboutSection()}</Segment>
+        </Container>
+        <div className="footerSection">
+      <Container>
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column mobile={16} tablet={8} computer={8}>
+              <Grid columns={3}>
+                <Grid.Row className="logosContainer">
+                  <Grid.Column mobile={8} tablet={5} computer={5}>
+                    <h3 className="footerHeading">Product</h3>
+                    <ul className="footerContent">
+                      <li>Team</li>
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column mobile={8} tablet={5} computer={5}>
+                    <h3 className="footerHeading">Company</h3>
+                    <ul className="footerContent">
+                      <li>About</li>
+                      <li>Contacts</li>
+                    </ul>
+                  </Grid.Column>
+                  <Grid.Column mobile={8} tablet={5} computer={5}>
+                    <h3 className="footerHeading">Social</h3>
+                    <ul className="footerContent">
+                      <li>
+                        <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
+                          Facebook
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://twitter.com/ClimarkProject">
+                          Twitter{" "}
+                        </a>
+                      </li>
+
+                      <li>Blog</li>
+                    </ul>
+                  </Grid.Column>
+                </Grid.Row>
+              </Grid>
+            </Grid.Column>
+            <Grid.Column verticalAlign="middle" />
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </div>
       </div>
     );
   }

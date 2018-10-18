@@ -138,14 +138,14 @@ body {
   margin-top: 0px;
   font-weight: lighter;
   color: #673ab7;
-  font-size: 2em;
+  font-size: 1.5em;
   padding-top: 10px;
 }
 
 .featureCardDescription {
   padding-top: 20px;
   font-family: "Montserrat", sans-serif;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .featuresButton {

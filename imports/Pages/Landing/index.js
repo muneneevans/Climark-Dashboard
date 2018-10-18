@@ -41,7 +41,7 @@ class Home extends Component {
   getFeatureSection = () => (<section className="featuresContent">
     <Container>
       <h2 className="heading featureCardHeader">
-      ABOUT CLIMARK
+        ABOUT CLIMARK
       </h2>
       <div className="featureCard mainCard">
         <img src={marker} className="featureIcon"/>
@@ -49,8 +49,7 @@ class Home extends Component {
           CLIMARK PROJECT
         </h3>
         <p className="featureCardDescription">
-          This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and actionable recommendations in order to safeguard their livelihoods. We have three components in the weather information dissemination: Observations, Forecast and Advisories.
-          {/* <a href="">Read more</a> */}
+          This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and actionable recommendations in order to safeguard their livelihoods. We have three components in the weather information dissemination: Observations, Forecast and Advisories. {/* <a href="">Read more</a> */}
         </p>
       </div>
     </Container>
@@ -88,12 +87,14 @@ class Home extends Component {
         </Grid.Column>
       </Grid.Row>
     </Grid>
-     <Container className="findOutMoreSection">
-      <Link className = "outlineButton featuresButton" to="/about"> Find out more</Link>
+    <Container className="findOutMoreSection">
+      <Link className="outlineButton featuresButton" to="/about">
+        Find out more</Link>
     </Container>
     {/* <Link className="dashboardButton primaryButton  montserrat" to="/dashboard">
     Find Out More
-    </Link> */}
+    </Link> */
+    }
 
   </section>);
 
@@ -107,37 +108,9 @@ class Home extends Component {
         <h2 className="headingDescription">
           Enhancing Market Response to Resilience in Livestock Value Chains
         </h2>
+
       </div>
     </div>
-
-    {/* <Container>
-      <Grid className="contentSection" columns={2} reversed="mobile vertically">
-        <Grid.Row verticalAlign="bottom">
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <div className="headerSectionButtonContainer">
-              <button className="ui headerSectionButton primaryButton montserrat">
-                Find out more
-              </button>
-            </div>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={8}>
-            <div className="headerBannerContainer">
-              <div className="headerBanner">
-                <h1 className="headerBannerHeader">
-                  Respond, Overcome</h1>
-                <div className="headerBannerContentContainer">
-                  <p className="headerBannerContent">
-                    {" "}
-                    Leveraging the power of technology to thrive in areas of harsh weather
-                  </p>
-                </div>
-              </div>
-            </div>
-            {/* </div> */}
-          {/* </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Container> */}
   </section>);
 
   getDashboardSection = () => (<div className="dashboardSection">
@@ -164,37 +137,6 @@ class Home extends Component {
     </Grid>
   </div>);
 
-  // getSponsorsSection = () => (<div className="sponsorsSection">
-  //   <Container>
-  //     <Grid columns={2}>
-  //       <Grid.Row>
-  //         <Grid.Column verticalAlign="middle" mobile={16} tablet={8} computer={8}>
-  //           <h1 className="heading">Sponsors</h1>
-  //           <p className="sponsorContent">
-  //             {" "}
-  //             We are proud to work in close collaboration with our partners.
-  //           </p>
-  //         </Grid.Column>
-  //         <Grid.Column mobile={16} tablet={8} computer={8}>
-  //           <Grid columns={3}>
-  //             <Grid.Row className="logosContainer">
-  //               <Grid.Column>
-  //                 <img src={ctaLogo} className="sponsorImage"/>
-  //               </Grid.Column>
-  //               <Grid.Column>
-  //                 <img src={aWhereLogo} className="sponsorImage"/>
-  //               </Grid.Column>
-  //               <Grid.Column>
-  //                 <img src={amfratechLogo} className="sponsorImage"/>
-  //               </Grid.Column>
-  //             </Grid.Row>
-  //           </Grid>
-  //         </Grid.Column>
-  //       </Grid.Row>
-  //     </Grid>
-  //   </div>
-  // );
-
   getSponsorsSection = () => (<div className="sponsorsSection">
     <Container>
       <Grid columns={2}>
@@ -210,11 +152,16 @@ class Home extends Component {
             <Grid columns={3}>
               <Grid.Row>
                 <div className="logosContainer">
-                  <img src={ctaLogo} className="sponsorImage"/>
-                  <img src={aWhereLogo} className="sponsorImage"/>
-                  <img src={amfratechLogo} className="sponsorImage"/>
+                  <a href="https://www.cta.int/en/" target="_blank">
+                    <img src={ctaLogo} alt="cta logo" className="sponsorImage"/>
+                  </a>
+                  <a href="http://www.awhere.com/" target="_blank">
+                    <img src={aWhereLogo} alt="awhere logo" className="sponsorImage"/>
+                  </a>
+                  <a href="http://amfratech.com/" target="_blank">
+                    <img src={amfratechLogo} alt="awhere logo" className="sponsorImage"/>
+                  </a>
                 </div>
-
               </Grid.Row>
             </Grid>
           </Grid.Column>
@@ -238,7 +185,9 @@ class Home extends Component {
                 <Grid.Column mobile={8} tablet={5} computer={5}>
                   <h3 className="footerHeading">Company</h3>
                   <ul className="footerContent">
-                    <li>About</li>
+                    <Link to="/about">
+                      <li>About</li>
+                    </Link>
                     <li>Contacts</li>
                   </ul>
                 </Grid.Column>

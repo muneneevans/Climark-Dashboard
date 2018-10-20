@@ -30,6 +30,7 @@ import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
 import aWhereLogo from "./images/awhere.png";
 import climarkLogo from "./images/climarklogo.png";
+import klmc_logo from "./images/klmc_logo.png"
 class Home extends Component {
   state = {};
 
@@ -222,6 +223,13 @@ class Home extends Component {
                     <a href="http://amfratech.com/" target="_blank">
                       <img
                         src={amfratechLogo}
+                        alt="awhere logo"
+                        className="sponsorImage"
+                      />
+                    </a>
+                    <a href="http://livestockcouncil.or.ke/" target="_blank">
+                      <img
+                        src={klmc_logo}
                         alt="awhere logo"
                         className="sponsorImage"
                       />

@@ -16,7 +16,7 @@ import Forecasts from "../Forecasts";
 import WardMap from "../LocationWidget";
 import LocationWidget from "../LocationWidget";
 import Advisories from "../Advisories";
-
+import Footer from "./../../Landing/Footer"
 import "./style.css";
 
 class FieldWidget extends Component {
@@ -30,6 +30,7 @@ class FieldWidget extends Component {
   render() {
     let { title = "Some Place", graphs, history, wardData } = this.props;
     return (
+      <div>
       <div className="fieldWidgetContainer">
         <Container>
           <div className="fieldHeaderContainer">
@@ -97,6 +98,9 @@ class FieldWidget extends Component {
           </Segment>
           {/* )} */}
         </Container>
+        
+      </div>
+      <Footer/>
       </div>
     );
   }

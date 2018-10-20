@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../Home/Banner";
+import Footer from "../Landing/Footer"
 
 
 import { Container, Grid, Segment } from "semantic-ui-react";
@@ -79,7 +80,10 @@ class About extends Component {
         <Container>
           <Segment>{this.getAboutSection()}</Segment>
         </Container>
-        <div className="footerSection">
+
+        <Footer/>
+
+        {/* <div className="footerSection">
       <Container>
         <Grid columns={2}>
           <Grid.Row>
@@ -123,7 +127,7 @@ class About extends Component {
           </Grid.Row>
         </Grid>
       </Container>
-    </div>
+    </div> */}
       </div>
     );
   }

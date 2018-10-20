@@ -112,7 +112,7 @@ class Home extends Component {
   getHeaderSection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-        <h1 class="logoText">Climark</h1>
+        <h1 class="logoText"></h1>
         <img src={climarkLogo} className="climarklogo2" />
       </div>
       <div />

@@ -41,7 +41,7 @@ class Home extends Component {
     <section className="featuresContent">
        
       <Container>
-      <div classname="sloganDescription">       
+      <div className="sloganDescription">       
        <p>Empowering climate-Smart Solutions through Technology</p>
      </div> 
         <h2 className="heading featuerHeader">

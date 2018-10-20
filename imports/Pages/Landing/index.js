@@ -30,7 +30,7 @@ import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
 import aWhereLogo from "./images/awhere.png";
 import climarkLogo from "./images/climarklogo.png";
-import klmc_logo from "./images/klmc_logo.png"
+import klmc_logo from "./images/klmc_logo.png";
 class Home extends Component {
   state = {};
 
@@ -39,10 +39,15 @@ class Home extends Component {
 
   getFeatureSection = () => (
     <section className="featuresContent">
+       
       <Container>
+      <div classname="sloganDescription">       
+       <p>Empowering climate-Smart Solutions through Technology</p>
+     </div> 
         <h2 className="heading featuerHeader">
-          Communication through relevant information
+          Communication through relevant information.
         </h2>
+
         <div className="featureCard mainCard">
           <img src={marker} className="featureIcon" />
           <h3 className="heading  featureCardHeader"> About Climark </h3>
@@ -54,12 +59,7 @@ class Home extends Component {
             pastoralists communities be aware of the weather patterns in the
             short term and long term, for pro-active and actionable
             recommendations in order to safeguard their livelihoods.{" "}
-            <Link
-                
-                  to="/about"
-                >
-                  Read More
-                </Link>
+            <Link to="/about">Read More</Link>
           </p>
         </div>
       </Container>
@@ -112,7 +112,7 @@ class Home extends Component {
   getHeaderSection = () => (
     <section className="headerContent">
       <div className="header climarklogo">
-        <h1 class="logoText"></h1>
+        <h1 class="logoText" />
         <img src={climarkLogo} className="climarklogo2" />
       </div>
       <div />
@@ -147,6 +147,7 @@ class Home extends Component {
           </Grid.Row>
         </Grid>
       </Container>
+      
     </section>
   );
 
@@ -260,12 +261,9 @@ class Home extends Component {
                   <Grid.Column mobile={8} tablet={5} computer={5}>
                     <h3 className="footerHeading">Company</h3>
                     <ul className="footerContent">
-                    <Link
-                 
-                  to="/about"
-                >
-                  <li>About</li>
-                </Link>
+                      <Link to="/about">
+                        <li>About</li>
+                      </Link>
                       <li>Contacts</li>
                     </ul>
                   </Grid.Column>

@@ -191,6 +191,13 @@ body {
   height: 100px;
   width: 350px;
 }
+.sloganDescription {
+  padding-left: 600px !important;
+  font-size: 1em;
+  font-family: "montserrat";
+}
+
+
 /*
 Dasbhoard section
 */

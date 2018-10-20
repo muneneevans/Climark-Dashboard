@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../Home/Banner";
+import Footer from "../Landing/Footer"
 
 
 import { Container, Grid, Segment } from "semantic-ui-react";
@@ -8,10 +9,10 @@ import "./style.css";
 
 class About extends Component {
   getAboutSection = () => (
-    <section className="featureCard mainCard">
+    <section>
       <div className="aboutSection">
-        <h3 className="heading  featureCardHeader"> ABOUT CTA </h3>
-        <p  className="featureCardDescription">
+        <h1> ABOUT CTA </h1>
+        <p>
           The Technical Centre for Agricultural and Rural Cooperation (CTA) is
           an international institution of the African, Caribbean and Pacific
           (ACP) Group of States and the European Union (EU). Its mission is to
@@ -27,8 +28,8 @@ class About extends Component {
         </p>
       </div>
       <div className="aboutSection">
-        <h3 className="heading  featureCardHeader"> ABOUT CLIMARK </h3>
-        <p  className="featureCardDescription">
+        <h1> ABOUT CLIMARK </h1>
+        <p>
           Some 20 million livestock keepers in the Horn of Africa are threatened
           by increasingly frequent and severe droughts. Their food and nutrition
           security, indeed the existence of the pastoral economic system, is
@@ -44,20 +45,20 @@ class About extends Component {
           to transform into less risky assets. This prevents them from
           integrating fully in the non-livestock markets.
         </p>
-        <p  className="featureCardDescription">
+        <p>
           {" "}
           This CLIMARK (Climate Livestock And Markets) Project has been setup by
           CTA in order to design and deploy a blended weather information
           management system to enhance Market Response to Resilience in
           Livestock Value Chains in East Africa
         </p>
-        <p  className="featureCardDescription">
+        <p>
           {" "}
           This will enable the local community be aware of the weather patterns
           in the short term and long term for pro-active actionable
           recommendations in order to safeguard their livelihoods.
         </p>
-        <p  className="featureCardDescription">
+        <p>
           {" "}
           The application of technology will therefore be required in making
           sure that near-real time information is sent through to the various
@@ -79,7 +80,10 @@ class About extends Component {
         <Container>
           <Segment>{this.getAboutSection()}</Segment>
         </Container>
-        <div className="footerSection">
+
+        <Footer/>
+
+        {/* <div className="footerSection">
       <Container>
         <Grid columns={2}>
           <Grid.Row>
@@ -123,7 +127,7 @@ class About extends Component {
           </Grid.Row>
         </Grid>
       </Container>
-    </div>
+    </div> */}
       </div>
     );
   }

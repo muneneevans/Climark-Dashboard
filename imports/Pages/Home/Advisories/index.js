@@ -1,5 +1,5 @@
 import React from "react";
-import { AdvisoryDroughtIndex } from "./../../../api/advisorydroughtIndex";
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
 
 import { isUndefined } from "../../../lib/utils";
 
@@ -102,14 +102,19 @@ export default class Advisory extends React.Component {
                     {this.state.pastMoisture.implication}
                   </div>
                   <div className="notesHeader"> Advisory Notes </div>
-                  <div className="ui bulleted list">
+                  {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastMoisture.advisoryA}
                     </div>
                     <div className="item advisoryItem">
                       {this.state.pastMoisture.advisoryB}
                     </div>
-                  </div>
+                  </div> */}
+                  <ol class="ui list">
+                    <li value="->">{this.state.pastMoisture.advisoryA}</li>
+                    <li value="->">{this.state.pastMoisture.advisoryB}</li>
+                    
+                  </ol>
                 </div>
               </Grid.Column>
               <Grid.Column>
@@ -121,7 +126,7 @@ export default class Advisory extends React.Component {
                     {this.state.pastRainfall.implication}
                   </div>
                   <div className="notesHeader"> Advisory Notes </div>
-                  <div className="ui bulleted list">
+                  {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastRainfall.advisoryA}
                     </div>
@@ -131,7 +136,13 @@ export default class Advisory extends React.Component {
                     <div className="item advisoryItem">
                       {this.state.pastRainfall.advisoryC}
                     </div>
-                  </div>
+                  </div> */}
+                  <ol class="ui list">
+                    <li value="->">{this.state.pastRainfall.advisoryA}</li>
+                    <li value="->">{this.state.pastRainfall.advisoryB}</li>
+                    <li value="->">{this.state.pastRainfall.advisoryC}</li>
+                    
+                  </ol>
                 </div>
               </Grid.Column>
             </Grid.Row>
@@ -146,7 +157,7 @@ export default class Advisory extends React.Component {
                     {this.state.droughtIndex.implication}
                   </div>
                   <div className="notesHeader"> Advisory Notes </div>
-                  <div className="ui bulleted list">
+                  {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.droughtIndex.advisoryA}
                     </div>
@@ -159,7 +170,15 @@ export default class Advisory extends React.Component {
                     <div className="item advisoryItem">
                       {this.state.droughtIndex.advisoryD}
                     </div>
-                  </div>
+                  </div> */}
+                  <ol class="ui list">
+                    <li value="->">{this.state.droughtIndex.advisoryA}</li>
+                    <li value="->">{this.state.droughtIndex.advisoryB}</li>
+                    <li value="->">{this.state.droughtIndex.advisoryC}</li>
+                    <li value="->">{this.state.droughtIndex.advisoryD}</li>
+                    
+                  </ol>
+
                 </div>
               </Grid.Column>
               <Grid.Column>
@@ -171,14 +190,19 @@ export default class Advisory extends React.Component {
                     {this.state.moistureAvailability.implication}
                   </div>
                   <div className="notesHeader"> Advisory Notes </div>
-                  <div className="ui bulleted list">
+                  {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.moistureAvailability.advisoryA}
                     </div>
                     <div className="item advisoryItem">
                       {this.state.moistureAvailability.advisoryB}
                     </div>
-                  </div>
+                  </div> */}
+                  <ol class="ui list">
+                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryA}</li>
+                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryB}</li>                                        
+                  </ol>
+
                 </div>
               </Grid.Column>
             </Grid.Row>

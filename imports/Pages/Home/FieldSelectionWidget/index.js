@@ -13,7 +13,7 @@ import { isEmpty, isUndefined, isNull } from "../../../lib/utils";
 
 import "./style.css";
 
-import { AdvisoryDroughtIndex } from "./../../../api/advisorydroughtIndex";
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
 import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
 import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";

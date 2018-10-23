@@ -25,7 +25,8 @@ import {
   getWardData
 } from "../../Store/Weather/selectors";
 //#endregion
-
+import Appheader from "./Appheader"
+import Footer from "./../Landing/Footer"
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
 import FieldSelectionWidget from "./FieldSelectionWidget";
@@ -66,7 +67,7 @@ class Home extends Component {
     } = this.props;
     return (
       <div>
-        <Banner />
+        <Appheader/>
         <FieldSelectionWidget
           counties={counties}
           wards={wardOptions}
@@ -83,7 +84,9 @@ class Home extends Component {
           </TransitionGroup>
         )}
         {/* <FieldWidget /> */}
+       <Footer/>
       </div>
+      
     );
   }
 }

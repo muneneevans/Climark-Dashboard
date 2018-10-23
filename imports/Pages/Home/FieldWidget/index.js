@@ -16,7 +16,8 @@ import Forecasts from "../Forecasts";
 import WardMap from "../LocationWidget";
 import LocationWidget from "../LocationWidget";
 import Advisories from "../Advisories";
-import Footer from "./../../Landing/Footer"
+
+
 import "./style.css";
 
 class FieldWidget extends Component {
@@ -100,7 +101,7 @@ class FieldWidget extends Component {
         </Container>
         
       </div>
-      <Footer/>
+     
       </div>
     );
   }

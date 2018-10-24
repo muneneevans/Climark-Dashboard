@@ -6,6 +6,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import * as processTypes from "../../Store/Shared/processTypes";
 import { getauth } from "../../Store/Authentication/selectors";
 import { login } from "../../Store/Authentication/actions";
+import Footer from "../Landing/Footer";
 
 //#region redux
 import {
@@ -25,7 +26,8 @@ import {
   getWardData
 } from "../../Store/Weather/selectors";
 //#endregion
-
+import Appheader from "./Appheader"
+// import Footer from "./../Landing/Footer"
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
 import FieldSelectionWidget from "./FieldSelectionWidget";
@@ -66,7 +68,7 @@ class Home extends Component {
     } = this.props;
     return (
       <div>
-        <Banner />
+        <Appheader/>
         <FieldSelectionWidget
           counties={counties}
           wards={wardOptions}
@@ -77,13 +79,22 @@ class Home extends Component {
           <TransitionGroup className="">
             {wardWidgets.map((ward, i) => (
               <CSSTransition key={ward} timeout={300} classNames="fade">
-                <FieldWidget key={ward} title={ward} graphs={wardWidgetGraphs[ward]} history={history} wardData={wardData[ward]} />
+                <FieldWidget
+                  key={ward}
+                  title={ward}
+                  graphs={wardWidgetGraphs[ward]}
+                  history={history}
+                  wardData={wardData[ward]}
+                />
               </CSSTransition>
             ))}
           </TransitionGroup>
         )}
         {/* <FieldWidget /> */}
+
+        <Footer />
       </div>
+      
     );
   }
 }
@@ -99,7 +110,7 @@ const mapStateToProps = state => {
     addWardWidgetsProcess: getAddWardWidgetsProcess(state),
     wardWidgets: getWardWidgets(state),
     wardWidgetGraphs: getWidgetGraphs(state),
-    wardData : getWardData(state)
+    wardData: getWardData(state)
   };
 };
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Banner from "../Home/Banner";
+import Appheader  from "../Home/Appheader"
 import Footer from "../Landing/Footer"
 
 
@@ -76,7 +77,7 @@ class About extends Component {
   render() {
     return (
       <div className="aboutPage">
-         <Banner />
+         <Appheader/>
         <Container>
           <Segment>{this.getAboutSection()}</Segment>
         </Container>

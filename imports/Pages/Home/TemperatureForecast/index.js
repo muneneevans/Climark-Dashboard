@@ -97,7 +97,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       </div>
 
       <Divider section />
-      <Divider section hidden/>
+      <Divider section hidden />
       <div>
         <Header as="h3">Average Temperature forecasts for the week</Header>
         <LineChart
@@ -109,7 +109,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <XAxis dataKey="date" />
           <YAxis
             scale={"linear"}
-            domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
+            domain={["dataMin-2", "dataMax+2"]}
             label="&#x2103;"
           />
           <CartesianGrid strokeDasharray="3 3" />

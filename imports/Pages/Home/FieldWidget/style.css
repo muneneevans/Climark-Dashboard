@@ -27,7 +27,7 @@
 .fieldWidgetButtonsContainer {
   display: flex !important;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin: 0 5px;
 }
@@ -56,9 +56,11 @@ a.active {
   height: 0;
   visibility: hidden;
   opacity: 0;
+  display: none;
   transition: visibility 0s linear 300ms, opacity 300ms, height 500ms;
 }
 .m-fadeIn {
+  display: grid;
   visibility: visible;
   opacity: 1;
   transition: visibility 0s linear 0s, opacity 300ms;

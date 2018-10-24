@@ -9,7 +9,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Label
 } from "recharts";
 import dimensions from "react-dimensions";
 
@@ -105,13 +106,16 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
         >
           <XAxis dataKey="date" />
 
-          <YAxis
-            label="mm"
+          <YAxis            
             yAxisId="left"
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-          />
-          <YAxis yAxisId="right" orientation="right" label="%" />
+          >
+            <Label value="mm" offset={-5} position="left" />
+          </YAxis>
+          <YAxis yAxisId="right" orientation="right">
+            <Label value="%" offset={-30} position="right" />
+          </YAxis>
 
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />

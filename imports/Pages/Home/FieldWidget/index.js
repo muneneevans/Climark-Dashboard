@@ -50,7 +50,7 @@ class FieldWidget extends Component {
                 >
                   <div className={"fieldWidgetButtonsContainer"}>
                     <button
-                      className=" outlineButton fieldWidgetHideButton montserrat"
+                        className="primaryButton fieldWidgetViewMoreButton montserrat"
                       onClick={() => {
                         hideWidget: false;
                         this.setState({
@@ -61,14 +61,14 @@ class FieldWidget extends Component {
                     >
                       {this.state.hideWidget ? "Expand" : "Hide"}
                     </button>
-                    <button
+                    {/* <button
                       className=" primaryButton fieldWidgetViewMoreButton montserrat"
                       onClick={() => {
                         history.push(`/ward/${title}`);
                       }}
                     >
                       View More
-                    </button>
+                    </button> */}
                   </div>
                 </Grid.Column>
               </Grid.Row>
@@ -100,7 +100,6 @@ class FieldWidget extends Component {
         </Container>
         
       </div>
-      <Footer/>
       </div>
     );
   }

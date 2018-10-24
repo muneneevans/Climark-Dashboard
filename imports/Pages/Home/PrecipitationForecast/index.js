@@ -9,7 +9,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Label
 } from "recharts";
 import dimensions from "react-dimensions";
 
@@ -40,7 +41,7 @@ const dayAverage = (day, format = "hh a") => {
       }, 0) / day.forecast.length,
       2
     ),
-    
+
     units: day.forecast[0].units,
     date: moment(day.date).format(format)
   };
@@ -63,7 +64,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Precipitation  forecasts</Header>
+        <Header as="h3">Hourly Precipitation forecasts</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -71,8 +72,9 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
+
           <YAxis label="mm" />
-          
+
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
@@ -93,7 +95,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       </div>
 
       <Divider section />
-      <Divider section hidden/>
+      <Divider section hidden />
       <div>
         <Header as="h3">Average Precipitation forecasts for the week</Header>
         <LineChart
@@ -103,23 +105,38 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis
+
+          <YAxis            
+            yAxisId="left"
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label="mm"
-          />
+          >
+            <Label value="mm" offset={-5} position="left" />
+          </YAxis>
+          <YAxis yAxisId="right" orientation="right">
+            <Label value="%" offset={-30} position="right" />
+          </YAxis>
+
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="amount" stroke="#e67e22" dot={false} />
+          <Line
+            type="monotone"
+            dataKey="amount"
+            yAxisId="left"
+            stroke="#e67e22"
+            dot={false}
+          />
           <Line
             type="monotone"
             dataKey="value"
             stroke="#3d3d3d"
             activeDot={{ r: 1 }}
             dot={false}
+            yAxisId="left"
           />
           <Line
+            yAxisId="right"
             type="monotone"
             dataKey="chance"
             stroke="#3498db"

@@ -77,11 +77,11 @@ class FieldSelectionWidget extends Component {
             <Grid.Row columns={3}>
               <Grid.Column computer={1} mobile={16} />
               <Grid.Column computer={6} mobile={16}>
-                <h1 className="heading">Select a location </h1>
+              <h1 className="heading">Welcome to the dashboard </h1>
+                <h2 className="heading">Select a location </h2>
                 <p className="fieldSelectionWidgetFormContent">
                   Select an area of your choice to view a weather summary at
-                  that location. You can further view each field by selecting
-                  the More button in the field widget.
+                  that location. 
                 </p>
               </Grid.Column>
               <Grid.Column computer={6} mobile={16}>

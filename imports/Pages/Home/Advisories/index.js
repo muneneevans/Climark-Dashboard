@@ -101,7 +101,7 @@ export default class Advisory extends React.Component {
                   <div className="item advisoryItem implication">
                     {this.state.pastMoisture.implication}
                   </div>
-                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="notesHeader"  font-weight="bold"> Advisory Notes </div>
                   {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastMoisture.advisoryA}

@@ -35,8 +35,9 @@ body {
 }
 
 .menu {
-  background-color: #ffffff !important;
-  color: #000000 !important;
+  /* background-color: #ffffff !important; */
+  /* color: #000000 !important; */
+  color: #ffffff !important;
 }
 
 .header {
@@ -188,8 +189,8 @@ body {
   padding: 1em 5em;
 }
 .climarklogo2 {
-  height: 150px;
-  width: 300px;
+  height: 100px;
+  width: 350px;
 }
 .sloganDescription {
   padding-left: 400px ;

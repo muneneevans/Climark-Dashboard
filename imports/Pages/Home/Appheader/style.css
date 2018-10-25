@@ -1,11 +1,19 @@
-.nav-header{
-   background-color: black;
-   color: white;
+.nav-header {
+  background-color: black;
+  color: white;
 }
 .climarklogoheader {
-    height: 50px;
-    width: 100px;
+  height: 50px;
+  width: 100px;
 }
-.nav-bar-menu{
-    background-color: aqua !important; 
+.nav-bar-menu {
+  background-color: aqua !important;
+}
+
+.appHeader {
+  /* background-color: #673ab7 !important; */
+  background-color: #AAADBB !important;
+}
+.appHeader a {
+  color: #ffffff;
 }

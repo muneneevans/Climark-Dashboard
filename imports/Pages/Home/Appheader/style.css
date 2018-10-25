@@ -2,3 +2,10 @@
    background-color: black;
    color: white;
 }
+.climarklogoheader {
+    height: 50px;
+    width: 100px;
+}
+.nav-bar-menu{
+    background-color: aqua !important; 
+}

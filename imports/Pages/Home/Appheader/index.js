@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Menu, Button, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-
+import climarkLogo from "../../Landing/images/climarklogo";
+import styles from "./style.css";
 export default class AppHeader extends Component {
   state = {};
 
@@ -13,11 +14,16 @@ export default class AppHeader extends Component {
     return (
       <div className="nav-header">
        {/* <Segment inverted> */}
-        <Menu borderless>
+        <Menu borderless className="nav-bar-menu">
           <Menu.Item>
-            <Link to="/">Climark</Link>
+            <Link to="/">
+            <img src={climarkLogo} className="climarklogoheader" />
+            </Link>
           </Menu.Item>
           <Menu.Item position="right">
+            <Link to="/">Home</Link>
+          </Menu.Item>
+          <Menu.Item >
             <Link to="/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item>

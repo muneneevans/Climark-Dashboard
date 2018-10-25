@@ -27,7 +27,7 @@ import {
 } from "../../Store/Weather/selectors";
 //#endregion
 import Appheader from "./Appheader"
-import Footer from "./../Landing/Footer"
+// import Footer from "./../Landing/Footer"
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
 import FieldSelectionWidget from "./FieldSelectionWidget";

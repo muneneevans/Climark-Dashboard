@@ -30,7 +30,7 @@ import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
 import aWhereLogo from "./images/awhere.png";
-import climarkLogo from "./images/climarklogo.png";
+import climarkLogo from "./images/climarklogo2.png";
 import klmc_logo from "./images/klmc_logo.png";
 class Home extends Component {
   state = {};

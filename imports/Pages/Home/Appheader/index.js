@@ -12,18 +12,18 @@ export default class AppHeader extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div className="nav-header">
-       {/* <Segment inverted> */}
-        <Menu borderless className="nav-bar-menu">
+      <div className="nav-header appHeader">
+        {/* <Segment inverted> */}
+        <Menu borderless className="nav-bar-menu appHeader">
           <Menu.Item>
             <Link to="/">
-            <img src={climarkLogo} className="climarklogoheader" />
+              <img src={climarkLogo} className="climarklogoheader" />
             </Link>
           </Menu.Item>
           <Menu.Item position="right">
             <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item>
             <Link to="/dashboard">Dashboard</Link>
           </Menu.Item>
           <Menu.Item>

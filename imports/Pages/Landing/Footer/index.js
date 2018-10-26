@@ -49,12 +49,12 @@ class Footer extends Component {
                         <h3 className="footerHeading">Social</h3>
                         <ul className="footerContent">
                           <li>
-                            <a href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
+                            <a  target="blank_" href="https://www.facebook.com/ClimarkProject/?modal=admin_todo_tour">
                               Facebook
                             </a>
                           </li>
                           <li>
-                            <a href="https://twitter.com/ClimarkProject">
+                            <a target="blank_" href="https://twitter.com/ClimarkProject">
                               Twitter{" "}
                             </a>
                           </li>

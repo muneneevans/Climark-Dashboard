@@ -139,7 +139,7 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Current Rainfall Distribution
                   </div>
-                  <span> Based on data from the last 30 days starting from {startDate(this.state.pastRainfall.week ,30)} to {startDate(this.state.pastRainfall.week ,0)}</span>
+                  <span> Based on data from the last 30 days from {startDate(this.state.pastRainfall.week ,30)} to {startDate(this.state.pastRainfall.week ,0)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.pastRainfall.implication}
                   </div>
@@ -171,7 +171,7 @@ export default class Advisory extends React.Component {
                     {" "}
                     Expected Drought Conditions
                   </div>
-                  <span> Based on data from the next days starting from {startDate(this.state.droughtIndex.week, 0)} to {startDate(this.state.droughtIndex.week, -6)} </span>
+                  <span> Based on forecasted data for the next  7 days days from {startDate(this.state.droughtIndex.week, 0)} to {startDate(this.state.droughtIndex.week, -6)} </span>
                   <div className="item advisoryItem implication ">
                     {this.state.droughtIndex.implication}
                   </div>
@@ -205,7 +205,7 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Expected Moisture Conditions
                   </div>
-                  <span> Based on data from the next 7 days starting from {startDate(this.state.moistureAvailability.week, 0)} to {startDate(this.state.moistureAvailability.week, -6)} </span>
+                  <span> Based on forecasted data for the next  7 days days from {startDate(this.state.moistureAvailability.week, 0)} to {startDate(this.state.moistureAvailability.week, -6)} </span>
                   <div className="item advisoryItem implication">
                     {this.state.moistureAvailability.implication}
                     

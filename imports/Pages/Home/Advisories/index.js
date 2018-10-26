@@ -110,9 +110,10 @@ export default class Advisory extends React.Component {
                       {this.state.pastMoisture.advisoryB}
                     </div>
                   </div> */}
+                 
                   <ol class="ui list">
-                    <li value="->">{this.state.pastMoisture.advisoryA}</li>
-                    <li value="->">{this.state.pastMoisture.advisoryB}</li>
+                    <li className="item advisoryItem" value=""> <i class="lightbulb icon"></i> {this.state.pastMoisture.advisoryA}</li>
+                    <li className="item advisoryItem" value=""> <i class="lightbulb icon"></i>{this.state.pastMoisture.advisoryB}</li>
                     
                   </ol>
                 </div>
@@ -138,9 +139,9 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li value="->">{this.state.pastRainfall.advisoryA}</li>
-                    <li value="->">{this.state.pastRainfall.advisoryB}</li>
-                    <li value="->">{this.state.pastRainfall.advisoryC}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.pastRainfall.advisoryA}</li>
+                    <li className="item advisoryItem" value="">{this.state.pastRainfall.advisoryB}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.pastRainfall.advisoryC}</li>
                     
                   </ol>
                 </div>
@@ -172,10 +173,10 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li value="->">{this.state.droughtIndex.advisoryA}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryB}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryC}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryD}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.droughtIndex.advisoryA}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.droughtIndex.advisoryB}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.droughtIndex.advisoryC}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon"></i>{this.state.droughtIndex.advisoryD}</li>
                     
                   </ol>
 
@@ -199,8 +200,8 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryA}</li>
-                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryB}</li>                                        
+                    <li className="item advisoryItem"  value=""><i class="lightbulb icon"></i>{this.state.moistureAvailability.advisoryA}</li>
+                    <li className="item advisoryItem"  value=""><i class="lightbulb icon"></i>{this.state.moistureAvailability.advisoryB}</li>                                        
                   </ol>
 
                 </div>

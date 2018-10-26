@@ -58,6 +58,13 @@ const flattenAllDays = forecasts => {
     return dayAverage(day, "dddd");
   });
 };
+const shift = forecasts => {
+  var arr = forecasts.shift();
+  return forecasts.map(day => {
+    return dayAverage(day, "dddd");
+  });
+  
+};
 
 const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
@@ -101,7 +108,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
         <LineChart
           width={containerWidth}
           height={height}
-          data={flattenAllDays(Forecasts)}
+          data={shift(Forecasts)}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />

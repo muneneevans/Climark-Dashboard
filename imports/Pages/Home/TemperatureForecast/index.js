@@ -64,6 +64,7 @@ const flattenAllDays = forecasts => {
 };
 const shift = forecasts => {
   forecasts.shift();
+  forecasts.pop();
   return forecasts.map(day => {
     return dayAverage(day, "dddd");
   });

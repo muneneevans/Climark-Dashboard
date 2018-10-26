@@ -108,7 +108,7 @@ const WindForecast = ({ containerWidth, Forecasts, height = 350 }) => {
         <LineChart
           width={containerWidth}
           height={height}
-          data={shift(Forecasts)}
+          data={flattenAllDays(Forecasts)}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />

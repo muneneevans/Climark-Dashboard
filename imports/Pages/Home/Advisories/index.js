@@ -9,6 +9,17 @@ import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
 import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";
 import { Tracker } from "meteor/tracker";
+import moment from "moment";
+
+function weekToDate(week) {
+ var dt = new Date();
+ var date = moment().day("Monday").year("2018").week(week);
+ console.log(date)
+ return moment().format("DD-MM-YYYY");
+}
+function startDate(date, noofdays) {
+  return moment().subtract(noofdays, "days").format("DD-MM-YYYY");
+}
 
 export default class Advisory extends React.Component {
   constructor(props) {
@@ -97,7 +108,9 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     {" "}
                     Current Moisture Condictions
+                   
                   </div>
+                  <span> Based on data from the last 30 days starting from {startDate(this.state.pastMoisture.week , 30)} to {weekToDate(this.state.pastMoisture.week)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.pastMoisture.implication}
                   </div>
@@ -123,6 +136,7 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Current Rainfall Distribution
                   </div>
+                  <span> Based on data from the last 30 days starting from {startDate(this.state.pastRainfall.week ,30)} to {weekToDate(this.state.pastRainfall.week)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.pastRainfall.implication}
                   </div>
@@ -154,6 +168,7 @@ export default class Advisory extends React.Component {
                     {" "}
                     Expected Drought Conditions
                   </div>
+                  <span> Based on data from the next days starting from {startDate(this.state.droughtIndex.week, 4)} to {weekToDate(this.state.droughtIndex.week)}</span>
                   <div className="item advisoryItem implication ">
                     {this.state.droughtIndex.implication}
                   </div>
@@ -187,9 +202,12 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Expected Moisture Conditions
                   </div>
+                  <span> Based on data from the next 7 days starting from {startDate(this.state.moistureAvailability.week, 4)} to {weekToDate(this.state.moistureAvailability.week)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.moistureAvailability.implication}
+                    
                   </div>
+                 
                   <div className="notesHeader"> Advisory Notes </div>
                   {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">

@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import dimensions from "react-dimensions";
 
+
 const dayForcacst = (day, format = "hh a") => {
   return day.forecast.map(hour => {
     return {
@@ -62,13 +63,52 @@ const flattenAllDays = forecasts => {
     return dayAverage(day, "dddd");
   });
 };
+const shift = forecasts => {
+  forecasts.shift();
+  forecasts.pop();
+    return forecasts.map(day => {
+    return dayAverage(day, "dddd");
+  });
+};
+
+var COUNT = 0;
+var NEWCOUNT = 6;
+// this is a temporary fix
+function shiftDays(forecasts) {
+  
+  if (COUNT == 0) {
+    COUNT = NEWCOUNT;
+    return shift(forecasts);
+    
+  }
+  
+   return flattenAllDays(forecasts)
+}
+
+// function shift(forecasts) {
+//   var isShift = false;
+//   if (isShift) {
+
+//   forecasts.shift();
+//   forecasts.pop();
+
+//   return forecasts.map(day => {
+//     return dayAverage(day, "dddd");
+//   });
+
+//   }
+//   return forecasts.map(day => {
+//     return dayAverage(day, "dddd");
+//   });
+
+// }
 
 const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Temperature forecasts</Header>
+        <Header as="h3">Hourly Temperature forecasts for Today {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -99,11 +139,11 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden />
       <div>
-        <Header as="h3">Average Temperature forecasts for the week</Header>
+        <Header as="h3">Average Temperature forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
-          data={flattenAllDays(Forecasts)}
+          data={shiftDays(Forecasts)}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
@@ -119,7 +159,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#3d3d3d"
+            stroke="#4CAF50"
             activeDot={{ r: 1 }}
             dot={false}
           />

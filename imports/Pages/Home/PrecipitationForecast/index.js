@@ -58,13 +58,20 @@ const flattenAllDays = forecasts => {
     return dayAverage(day, "dddd");
   });
 };
+const shift = forecasts => {
+   forecasts.shift();
+  return forecasts.map(day => {
+    return dayAverage(day, "dddd");
+  });
+  
+};
 
 const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Precipitation forecasts</Header>
+        <Header as="h3">Hourly Precipitation forecasts for Today {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -79,12 +86,12 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="chance" stroke="#e67e22" />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey="value"
             stroke="#4CAF50"
             activeDot={{ r: 8 }}
-          />
+          /> */}
           <Line
             type="monotone"
             dataKey="amount"
@@ -97,7 +104,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden />
       <div>
-        <Header as="h3">Average Precipitation forecasts for the week</Header>
+        <Header as="h3">Average Precipitation forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -124,22 +131,22 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             type="monotone"
             dataKey="amount"
             yAxisId="left"
-            stroke="#e67e22"
+            stroke="#3498db"
             dot={false}
           />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey="value"
             stroke="#3d3d3d"
             activeDot={{ r: 1 }}
             dot={false}
             yAxisId="left"
-          />
+          /> */}
           <Line
             yAxisId="right"
             type="monotone"
             dataKey="chance"
-            stroke="#3498db"
+            stroke="#e67e22"
             activeDot={{ r: 1 }}
             dot={false}
           />

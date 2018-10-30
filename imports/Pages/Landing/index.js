@@ -30,7 +30,7 @@ import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
 import amfratechLogo from "./images/amfratech.png";
 import aWhereLogo from "./images/awhere.png";
-import climarkLogo from "./images/climarklogo.png";
+import climarkLogo from "./images/climarklogo2.png";
 import klmc_logo from "./images/klmc_logo.png";
 class Home extends Component {
   state = {};
@@ -198,7 +198,7 @@ class Home extends Component {
               tablet={8}
               computer={8}
             >
-              <h1 className="heading">Sponsors</h1>
+              <h1 className="heading">Partners</h1>
               <p className="sponsorContent">
                 {" "}
                 We are proud to work in close collaboration with our partners.

@@ -1,5 +1,5 @@
 import React from "react";
-import { AdvisoryDroughtIndex } from "./../../../api/advisorydraughtIndex";
+import { AdvisoryDroughtIndex } from "./../../../api/advisorydroughtIndex";
 
 import { isUndefined } from "../../../lib/utils";
 
@@ -9,6 +9,20 @@ import { AdvisoryMA } from "./../../../api/advisoryMA";
 import { pastMoistureCondition } from "./../../../api/pastMoistureCondition";
 import { pastRainfallCondition } from "./../../../api/pastRainfallCondition";
 import { Tracker } from "meteor/tracker";
+import moment from "moment";
+
+// function weekToDate(week) {
+//  var dt = new Date();
+//  var date = moment().day("Monday").year("2018").week(week);
+//  console.log(date)
+
+//  return date.toString();
+// }
+function startDate(week, noofdays) {
+  var date = moment().day("Monday").year("2018").week(week);
+  dates = moment(date).subtract(noofdays, "days").format("DD-MM-YYYY");
+  return dates;
+}
 
 export default class Advisory extends React.Component {
   constructor(props) {
@@ -97,11 +111,13 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     {" "}
                     Current Moisture Condictions
+                   
                   </div>
+                  <span> Based on data from the last 30 days starting from {startDate(this.state.pastMoisture.week , 30)} to {startDate(this.state.pastMoisture.week , 0)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.pastMoisture.implication}
                   </div>
-                  <div className="notesHeader"> Advisory Notes </div>
+                  <div className="notesHeader"  font-weight="bold"> Advisory Notes </div>
                   {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
                       {this.state.pastMoisture.advisoryA}
@@ -110,9 +126,10 @@ export default class Advisory extends React.Component {
                       {this.state.pastMoisture.advisoryB}
                     </div>
                   </div> */}
+                 
                   <ol class="ui list">
-                    <li value="->">{this.state.pastMoisture.advisoryA}</li>
-                    <li value="->">{this.state.pastMoisture.advisoryB}</li>
+                    <li className="item advisoryItem " value=""> <i class="lightbulb icon bulb-color"></i> {this.state.pastMoisture.advisoryA}</li>
+                    <li className="item advisoryItem" value=""> <i class="lightbulb icon bulb-color"></i>{this.state.pastMoisture.advisoryB}</li>
                     
                   </ol>
                 </div>
@@ -122,6 +139,7 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Current Rainfall Distribution
                   </div>
+                  <span> Based on data from the last 30 days from {startDate(this.state.pastRainfall.week ,30)} to {startDate(this.state.pastRainfall.week ,0)}</span>
                   <div className="item advisoryItem implication">
                     {this.state.pastRainfall.implication}
                   </div>
@@ -138,9 +156,9 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li value="->">{this.state.pastRainfall.advisoryA}</li>
-                    <li value="->">{this.state.pastRainfall.advisoryB}</li>
-                    <li value="->">{this.state.pastRainfall.advisoryC}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.pastRainfall.advisoryA}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.pastRainfall.advisoryB}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.pastRainfall.advisoryC}</li>
                     
                   </ol>
                 </div>
@@ -153,6 +171,7 @@ export default class Advisory extends React.Component {
                     {" "}
                     Expected Drought Conditions
                   </div>
+                  <span> Based on forecasted data for the next  7 days days from {startDate(this.state.droughtIndex.week, 0)} to {startDate(this.state.droughtIndex.week, -6)} </span>
                   <div className="item advisoryItem implication ">
                     {this.state.droughtIndex.implication}
                   </div>
@@ -172,10 +191,10 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li value="->">{this.state.droughtIndex.advisoryA}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryB}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryC}</li>
-                    <li value="->">{this.state.droughtIndex.advisoryD}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.droughtIndex.advisoryA}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.droughtIndex.advisoryB}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.droughtIndex.advisoryC}</li>
+                    <li className="item advisoryItem" value=""><i class="lightbulb icon bulb-color"></i>{this.state.droughtIndex.advisoryD}</li>
                     
                   </ol>
 
@@ -186,9 +205,12 @@ export default class Advisory extends React.Component {
                   <div className="AdvisoryHeader">
                     Expected Moisture Conditions
                   </div>
+                  <span> Based on forecasted data for the next  7 days days from {startDate(this.state.moistureAvailability.week, 0)} to {startDate(this.state.moistureAvailability.week, -6)} </span>
                   <div className="item advisoryItem implication">
                     {this.state.moistureAvailability.implication}
+                    
                   </div>
+                 
                   <div className="notesHeader"> Advisory Notes </div>
                   {/* <div className="ui bulleted list">
                     <div className="item advisoryItem">
@@ -199,8 +221,8 @@ export default class Advisory extends React.Component {
                     </div>
                   </div> */}
                   <ol class="ui list">
-                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryA}</li>
-                    <li className="ui bulleted list" value="->">{this.state.moistureAvailability.advisoryB}</li>                                        
+                    <li className="item advisoryItem"  value=""><i class="lightbulb icon bulb-color"></i>{this.state.moistureAvailability.advisoryA}</li>
+                    <li className="item advisoryItem"  value=""><i class="lightbulb icon bulb-color"></i>{this.state.moistureAvailability.advisoryB}</li>                                        
                   </ol>
 
                 </div>

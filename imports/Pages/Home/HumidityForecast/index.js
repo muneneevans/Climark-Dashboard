@@ -62,13 +62,19 @@ const flattenAllDays = forecasts => {
     return dayAverage(day, "dddd");
   });
 };
+const shift = forecasts => {
+  forecasts.shift();
+  return forecasts.map(day => {
+    return dayAverage(day, "dddd");
+  });
+};
 
 const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Relative Humidity Forecasts</Header>
+        <Header as="h3">Average Hourly Relative Humidity Forecasts for  Today {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -80,26 +86,26 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="max" stroke="#e67e22" />
+          {/* <Line type="monotone" dataKey="max" stroke="#e67e22" /> */}
           <Line
             type="monotone"
             dataKey="average"
-            stroke="#4CAF50"
+            stroke="#3498db"
             activeDot={{ r: 8 }}
           />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey="min"
             stroke="#3498db"
             activeDot={{ r: 8 }}
-          />
+          /> */}
         </LineChart>
       </div>
 
       <Divider section />
       <Divider section hidden/>
       <div>
-        <Header as="h3">Average Relative Humidity forecasts for the week</Header>
+        <Header as="h3">Average Relative Humidity forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -115,21 +121,21 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} />
+          {/* <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} /> */}
           <Line
             type="monotone"
             dataKey="average"
-            stroke="#3d3d3d"
+            stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
           />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey="min"
             stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
-          />
+          /> */}
         </LineChart>
       </div>
     </div>

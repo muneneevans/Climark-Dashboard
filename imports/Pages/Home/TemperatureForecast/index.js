@@ -108,7 +108,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Temperature forecasts</Header>
+        <Header as="h3">Hourly Temperature forecasts for {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -139,7 +139,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden />
       <div>
-        <Header as="h3">Average Temperature forecasts for the week</Header>
+        <Header as="h3">Average Temperature forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}

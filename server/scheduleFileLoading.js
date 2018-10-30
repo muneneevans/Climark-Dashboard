@@ -13,7 +13,7 @@ import {Restivus} from 'meteor/nimble:restivus';
 // import { Meteor } from 'meteor/meteor';
 import {Mongo} from 'meteor/mongo';
 import schedule from 'node-schedule';
-export const Job = schedule.scheduleJob('0 01 10 * * *', Meteor.bindEnvironment(() => {
+export const Job = schedule.scheduleJob('0 44 15 * * *', Meteor.bindEnvironment(() => {
 
   let nextSevenDayForecast = Assets.getText('181013_next7.csv');
   let lastSevenDayData = Assets.getText('181013_past30.csv');

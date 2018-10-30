@@ -63,7 +63,7 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Solar Forecasts</Header>
+        <Header as="h3">Hourly Solar Forecasts for {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -75,26 +75,26 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="" stroke="#e67e22" />
+          {/* <Line type="monotone" dataKey="" stroke="#e67e22" /> */}
           <Line
             type="monotone"
             dataKey="amount"
-            stroke="#4CAF50"
+            stroke="#3d3d3d"
             activeDot={{ r: 8 }}
           />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey=""
             stroke="#3498db"
             activeDot={{ r: 8 }}
-          />
+          /> */}
         </LineChart>
       </div>
 
       <Divider section />
       <Divider section hidden/>
       <div>
-        <Header as="h3">Average Solar forecasts for the week</Header>
+        <Header as="h3">Average Solar forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
@@ -110,7 +110,7 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          <Line type="monotone" dataKey="" stroke="#e67e22" dot={false} />
+          {/* <Line type="monotone" dataKey="" stroke="#e67e22" dot={false} /> */}
           <Line
             type="monotone"
             dataKey="amount"
@@ -118,13 +118,13 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             activeDot={{ r: 1 }}
             dot={false}
           />
-          <Line
+          {/* <Line
             type="monotone"
             dataKey=""
             stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
-          />
+          /> */}
         </LineChart>
       </div>
     </div>

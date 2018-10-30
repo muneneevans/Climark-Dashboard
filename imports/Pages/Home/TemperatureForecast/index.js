@@ -159,7 +159,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#3d3d3d"
+            stroke="#4CAF50"
             activeDot={{ r: 1 }}
             dot={false}
           />

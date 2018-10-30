@@ -131,7 +131,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             type="monotone"
             dataKey="amount"
             yAxisId="left"
-            stroke="#3498db"
+            stroke="#e67e22"
             dot={false}
           />
           {/* <Line
@@ -146,7 +146,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             yAxisId="right"
             type="monotone"
             dataKey="chance"
-            stroke="#e67e22"
+            stroke="#3498db"
             activeDot={{ r: 1 }}
             dot={false}
           />

@@ -13,6 +13,7 @@ import {
 } from "recharts";
 import dimensions from "react-dimensions";
 
+
 const dayForcacst = (day, format = "hh a") => {
   return day.forecast.map(hour => {
     return {
@@ -65,11 +66,43 @@ const flattenAllDays = forecasts => {
 const shift = forecasts => {
   forecasts.shift();
   forecasts.pop();
-  return forecasts.map(day => {
+    return forecasts.map(day => {
     return dayAverage(day, "dddd");
   });
 };
- 
+
+var COUNT = 0;
+var NEWCOUNT = 6;
+// this is a temporary fix
+function shiftDays(forecasts) {
+  
+  if (COUNT == 0) {
+    COUNT = NEWCOUNT;
+    return shift(forecasts);
+    
+  }
+  
+   return flattenAllDays(forecasts)
+}
+
+// function shift(forecasts) {
+//   var isShift = false;
+//   if (isShift) {
+
+//   forecasts.shift();
+//   forecasts.pop();
+
+//   return forecasts.map(day => {
+//     return dayAverage(day, "dddd");
+//   });
+
+//   }
+//   return forecasts.map(day => {
+//     return dayAverage(day, "dddd");
+//   });
+
+// }
+
 const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
   return (
     <div>
@@ -80,7 +113,6 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           width={containerWidth}
           height={height}
           data={flatten(Forecasts)[0]}
-         
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />
@@ -111,7 +143,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
         <LineChart
           width={containerWidth}
           height={height}
-          data={shift(Forecasts)}
+          data={shiftDays(Forecasts)}
           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis dataKey="date" />

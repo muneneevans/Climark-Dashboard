@@ -74,7 +74,7 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Average Hourly Relative Humidity Forecasts for {moment(Forecasts[0].date).format('ll')}</Header>
+        <Header as="h3">Average Hourly Relative Humidity Forecasts for  Today {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}

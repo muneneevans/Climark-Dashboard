@@ -108,7 +108,7 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
     <div>
       <Divider section hidden />
       <div>
-        <Header as="h3">Hourly Temperature forecasts for {moment(Forecasts[0].date).format('ll')}</Header>
+        <Header as="h3">Hourly Temperature forecasts for Today {moment(Forecasts[0].date).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}

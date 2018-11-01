@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Button, Segment } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import climarkLogo from "../../Landing/images/climarklogo";
+import climarkLogo from "../../Landing/images/climarklogo2";
 import styles from "./style.css";
 export default class AppHeader extends Component {
   state = {};

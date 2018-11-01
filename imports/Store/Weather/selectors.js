@@ -1,5 +1,4 @@
 //convert data from store into usable format by ui
-import { isUndefined } from "../../lib/utils";
 
 import { isEmpty } from "../../lib/utils";
 import moment from "moment";
@@ -33,20 +32,13 @@ export const getCounties = ({ weather }) => {
 
 export const getWardOptions = ({ weather }) => {
   return weather.countyWards.map(field => {
-    //look for the ward in current selections
-    const foundWard = weather.wardWidgets.find(ward => {
-      return ward === field.WARD_NAME;
-    });
-
-    if (isUndefined(foundWard)) {
-      return {
-        key: field.WARD_NAME,
-        text: field.WARD_NAME,
-        value: field.WARD_NAME,
-        ward: field
-      };
-    }
-  }).filter(ward=>ward);
+    return {
+      key: field.WARD_NAME,
+      text: field.WARD_NAME,
+      value: field.WARD_NAME,
+      ward: field
+    };
+  });
 };
 
 export const getWards = ({ weather }) => {
@@ -63,11 +55,7 @@ export const getWardWidgets = ({ weather }) => {
 export const getWidgetGraphs = ({ weather }) => {
   const getwardHumidities = wardObservations => {
     return wardObservations.map(observation => {
-      return {
-        date: moment(observation.date).format("dddd "),
-        max: observation.relativeHumidity.max,
-        min: observation.relativeHumidity.min
-      };
+      return { date: moment(observation.date).format("dddd "), max: observation.relativeHumidity.max, min: observation.relativeHumidity.min };
     });
   };
 
@@ -85,6 +73,6 @@ export const getWidgetGraphs = ({ weather }) => {
   return newWardData;
 };
 
-export const getWardData = ({ weather }) => {
-  return weather.wardData;
-};
+export const getWardData = ({weather} ) =>{
+  return weather.wardData
+}

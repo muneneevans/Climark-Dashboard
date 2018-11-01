@@ -1,6 +1,6 @@
 .fieldWidgetContainer {
   padding: 5px;
-  padding-bottom: 50px;
+  padding-bottom: 150px;
 }
 .fieldHeaderContainer {
   padding-top: 50px;
@@ -9,19 +9,24 @@
 }
 .advisory {
   /* background: #f2ecfd; */
-  background: #f4f4f4
+  background: #f4f4f4;
   padding: 0px !important;
   /* padding-top: 30px !important;
   padding-left: 5px !important;
   padding-right: 5px !important; */
   padding-bottom: 30px !important;
 }
+
 .fieldWidgetContainer:nth-child(even) {
   /* background: #f2f2f2; */
   background: #fafafa;
 }
 .fieldWidgetContainer:nth-child(odd) {
   background: #eceff1;
+}
+.fieldWidgetContainer:nth-child(even) {
+  /* background: #f2f2f2; */
+  background: #fafafa;
 }
 
 .fieldWidgetButtonsContainer {

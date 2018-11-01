@@ -18,3 +18,10 @@
   background-color: #ffffff;
   color: #673ab7;
 }
+.appContainer {
+  min-height: 100%;
+}
+
+.bodyContainer {
+  padding-bottom: 5em;
+}

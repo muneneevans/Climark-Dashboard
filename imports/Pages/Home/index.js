@@ -26,7 +26,7 @@ import {
   getWardData
 } from "../../Store/Weather/selectors";
 //#endregion
-import Appheader from "./Appheader"
+import Appheader from "./Appheader";
 // import Footer from "./../Landing/Footer"
 import Banner from "./Banner";
 import FieldWidget from "./FieldWidget";
@@ -66,17 +66,17 @@ class Home extends Component {
       history,
       wardData
     } = this.props;
-    return (
+    return [
+      <Appheader />,
+      <FieldSelectionWidget
+        counties={counties}
+        wards={wardOptions}
+        countyChanged={this.countyChanged}
+        submitAction={this.addWardWidgetHandler}
+      />,
       <div>
-        <Appheader/>
-        <FieldSelectionWidget
-          counties={counties}
-          wards={wardOptions}
-          countyChanged={this.countyChanged}
-          submitAction={this.addWardWidgetHandler}
-        />
         {addWardWidgetsProcess.status == processTypes.SUCCESS && (
-          <TransitionGroup className="">
+          <TransitionGroup>
             {wardWidgets.map((ward, i) => (
               <CSSTransition key={ward} timeout={300} classNames="fade">
                 <FieldWidget
@@ -90,12 +90,9 @@ class Home extends Component {
             ))}
           </TransitionGroup>
         )}
-        {/* <FieldWidget /> */}
-
-        <Footer />
-      </div>
-      
-    );
+      </div>,
+      <Footer />
+    ];
   }
 }
 

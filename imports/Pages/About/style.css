@@ -1,6 +1,7 @@
 .aboutPage {
   padding: 0em 0em;
+  padding-bottom: 150px;
 }
-.aboutSection {
+.aboutSection, .contactSection {
   padding: 1.5em 0em;
 }

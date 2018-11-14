@@ -189,8 +189,8 @@ body {
   padding: 1em 5em;
 }
 .climarklogo2 {
-  height: 100px;
-  width: 250px;
+  height: 200px;
+  width: auto;
 }
 .sloganDescription {
   padding-left: 400px;
@@ -232,7 +232,8 @@ sponsors section
 }
 .sponsorImage {
   height: 120px;
-  width: 120px;
+  width: auto;
+  opacity: 0.7;
 }
 .sponsorContent {
   max-width: 300px;
@@ -249,6 +250,7 @@ sponsors section
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  padding-bottom: 30px;
 }
 
 /*Footer Section*/

@@ -9,7 +9,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Label
 } from "recharts";
 import dimensions from "react-dimensions";
 
@@ -64,25 +65,41 @@ const flattenAllDays = forecasts => {
   });
 };
 const shift = forecasts => {
-  forecasts.shift();
+  // forecasts.shift();
   forecasts.pop();
     return forecasts.map(day => {
     return dayAverage(day, "dddd");
   });
 };
 
-var COUNT = 0;
-var NEWCOUNT = 6;
-// this is a temporary fix
-function shiftDays(forecasts) {
+// var COUNT = 0;
+// var NEWCOUNT = 6;
+// // this is a temporary fix
+// function shiftDays(forecasts) {
   
-  if (COUNT == 0) {
-    COUNT = NEWCOUNT;
-    return shift(forecasts);
+//   if (COUNT == 0) {
+//     COUNT = NEWCOUNT;
+//     return shift(forecasts);
     
+//   }
+  
+//    return flattenAllDays(forecasts)
+// }
+// function shiftDays(forecasts) {
+//   if (forecasts.length > 7) {
+//     console.log(forecasts.length)
+//     return shift(forecasts);
+//   }
+//   console.log(forecasts.length)
+//     return flattenAllDays(forecasts);
+// }
+function shiftDays(forecasts){
+  while (forecasts.length > 7) {
+    // forecasts.shift();
+    forecasts.pop();
   }
   
-   return flattenAllDays(forecasts)
+  return flattenAllDays(forecasts);
 }
 
 // function shift(forecasts) {
@@ -113,10 +130,12 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           width={containerWidth}
           height={height}
           data={flatten(Forecasts)[0]}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="&#x2103;" />
+          <YAxis>
+-        <Label value="&#x2103;" angle={0} position="insideLeft"/>
+-      </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
@@ -139,19 +158,20 @@ const TemperatureForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden />
       <div>
-        <Header as="h3">Average Temperature forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
+        <Header as="h3">Average Temperature forecasts for the week between {moment(Forecasts[0].date).add('days', 0).format('ll')} and {moment(Forecasts[0].date).add('days', 6).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
           data={shiftDays(Forecasts)}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
           <YAxis
             scale={"linear"}
             domain={["dataMin-2", "dataMax+2"]}
-            label="&#x2103;"
-          />
+                      >
+                      <Label value="&#x2103;" angle={0} position="insideLeft"/>
+          </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />

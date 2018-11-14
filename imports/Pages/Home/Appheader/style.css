@@ -1,19 +1,28 @@
 .nav-header {
-  background-color: black;
-  color: white;
+ background-color: white;
+ /* Height:100px; */
+ padding-bottom: 10px;
+ padding-top: 10px;
+ padding-left: 10px;
+ padding-right: 10px;
 }
+
 .climarklogoheader {
-  height: 50px;
-  width: 100px;
-}
-.nav-bar-menu {
-  background-color: aqua !important;
+  height: 150px;
+  width: auto;
+
 }
 
 .appHeader {
   /* background-color: #673ab7 !important; */
   background-color: #AAADBB !important;
+height:100px;
+  padding-bottom: 10px;
+  padding-top: 40px;
+
 }
 .appHeader a {
-  color: #ffffff;
+  color: #6600ff;
+  font-style: bold;
+  font-size: 20px
 }

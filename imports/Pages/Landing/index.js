@@ -28,7 +28,7 @@ import binoculars from "./icons/binoculars.svg";
 //import images
 import tabletDashbaord from "./images/tablet.png";
 import ctaLogo from "./images/cta.png";
-import amfratechLogo from "./images/amfratech.png";
+import amfratechLogo from "./images/amfratech2.png";
 import aWhereLogo from "./images/awhere.png";
 import climarkLogo from "./images/climarklogo2.png";
 import klmc_logo from "./images/klmc_logo.png";
@@ -38,77 +38,65 @@ class Home extends Component {
   hideFixedMenu = () => this.setState({ visible: false });
   showFixedMenu = () => this.setState({ visible: true });
 
-  getFeatureSection = () => (
-    <section className="featuresContent">
-       
-      <Container>
-      <div className="sloganDescription">       
-       <p>Empowering climate-Smart Solutions through Technology</p>
-     </div> 
-        <h2 className="heading featuerHeader">
-          Communication through relevant information.
+  getFeatureSection = () => (<section className="featuresContent">
+    <Container>
+      <div>
+        <h2 className=" sloganDescription">
+         Empowering climate-Smart Solutions through Technology
         </h2>
+    </div>
+      <h2 className="heading featureCardHeader">
+        ABOUT CLIMARK
+      </h2>
+      <div className="featureCard mainCard">
+        <img src={marker} className="featureIcon"/>
+        <h3 className="heading featureCardHeader">
+          CLIMARK PROJECT
+        </h3>
+        <p className="featureCardDescription">
+          This CLIMARK Project has been setup by the Technical Center for Agriculture and Rural Co-operation (CTA) in collaboration with aWhere and Amfratech Ltd to design and deploy a blended weather information management system that will enable the local pastoralists communities be aware of the weather patterns in the short term and long term, for pro-active and actionable recommendations in order to safeguard their livelihoods. We have three components in the weather information dissemination: Observations, Forecast and Advisories. {/* <a href="">Read more</a> */}
+        </p>
+      </div>
+    </Container>
 
-        <div className="featureCard mainCard">
-          <img src={marker} className="featureIcon" />
-          <h3 className="heading  featureCardHeader"> About Climark </h3>
-          <p className="featureCardDescription">
-            This CLIMARK Project has been setup by the Technical Center for
-            Agriculture and Rural Co-operation (CTA) in collaboration with
-            aWhere and Amfratech Ltd to design and deploy a blended weather
-            information management system that will enable the local
-            pastoralists communities be aware of the weather patterns in the
-            short term and long term, for pro-active and actionable
-            recommendations in order to safeguard their livelihoods.{" "}
-            <Link to="/about">Read More</Link>
-          </p>
-        </div>
-      </Container>
-
-      <Grid divided="vertically" className="container">
-        <Grid.Row columns={3}>
-          <Grid.Column mobile={16} tablet={8} computer={5}>
-            <div className="featureCard">
-              <img src={binoculars} className="featureIcon" />
-              <h3 className="heading  featureCardHeader"> Observations</h3>
-              <p className="featureCardDescription">
-                Get weather conditions of the previous weeks of the particular
-                region you want. This is visualised beautifully to show trends
-                and provide crucial information for the forecasting and
-                prediction of pasture conditions for pastrolists.
-              </p>
-            </div>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={5}>
-            <div className="featureCard">
-              <img src={wind} className="featureIcon" />
-              <h3 className="heading  featureCardHeader"> Forecasts</h3>
-              <p className="featureCardDescription">
-                Give the local community accurate forecasts of their respective
-                areas upcoming weather patterns of the next week tailored
-                specifically to the its needs and interests.
-              </p>
-            </div>
-          </Grid.Column>
-          <Grid.Column mobile={16} tablet={8} computer={5}>
-            <div className=" advisoryCard">
-              <img src={notebook} className="featureIcon" />
-              <h3 className="heading  featureCardHeader">Advisories</h3>
-              <p className="featureCardDescription">
-                These is advises we give to the stakeholders for resilience
-                actions. Tangible steps that local communities can follow
-                inorder to prrotect their livelihood from adverse weather
-                conditions that they already face.
-              </p>
-            </div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-      <Container className="findOutMoreSection">
-        <button className="outlineButton featuresButton"> Find out more</button>
-      </Container>
-    </section>
-  );
+    <Grid divided="vertically" className="container">
+      <Grid.Row columns={3}>
+        <Grid.Column mobile={16} tablet={8} computer={5}>
+          <div className="featureCard">
+            <img src={binoculars} className="featureIcon"/>
+            <h3 className="heading  featureCardHeader">
+              Observations</h3>
+            <p className="featureCardDescription">
+              We use our historical weather data to provide our users with the previous weather trends for appreciation of the short-term and long term weather pattern. Using graphical representation, we provide you with weather patterns for the past one month to current.
+            </p>
+          </div>
+        </Grid.Column>
+        <Grid.Column mobile={16} tablet={8} computer={5}>
+          <div className="featureCard">
+            <img src={wind} className="featureIcon"/>
+            <h3 className="heading  featureCardHeader">
+              Forecasts</h3>
+            <p className="featureCardDescription">
+              We provide our users with near real-time weather information of their respective areas, with upcoming weather forecasts of the next one week to be able to plan for their needs and interests.
+            </p>
+          </div>
+        </Grid.Column>
+        <Grid.Column mobile={16} tablet={8} computer={5}>
+          <div className=" advisoryCard">
+            <img src={notebook} className="featureIcon"/>
+            <h3 className="heading  featureCardHeader">Advisories</h3>
+            <p className="featureCardDescription">
+              Climark Provides stakeholders with advisories towards resilience actions and offer tangible steps that local communities can follow for pro-active actionable recommendations in order to safeguard their livelihoods. These advisories are simplified to also highlight the impact of weather on pasture for livestock within the local pastoralists communities.
+            </p>
+          </div>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+    <Container className="findOutMoreSection">
+      <Link className="outlineButton featuresButton" to="/about">
+        Find out more</Link>
+    </Container>
+    </section>);
 
   getHeaderSection = () => (
     <section className="headerContent">
@@ -117,38 +105,6 @@ class Home extends Component {
         <img src={climarkLogo} className="climarklogo2" />
       </div>
       <div />
-      <Container>
-        <Grid
-          className="contentSection"
-          columns={2}
-          reversed="mobile vertically"
-        >
-          <Grid.Row verticalAlign="bottom">
-            <Grid.Column mobile={16} tablet={8} computer={8}>
-              <div className="headerSectionButtonContainer">
-                <button className="ui headerSectionButton primaryButton montserrat">
-                  Find out more
-                </button>
-              </div>
-            </Grid.Column>
-            <Grid.Column mobile={16} tablet={8} computer={8}>
-              <div className="headerBannerContainer">
-                <div className="headerBanner">
-                  <h1 className="headerBannerHeader"> Respond, Overcome</h1>
-                  <div className="headerBannerContentContainer">
-                    <p className="headerBannerContent">
-                      {" "}
-                      Leveraging the power of technology to thrive in areas of
-                      harsh weather
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-      
     </section>
   );
 
@@ -167,7 +123,7 @@ class Home extends Component {
           >
             <Container>
               <div>
-                <h1 className="heading">Weather Information Dashboard</h1>
+                <h1 className="heading featureCardHeader">Weather Information Dashboard</h1>
                 <p className="dashboardContent">
                   Customize your experience by selecting any location within the
                   country and get data specific to that locality.
@@ -198,7 +154,7 @@ class Home extends Component {
               tablet={8}
               computer={8}
             >
-              <h1 className="heading">Partners</h1>
+              <h1 className="heading featureCardHeader">Partners</h1>
               <p className="sponsorContent">
                 {" "}
                 We are proud to work in close collaboration with our partners.
@@ -229,13 +185,13 @@ class Home extends Component {
                         className="sponsorImage"
                       />
                     </a>
-                    <a href="http://livestockcouncil.or.ke/" target="_blank">
+                    {/* <a href="http://livestockcouncil.or.ke/" target="_blank">
                       <img
                         src={klmc_logo}
                         alt="awhere logo"
                         className="sponsorImage"
                       />
-                    </a>
+                    </a> */}
                   </div>
                 </Grid.Row>
               </Grid>
@@ -300,14 +256,12 @@ class Home extends Component {
 
     return (
       <div>
-        <section className="headerblock">
-          <div className="container" />
-        </section>
+
         {this.getHeaderSection()}
         {this.getFeatureSection()}
         {this.getDashboardSection()}
         {this.getSponsorsSection()}
-        {/* {this.getFooterSection()} */}
+
         <Footer/>
 
         <section className="headerimage">

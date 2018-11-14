@@ -92,8 +92,11 @@ class Footer extends Component {
                       <ul className="footerContent">
                         <Link to="/about">
                           <li>About</li>
+                        </Link  >
+                        <Link to="/contact">
+                           <li>Contacts</li>
                         </Link>
-                        <li>Contacts</li>
+                       
                       </ul>
                     </Grid.Column>
                     <Grid.Column mobile={8} tablet={5} computer={5}>

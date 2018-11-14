@@ -19,6 +19,7 @@ import Home from "../Home";
 import Field from "../Field";
 import Landing from "../Landing";
 import About from "../About";
+import Contact from "../Contact"
 
 const Routes = () => (
   <Router>
@@ -29,10 +30,11 @@ const Routes = () => (
           <Route path="/dashboard" component={Home} />
           <Route path="/home" component={Landing} />
           <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
           <Route exact path="/" component={Landing} />
         </Switch>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   </Router>
 );

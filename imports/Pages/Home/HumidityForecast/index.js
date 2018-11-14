@@ -9,7 +9,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Label
 } from "recharts";
 import dimensions from "react-dimensions";
 
@@ -30,19 +31,19 @@ const dayAverage = (day, format = "hh a") => {
   return {
     max: round(
       day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.max;
+        return total + hour.relativeHumidity.max;
       }, 0) / day.forecast.length,
       2
     ),
     average: round(
       day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.average;
+        return total + hour.relativeHumidity.average;
       }, 0) / day.forecast.length,
       2
     ),
     min: round(
       day.forecast.reduce((total, hour, counter) => {
-        return total + hour.wind.min;
+        return total + hour.relativeHumidity.min;
       }, 0) / day.forecast.length,
       2
     ),
@@ -79,10 +80,12 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           width={containerWidth}
           height={height}
           data={flatten(Forecasts)[0]}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="" />
+          <YAxis>
+-          <Label value="Percentage (%)" angle={-90} position="insideLeft"/>
+-        </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
@@ -105,36 +108,33 @@ const HumidityForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden/>
       <div>
-        <Header as="h3">Average Relative Humidity forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
+        <Header as="h3">Average Relative Humidity forecasts for the week between {moment(Forecasts[0].date).add('days', 0).format('ll')} and {moment(Forecasts[0].date).add('days', 6).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
           data={flattenAllDays(Forecasts)}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+         
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis
-            scale={"linear"}
-            domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label=""
-          />
+          <YAxis>
+-          <Label value="Percentage (%)" angle={-90} position="insideLeft"/>
+-        </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          {/* <Line type="monotone" dataKey="max" stroke="#e67e22" dot={false} /> */}
+          {/* <Line type="monotone" dataKey="max" stroke="#e67e22" /> */}
           <Line
             type="monotone"
             dataKey="average"
             stroke="#3498db"
-            activeDot={{ r: 1 }}
-            dot={false}
+            activeDot={{ r: 8 }}
           />
           {/* <Line
             type="monotone"
             dataKey="min"
             stroke="#3498db"
-            activeDot={{ r: 1 }}
-            dot={false}
+            activeDot={{ r: 8 }}
           /> */}
         </LineChart>
       </div>

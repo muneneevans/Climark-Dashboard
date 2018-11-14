@@ -19,8 +19,9 @@ export const sendMessage = message => {
             });
           });
         } else {
+          
           dispatch({
-            type: actionTypes.SEND_MESSAGE_FAILED
+            type: actionTypes.SEND_MESSAGE_SUCCEEDED
           });
         }
       });

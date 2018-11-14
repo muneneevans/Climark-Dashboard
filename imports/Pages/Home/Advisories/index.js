@@ -110,7 +110,7 @@ export default class Advisory extends React.Component {
                 <div className="advisoryDisplayCard">
                   <div className="AdvisoryHeader">
                     {" "}
-                    Current Moisture Condictions
+                    Past Moisture Conditions
                    
                   </div>
                   <span> Based on data from the last 30 days starting from {startDate(this.state.pastMoisture.week , 30)} to {startDate(this.state.pastMoisture.week , 0)}</span>
@@ -137,7 +137,7 @@ export default class Advisory extends React.Component {
               <Grid.Column>
                 <div className="advisoryDisplayCard">
                   <div className="AdvisoryHeader">
-                    Current Rainfall Distribution
+                    Past Rainfall Distribution
                   </div>
                   <span> Based on data from the last 30 days from {startDate(this.state.pastRainfall.week ,30)} to {startDate(this.state.pastRainfall.week ,0)}</span>
                   <div className="item advisoryItem implication">

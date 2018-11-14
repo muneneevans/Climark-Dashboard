@@ -9,6 +9,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Label,
   Legend
 } from "recharts";
 import dimensions from "react-dimensions";
@@ -68,10 +69,12 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           width={containerWidth}
           height={height}
           data={flatten(Forecasts)[0]}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis label="Wh/m^2" />
+          <YAxis>
+-            <Label value="Wh/m^2" angle={-90} position="insideLeft"/>
+-          </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
@@ -94,36 +97,32 @@ const SolarForecast = ({ containerWidth, Forecasts, height = 350 }) => {
       <Divider section />
       <Divider section hidden/>
       <div>
-        <Header as="h3">Average Solar forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
+        <Header as="h3">Average Solar forecasts for the week between {moment(Forecasts[0].date).add('days', 0).format('ll')} and {moment(Forecasts[0].date).add('days', 6).format('ll')}</Header>
         <LineChart
           width={containerWidth}
           height={height}
           data={flattenAllDays(Forecasts)}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
-          <YAxis
-            scale={"linear"}
-            domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
-            label="Wh/m^2"
-          />
+          <YAxis>
+-            <Label value="Wh/m^2" angle={-90} position="insideLeft"/>
+-          </YAxis>
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Legend />
-          {/* <Line type="monotone" dataKey="" stroke="#e67e22" dot={false} /> */}
+          {/* <Line type="monotone" dataKey="" stroke="#e67e22" /> */}
           <Line
             type="monotone"
             dataKey="amount"
             stroke="#3d3d3d"
-            activeDot={{ r: 1 }}
-            dot={false}
+            activeDot={{ r: 8 }}
           />
           {/* <Line
             type="monotone"
             dataKey=""
             stroke="#3498db"
-            activeDot={{ r: 1 }}
-            dot={false}
+            activeDot={{ r: 8 }}
           /> */}
         </LineChart>
       </div>

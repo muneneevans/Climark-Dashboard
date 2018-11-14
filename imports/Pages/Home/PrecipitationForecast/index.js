@@ -76,40 +76,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
           width={containerWidth}
           height={height}
           data={flatten(Forecasts)[0]}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <XAxis dataKey="date" />
-
-          <YAxis label="mm" />
-
-          <CartesianGrid strokeDasharray="3 3" />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="chance" stroke="#e67e22" />
-          {/* <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#4CAF50"
-            activeDot={{ r: 8 }}
-          /> */}
-          <Line
-            type="monotone"
-            dataKey="amount"
-            stroke="#3498db"
-            activeDot={{ r: 8 }}
-          />
-        </LineChart>
-      </div>
-
-      <Divider section />
-      <Divider section hidden />
-      <div>
-        <Header as="h3">Average Precipitation forecasts for the week between {moment(Forecasts[0].date).add('days', 1).format('ll')} and {moment(Forecasts[0].date).add('days', 7).format('ll')}</Header>
-        <LineChart
-          width={containerWidth}
-          height={height}
-          data={flattenAllDays(Forecasts)}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 30, left: 40, bottom: 5 }}
         >
           <XAxis dataKey="date" />
 
@@ -118,10 +85,10 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             scale={"linear"}
             domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
           >
-            <Label value="mm" offset={-5} position="left" />
+            <Label value="Rainfall (mm)"  angle={-90} position="insideLeft" />
           </YAxis>
           <YAxis yAxisId="right" orientation="right">
-            <Label value="%" offset={-30} position="right" />
+            <Label value=" Chance (%)"  angle={-90} position="Right" />
           </YAxis>
 
           <CartesianGrid strokeDasharray="3 3" />
@@ -131,7 +98,7 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             type="monotone"
             dataKey="amount"
             yAxisId="left"
-            stroke="#e67e22"
+            stroke="#3498db"
             dot={false}
           />
           {/* <Line
@@ -146,7 +113,59 @@ const PrecipitationForecast = ({ containerWidth, Forecasts, height = 350 }) => {
             yAxisId="right"
             type="monotone"
             dataKey="chance"
+            stroke="#e67e22"
+            activeDot={{ r: 1 }}
+            dot={false}
+          />
+        </LineChart>
+      </div>
+
+      <Divider section />
+      <Divider section hidden />
+      <div>
+        <Header as="h3">Average Precipitation forecasts for the week between {moment(Forecasts[0].date).add('days', 0).format('ll')} and {moment(Forecasts[0].date).add('days', 6).format('ll')}</Header>
+        <LineChart
+          width={containerWidth}
+          height={height}
+          data={flattenAllDays(Forecasts)}
+          margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
+        >
+          <XAxis dataKey="date" />
+
+          <YAxis            
+            yAxisId="left"
+            scale={"linear"}
+            domain={["Math.ceil(dataMin)-5", "Math.ceil(dataMax)+5"]}
+          >
+             <Label value="Rainfall (mm)" angle={-90} position="insideLeft"/>
+          </YAxis>
+          <YAxis yAxisId="right" orientation="right">
+          <Label value="Chance (%)" angle={-90} position="Right"/>
+          </YAxis>
+
+          <CartesianGrid strokeDasharray="3 3" />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="amount"
+            yAxisId="left"
             stroke="#3498db"
+            dot={false}
+          />
+          {/* <Line
+            type="monotone"
+            dataKey="value"
+            stroke="#3d3d3d"
+            activeDot={{ r: 1 }}
+            dot={false}
+            yAxisId="left"
+          /> */}
+          <Line
+            yAxisId="right"
+            type="monotone"
+            dataKey="chance"
+            stroke="#e67e22"
             activeDot={{ r: 1 }}
             dot={false}
           />

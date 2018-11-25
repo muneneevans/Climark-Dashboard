@@ -155,41 +155,39 @@ class Contact extends Component {
           onChange={this.handleChange}
         />
         <Button type="submit">Send</Button>
-        <Form.Field>
-          {sendMessageProcess.status === processTypes.PROCESSING && (
-            <Message
-              error
-              header="SendMessage Failed"
-              content="We encoutered some problems sending the message. Please retry."
-            />
-          )}
-          {sendMessageProcess.status === processTypes.ERROR && (
-            <Message
-              error
-              header="SendMessage Failed"
-              content="We encoutered some problems sending the message. Please retry."
-            />
-          )}
-          {sendMessageProcess.status === processTypes.SUCCESS && (
-             
-            <Message
-              success
-              header="Message Send"
-              content="Your message has been successfuly sent to the Climark. Thank you for your feedback."
-            />
-          )}
-        </Form.Field>
+        <Form.Field />
       </Form>
     </section>
   );
   render() {
+    let { sendMessageProcess } = this.props;
     return (
       <div className="aboutPage">
         <Appheader />
         <Container>
           <Segment>
-            {/* {this.getAboutSection()} */}
             {this.getContactSection(this.props.sendMessageProcess)}
+            {sendMessageProcess.status === processTypes.PROCESSING && (
+              <Message
+                color={"blue"}
+                header="Sending Message"
+                content="Please wait as your message is being sent."
+              />
+            )}
+            {sendMessageProcess.status === processTypes.ERROR && (
+              <Message
+                error
+                header="SendMessage Failed"
+                content="We encoutered some problems sending the message. Please retry."
+              />
+            )}
+            {sendMessageProcess.status === processTypes.SUCCESS && (
+              <Message
+                success
+                header="Message Send"
+                content="Your message has been successfuly sent to the Climark. Thank you for your feedback."
+              />
+            )}
           </Segment>
         </Container>
         <Footer />

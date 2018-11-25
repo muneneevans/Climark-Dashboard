@@ -9,8 +9,7 @@ export const sendMessage = message => {
     });
 
     ///send the message
-    FeedbackService.sendMessage(message)
-      .then(response => response.json())
+    FeedbackService.sendMessage(message)      
       .then(response => {
         if (response.status === 201) {
           Promise.resolve(response.json()).then(token => {
@@ -21,9 +20,12 @@ export const sendMessage = message => {
         } else {
           
           dispatch({
-            type: actionTypes.SEND_MESSAGE_SUCCEEDED
+            type: actionTypes.SEND_MESSAGE_FAILED
           });
         }
-      });
+      })
+      
+      
+      ;
   };
 };

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import { Grid, Image } from 'semantic-ui-react'
 import Footer from "./Footer";
+import AppHeader from "../Home/Appheader";
 
 import styles from "./style.css";
 
@@ -216,6 +217,7 @@ class Home extends Component {
 
     return (
       <div>
+        <AppHeader />
         {this.getHeaderSection()}
         {this.getFeatureSection()}
         {this.getDashboardSection()}

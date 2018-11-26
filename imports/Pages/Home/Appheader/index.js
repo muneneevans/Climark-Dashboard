@@ -12,39 +12,43 @@ export default class AppHeader extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div className="nav-header">
-        {/* <Segment inverted> */}
-        <Menu borderless className="appHeader">
-          <Menu.Item>
-            <Link to="/">
-              <img src={climarkLogo} className="climarklogoheader" />
-            </Link>
-          </Menu.Item>
-          <Menu.Item position="right">
-            <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/dashboard">Dashboard</Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/contact">Contact us</Link>
-          </Menu.Item>
+      <Menu pointing secondary stackable>
+        <Menu.Item name="home" className="logoMenu">
+          <Link to="/">
+            <img src={climarkLogo} className="climarklogoheader" />
+          </Link>
+        </Menu.Item>
 
-          <Menu.Item>
-            <Link to="/about">About</Link>
-          </Menu.Item>
-            {/*<Menu.Item>
-            <Button>Log-in</Button>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/team">Team</Link>
-          </Menu.Item>
-         <Menu.Item link>Team</Menu.Item>
-          <Menu.Item link>About</Menu.Item>
-          <Menu.Item link>Button</Menu.Item> */}
-        </Menu>
-        {/* </Segment> */}
-      </div>
+        <Menu.Item position="right">
+          <Link to="/">Home</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/dashboard">Dashboard</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/contact">Contact us</Link>
+        </Menu.Item>
+
+        <Menu.Item>
+          <Link to="/about">About</Link>
+        </Menu.Item>
+      </Menu>
+
+      // <div className="nav-header">
+      //   <Menu borderless className="appHeader" stackable>
+      //     <Menu.Item>
+      //     </Menu.Item>
+      //     {/*<Menu.Item>
+      //       <Button>Log-in</Button>
+      //     </Menu.Item>
+      //     <Menu.Item>
+      //       <Link to="/team">Team</Link>
+      //     </Menu.Item>
+      //    <Menu.Item link>Team</Menu.Item>
+      //     <Menu.Item link>About</Menu.Item>
+      //     <Menu.Item link>Button</Menu.Item> */}
+      //   </Menu>
+      // </div>
     );
   }
 }

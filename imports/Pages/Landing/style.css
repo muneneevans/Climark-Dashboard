@@ -193,7 +193,9 @@ body {
   width: auto;
 }
 .sloganDescription {
-  padding-left: 400px;
+  padding-left: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   font-size: 1em;
   font-family: "montserrat";
 }
@@ -220,8 +222,8 @@ Dasbhoard section
 .dashboardButton {
   margin: 0 auto;
   text-align: center;
-  padding: 1em 2em;
-  width: 90%;
+  padding: 0.5em 0.2em;
+  width: 100%;
 }
 
 /*
@@ -452,6 +454,11 @@ sponsors section
   }
   .dashboardButton {
     padding: 1em 2em;
+    padding: 1em 2em;
+    margin: 0 auto;
+    text-align: center;
+
+    width: 90%;
   }
   .sponsorsSection {
     padding: 5em;
@@ -460,6 +467,13 @@ sponsors section
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .sloganDescription {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 1em;
+    font-family: "montserrat";
+    padding-left: 400px;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */

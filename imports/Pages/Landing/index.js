@@ -110,6 +110,8 @@ class Home extends Component {
 
   getDashboardSection = () => (
     <div className="dashboardSection">
+    <Container>
+
       <Grid columns={2}>
         <Grid.Row>
           <Grid.Column only="tablet computer" tablet={8} computer={8}>
@@ -119,7 +121,7 @@ class Home extends Component {
             mobile={16}
             tablet={8}
             computer={8}
-            verticalAlign="middle"
+            
           >
             <Container>
               <div>
@@ -140,6 +142,8 @@ class Home extends Component {
           </Grid.Column>
         </Grid.Row>
       </Grid>
+      </Container>
+
     </div>
   );
 
